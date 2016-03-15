@@ -31,7 +31,7 @@ namespace Chronos
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
-            navigationFrame.Navigate(typeof(CalendarPage));
+            navigationFrame.Navigate(typeof(HomePage));
         }
 
         private void hamburgerBtn_Click(object sender, RoutedEventArgs e)

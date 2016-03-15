@@ -12,10 +12,10 @@
             <Grid Height="150" Margin="0,40,0,0">
                 <local:RoundProgressControl x:Name="ProgressControl" RenderTransformOrigin="0.5,0.5" >
                     <local:RoundProgressControl.RenderTransform>
-                        <CompositeTransform Rotation="180" ScaleX="1.5" ScaleY="1.5"/>
+                        <CompositeTransform Rotation="180" ScaleY="1.5" ScaleX="1.5"/>
                     </local:RoundProgressControl.RenderTransform>
                 </local:RoundProgressControl>
-                <TextBlock Text="46%" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="48" FontWeight="Light"/>
+                <TextBlock Text="32%" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="48" FontWeight="Light"/>
             </Grid>
         </StackPanel>
     </Grid>
