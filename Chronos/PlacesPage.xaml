@@ -9,15 +9,15 @@
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <GridView>
-            <Grid Width="360" Height="250" Margin="8">
+            <Grid Width="330" Height="220" Margin="8">
                 
                 <Image Source="https://irs0.4sqi.net/img/general/width960/135219081_qBWUK0bsEkh7H3SsYNi6Orc9xJjJqaGceYQLawtYGfE.jpg"
                        Stretch="Fill" />
                 <Grid>
                     <Grid.Background>
                         <LinearGradientBrush EndPoint="0.5,0" StartPoint="0.5,1">
-                            <GradientStop Color="Black" Offset="0.163"/>
-                            <GradientStop Color="Transparent" Offset="1"/>
+                            <GradientStop Color="Black" Offset="0.119"/>
+                            <GradientStop Offset="0.673"/>
                         </LinearGradientBrush>
                     </Grid.Background>
                 </Grid>
