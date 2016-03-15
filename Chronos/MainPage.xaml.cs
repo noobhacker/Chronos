@@ -25,6 +25,42 @@ namespace Chronos
         public MainPage()
         {
             this.InitializeComponent();
+            listview.SelectedIndex = 0;
+            
+        }
+
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            navigationFrame.Navigate(typeof(CalendarPage));
+        }
+
+        private void hamburgerBtn_Click(object sender, RoutedEventArgs e)
+        {
+            splitview.IsPaneOpen = !splitview.IsPaneOpen;
+        }
+
+        private void listview_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            //if (listview.SelectedIndex != ((ListView)e.OriginalSource).SelectedIndex) // experiment
+            try
+            {
+                switch (listview.SelectedIndex)
+                {
+                    case 0:
+                        navigationFrame.Navigate(typeof(EventsPage));
+                        break;
+                    case 1:
+                        navigationFrame.Navigate(typeof(CalendarPage));
+                        break;
+                    case 2:
+                        navigationFrame.Navigate(typeof(ConfessionPage));
+                        break;
+                    case 3:
+                        navigationFrame.Navigate(typeof(PlacesPage));
+                        break;
+                }
+            }
+            catch { }
         }
     }
 }

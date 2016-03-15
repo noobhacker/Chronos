@@ -1,0 +1,37 @@
+﻿<Page
+    x:Class="Chronos.PlacesPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Chronos"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <GridView>
+            <Grid Width="360" Height="250" Margin="8">
+                
+                <Image Source="https://irs0.4sqi.net/img/general/width960/135219081_qBWUK0bsEkh7H3SsYNi6Orc9xJjJqaGceYQLawtYGfE.jpg"
+                       Stretch="Fill" />
+                <Grid>
+                    <Grid.Background>
+                        <LinearGradientBrush EndPoint="0.5,0" StartPoint="0.5,1">
+                            <GradientStop Color="Black" Offset="0.163"/>
+                            <GradientStop Color="Transparent" Offset="1"/>
+                        </LinearGradientBrush>
+                    </Grid.Background>
+                </Grid>
+                <Grid VerticalAlignment="Bottom">
+                    <StackPanel HorizontalAlignment="Left" Margin="8">
+                        <TextBlock Text="Rice Rice Rice" FontWeight="Light" Margin="0,0,0,2"/>
+                        <TextBlock Text="Western" FontSize="12" FontWeight="Light"/>
+                    </StackPanel>
+                        <StackPanel Orientation="Horizontal" Margin="12,4" HorizontalAlignment="Right" VerticalAlignment="Center">
+                            <TextBlock Margin="8,4" Text="9.2" Foreground="Green" Opacity="0.85"/>
+                            <TextBlock FontFamily="Segoe MDL2 Assets" Text="" Foreground="Green" VerticalAlignment="Center" Opacity="0.85"/>
+                        </StackPanel>
+                </Grid>
+            </Grid>
+        </GridView>
+    </Grid>
+</Page>
