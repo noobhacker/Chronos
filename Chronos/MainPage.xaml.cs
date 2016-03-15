@@ -47,7 +47,7 @@ namespace Chronos
                 switch (listview.SelectedIndex)
                 {
                     case 0:
-                        navigationFrame.Navigate(typeof(EventsPage));
+                        navigationFrame.Navigate(typeof(HomePage));
                         break;
                     case 1:
                         navigationFrame.Navigate(typeof(CalendarPage));

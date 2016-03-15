@@ -1,0 +1,22 @@
+﻿<Page
+    x:Class="Chronos.HomePage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Chronos"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <StackPanel>
+            <Grid Height="150" Margin="0,40,0,0">
+                <local:RoundProgressControl x:Name="ProgressControl" RenderTransformOrigin="0.5,0.5" >
+                    <local:RoundProgressControl.RenderTransform>
+                        <CompositeTransform Rotation="180" ScaleX="1.5" ScaleY="1.5"/>
+                    </local:RoundProgressControl.RenderTransform>
+                </local:RoundProgressControl>
+                <TextBlock Text="46%" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="48" FontWeight="Light"/>
+            </Grid>
+        </StackPanel>
+    </Grid>
+</Page>
