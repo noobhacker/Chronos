@@ -32,7 +32,7 @@
                             <TextBlock FontFamily="Segoe MDL2 Assets" Text="" VerticalAlignment="Center"/>
                             <TextBlock Name="dayleftTB" Text="3" Margin="8" VerticalAlignment="Center"/>
                             <TextBlock Text=":" Margin="0,0,8,0" VerticalAlignment="Center"/>
-                            <TextBlock Name="eventTB" Text="7 March, 10AM - Database Test" VerticalAlignment="Center"/>
+                            <TextBlock Name="eventTB" Text="20 March, 10AM - Database Test" VerticalAlignment="Center"/>
                         </StackPanel>
                     </ListView>
                 </Grid>

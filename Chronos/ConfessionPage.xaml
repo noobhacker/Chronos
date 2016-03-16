@@ -30,7 +30,9 @@
                         <RowDefinition Height="Auto" />
                     </Grid.RowDefinitions>
                     <TextBlock Margin="8" Foreground="Black" HorizontalAlignment="Stretch">
-                    aaaaa<LineBreak/>bbbbbb<LineBreak/>ccccc
+                    that lecturer on 10am class today is so stupid<LineBreak/>
+                    come down<LineBreak/>
+                    i teach you
                     </TextBlock>
                     <Grid Grid.Row="1" Background="#FF172535">
                         <Grid.ColumnDefinitions>

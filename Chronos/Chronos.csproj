@@ -104,9 +104,6 @@
     <Compile Include="ConfessionPage.xaml.cs">
       <DependentUpon>ConfessionPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="EventsPage.xaml.cs">
-      <DependentUpon>EventsPage.xaml</DependentUpon>
-    </Compile>
     <Compile Include="HomePage.xaml.cs">
       <DependentUpon>HomePage.xaml</DependentUpon>
     </Compile>
@@ -147,10 +144,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="ConfessionPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="EventsPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

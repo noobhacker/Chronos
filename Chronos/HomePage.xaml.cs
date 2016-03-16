@@ -29,7 +29,7 @@ namespace Chronos
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
-            ProgressControl.SetBarLength(0.32);
+            ProgressControl.SetBarLength(0.78);
         }
     }
 }

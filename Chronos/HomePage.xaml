@@ -9,14 +9,72 @@
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <StackPanel>
-            <Grid Height="150" Margin="0,40,0,0">
-                <local:RoundProgressControl x:Name="ProgressControl" RenderTransformOrigin="0.5,0.5" >
+            <StackPanel HorizontalAlignment="Center">
+                <TextBlock Text="Hi, Lee" FontSize="28" FontWeight="Thin" Margin="16" HorizontalAlignment="Center"/>
+                <Grid>
+                    <Ellipse Height="120" Width="120" Stroke="White" StrokeThickness="2"/>
+                    <TextBlock FontFamily="Segoe MDL2 Assets" Text="" FontSize="60" 
+                           HorizontalAlignment="Center" VerticalAlignment="Center" />
+                </Grid>
+                <TextBlock Text="updated as of 5:04PM" FontWeight="Thin" Margin="4"/>
+            </StackPanel>
+
+            <TextBlock Text="Now - Friday, 18 March 2016" FontSize="20" FontWeight="ExtraLight" Margin="0,24,0,0"/>
+
+            <Grid HorizontalAlignment="Center" Margin="0,20,0,0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="210" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <local:RoundProgressControl x:Name="ProgressControl" RenderTransformOrigin="0.5,0.5" Height="180">
                     <local:RoundProgressControl.RenderTransform>
-                        <CompositeTransform Rotation="180" ScaleY="1.5" ScaleX="1.5"/>
+                        <CompositeTransform Rotation="180" ScaleY="1.2" ScaleX="1.2"/>
                     </local:RoundProgressControl.RenderTransform>
                 </local:RoundProgressControl>
-                <TextBlock Text="32%" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="48" FontWeight="Light"/>
+                <TextBlock Text="78%" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="32" FontWeight="Light"
+                           Margin="8,0,0,0"/>
+
+
+                <Grid Grid.Column="1">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+
+                    <TextBlock Text="DCS 5086 Computer Communications and Network" FontSize="16" Margin="0,32,0,0" />
+                    <TextBlock Text="2:00 PM - 4:00 PM" FontSize="16" Margin="0,4,0,0" Grid.Row="1" FontWeight="Light"/>
+                    <TextBlock Text="Mr Ponkoodalingam Kannan" FontSize="12" Margin="0,0,0,28" FontWeight="Light" Grid.Row="3"/>
+
+                </Grid>
+
             </Grid>
+
+            <TextBlock Text="Later" FontSize="20" FontWeight="ExtraLight" Margin="0,24,0,0"/>
+            <Grid Height="90" Margin="0,16,0,0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="10" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Grid Background="Aqua" Opacity="0.85"/>
+                <Grid Grid.Column="1" Margin="8,0,0,0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+
+                    <TextBlock Text="DCS 5086 Computer Communications and Network" FontSize="16"/>
+                    <TextBlock Text="4:00 PM - 6:00 PM" FontSize="16" Margin="0,4,0,0" Grid.Row="1" FontWeight="Light"/>
+                    <TextBlock Text="Mr Ponkoodalingam Kannan" FontSize="12" Margin="0,0,0,4" FontWeight="Light" Grid.Row="3"/>
+
+
+                </Grid>
+            </Grid>
+
         </StackPanel>
     </Grid>
 </Page>
