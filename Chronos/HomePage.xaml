@@ -8,12 +8,35 @@
     mc:Ignorable="d">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <StackPanel>
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup x:Name="VisualStateGroup">
+                <VisualState x:Name="Mobile">
+                    <VisualState.Setters>
+                        <Setter Target="stackPanel.(StackPanel.Orientation)" Value="Vertical"/>
+                        <Setter Target="stackPanel1.(FrameworkElement.Margin)">
+                            <Setter.Value>
+                                <Thickness>8,0,0,0</Thickness>
+                            </Setter.Value>
+                        </Setter>
+                    </VisualState.Setters>
+
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowHeight="0" MinWindowWidth="0"/>
+                    </VisualState.StateTriggers>
+                </VisualState>
+                <VisualState x:Name="Desktop">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="600"/>
+                    </VisualState.StateTriggers>
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
+        <StackPanel x:Name="stackPanel1">
             <StackPanel HorizontalAlignment="Center">
                 <TextBlock Text="Hi, Lee" FontSize="28" FontWeight="Thin" Margin="16" HorizontalAlignment="Center"/>
                 <Grid>
-                    <Ellipse Height="120" Width="120" Stroke="White" StrokeThickness="2"/>
-                    <TextBlock FontFamily="Segoe MDL2 Assets" Text="" FontSize="60" 
+                    <Ellipse Height="80" Width="80" Stroke="White" StrokeThickness="2"/>
+                    <TextBlock FontFamily="Segoe MDL2 Assets" Text="" FontSize="40" 
                            HorizontalAlignment="Center" VerticalAlignment="Center" />
                 </Grid>
                 <TextBlock Text="updated as of 5:04PM" FontSize="12" FontWeight="Thin" Margin="8"/>
@@ -21,22 +44,20 @@
 
             <TextBlock Text="Now - Friday, 18 March 2016" FontSize="20" FontWeight="ExtraLight" Margin="0,24,0,0"/>
 
-            <Grid HorizontalAlignment="Left" Margin="0,20,0,0">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="120" />
-                    <ColumnDefinition Width="*" />
-                </Grid.ColumnDefinitions>
+            <StackPanel x:Name="stackPanel" Orientation="Horizontal" Margin="0,20,0,0">
 
-                <local:RoundProgressControl x:Name="ProgressControl" RenderTransformOrigin="0.5,0.5" Height="180">
-                    <local:RoundProgressControl.RenderTransform>
-                        <CompositeTransform Rotation="180" ScaleY="1.2" ScaleX="1.2"/>
-                    </local:RoundProgressControl.RenderTransform>
-                </local:RoundProgressControl>
-                <TextBlock Text="78%" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="32" FontWeight="Light"
+                <Grid>
+                    <local:RoundProgressControl x:Name="ProgressControl" RenderTransformOrigin="0.5,0.5" Height="180">
+                        <local:RoundProgressControl.RenderTransform>
+                            <CompositeTransform Rotation="180" ScaleY="1.2" ScaleX="1.2"/>
+                        </local:RoundProgressControl.RenderTransform>
+                    </local:RoundProgressControl>
+                    <TextBlock Width="120" TextAlignment="Center" Text="78%" HorizontalAlignment="Center" 
+                           VerticalAlignment="Center" FontSize="32" FontWeight="Light"
                            Margin="8,0,0,0"/>
+                </Grid>
 
-
-                <Grid Grid.Column="1" Margin="24,0,0,0">
+                <Grid Margin="16,0,0,0" MaxWidth="472">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="Auto" />
                         <RowDefinition Height="Auto" />
@@ -44,13 +65,13 @@
                         <RowDefinition Height="Auto" />
                     </Grid.RowDefinitions>
 
-                    <TextBlock Text="DCS 5086 Computer Communications and Network" FontSize="16" Margin="0,32,0,0" />
+                    <TextBlock Text="DCS 5086 Computer Communications and Network" FontSize="16" Margin="0,32,0,0" TextWrapping="WrapWholeWords"/>
                     <TextBlock Text="2:00 PM - 4:00 PM" FontSize="16" Margin="0,4,0,0" Grid.Row="1" FontWeight="Light"/>
                     <TextBlock Text="Mr Ponkoodalingam Kannan" FontSize="12" Margin="0,0,0,28" FontWeight="Light" Grid.Row="3"/>
 
                 </Grid>
 
-            </Grid>
+            </StackPanel>
 
             <TextBlock Text="Later" FontSize="20" FontWeight="ExtraLight" Margin="0,24,0,0"/>
             <Grid Height="90" Margin="0,16,0,0">
@@ -67,7 +88,7 @@
                         <RowDefinition Height="Auto" />
                     </Grid.RowDefinitions>
 
-                    <TextBlock Text="DCS 5086 Computer Communications and Network" FontSize="16"/>
+                    <TextBlock Text="DCS 5086 Computer Communications and Network" FontSize="16" TextWrapping="WrapWholeWords"/>
                     <TextBlock Text="4:00 PM - 6:00 PM" FontSize="16" Margin="0,4,0,0" Grid.Row="1" FontWeight="Light"/>
                     <TextBlock Text="Mr Ponkoodalingam Kannan" FontSize="12" Margin="0,0,0,4" FontWeight="Light" Grid.Row="3"/>
 

@@ -8,15 +8,33 @@
     mc:Ignorable="d">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup x:Name="VisualStateGroup">
+                <VisualState x:Name="Mobile">
+                    <VisualState.Setters>
+                        <Setter Target="stackPanel.(StackPanel.Orientation)" Value="Vertical"/>
+                        <Setter Target="calendarView.(UIElement.Visibility)" Value="Collapsed"/>
+                        <Setter Target="calendarView1.(FrameworkElement.Margin)">
+                            <Setter.Value>
+                                <Thickness>4,0</Thickness>
+                            </Setter.Value>
+                        </Setter>
+                        <Setter Target="stackPanel1.(StackPanel.Orientation)" Value="Vertical"/>
+                    </VisualState.Setters>
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowHeight="0" MinWindowWidth="0"/>
+                    </VisualState.StateTriggers>
+                </VisualState>
+                <VisualState x:Name="Desktop">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="600"/>
+                    </VisualState.StateTriggers>
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
         <StackPanel Margin="0,8" HorizontalAlignment="Center">
-            <Grid>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="Auto" />
-                    <ColumnDefinition Width="*" />
-                </Grid.ColumnDefinitions>
-
-                <CalendarView Margin="16,0" />
+            <StackPanel x:Name="stackPanel" Orientation="Horizontal">
+                <CalendarView x:Name="calendarView1" Margin="16,0" />
 
                 <Grid Grid.Column="1" Margin="12">
 
@@ -28,17 +46,24 @@
                     <TextBlock Text="Upcoming" Margin="8" VerticalAlignment="Top" HorizontalAlignment="Left" FontSize="24"/>
                     <ListView Grid.Row="1">
                         <StackPanel Orientation="Horizontal" >
-
-                            <TextBlock FontFamily="Segoe MDL2 Assets" Text="" VerticalAlignment="Center"/>
-                            <TextBlock Name="dayleftTB" Text="3" Margin="8" VerticalAlignment="Center"/>
-                            <TextBlock Text=":" Margin="0,0,8,0" VerticalAlignment="Center"/>
-                            <TextBlock Name="eventTB" Text="20 March, 10AM - Database Test" VerticalAlignment="Center"/>
+                            <StackPanel Orientation="Horizontal" VerticalAlignment="Top" Margin="0,-8,0,0">
+                                <TextBlock FontFamily="Segoe MDL2 Assets" Text="" VerticalAlignment="Center"/>
+                                <TextBlock Name="dayleftTB" Text="3" Margin="8" VerticalAlignment="Center"/>
+                                <TextBlock Text=":" Margin="0,0,8,0" VerticalAlignment="Center"/>
+                            </StackPanel>
+                            <StackPanel x:Name="stackPanel1" Orientation="Horizontal">
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Name="eventTB" Text="20 March, 10AM"/>
+                                    <TextBlock Margin="4,0" Text=" - "/>
+                                </StackPanel>
+                                <TextBlock Name="event2TB" Text="Database Test"/>
+                            </StackPanel>
                         </StackPanel>
                     </ListView>
                 </Grid>
 
-            </Grid>
-            <CalendarView Margin="16,32,16,16" HorizontalAlignment="Stretch" Height="500" 
+            </StackPanel>
+            <CalendarView x:Name="calendarView" Margin="16,32,16,16" HorizontalAlignment="Stretch" Height="500" 
                           DayOfWeekFormat="{}{dayofweek.solo.abbreviated(8)}"
                           NumberOfWeeksInView="4"/>
         </StackPanel>

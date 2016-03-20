@@ -8,17 +8,42 @@
     mc:Ignorable="d">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <StackPanel>            
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup x:Name="VisualStateGroup">
+                <VisualState x:Name="Mobile">
+                    <VisualState.Setters>
+                        <Setter Target="grid.(FrameworkElement.Width)" Value="280"/>
+                        <Setter Target="grid1.(FrameworkElement.Width)" Value="280"/>
+                        <Setter Target="grid1.(FrameworkElement.Height)" Value="190"/>
+                        <Setter Target="grid.(FrameworkElement.Height)" Value="190"/>
+                        <Setter Target="textBlock.(FrameworkElement.Margin)">
+                            <Setter.Value>
+                                <Thickness>0</Thickness>
+                            </Setter.Value>
+                        </Setter>
+                    </VisualState.Setters>
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowHeight="0" MinWindowWidth="0"/>
+                    </VisualState.StateTriggers>
+                </VisualState>
+                <VisualState x:Name="Desktop">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="600"/>
+                    </VisualState.StateTriggers>
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
+        <StackPanel Margin="8,0">
             <StackPanel>
                 <Grid>
                     <TextBox Margin="8,36" Background="White" PlaceholderText="Search"/>
                     <Button HorizontalAlignment="Right" FontFamily="Segoe MDL2 Assets" Content="" 
                         Background="Transparent" VerticalAlignment="Stretch" Margin="0,0,8,0"/>
                 </Grid>
-                <TextBlock Text="Events" FontSize="20" FontWeight="ExtraLight" Margin="0,24,0,0"/>
+                <TextBlock x:Name="textBlock" Text="Events" FontSize="20" FontWeight="ExtraLight" Margin="0,24,0,0"/>
 
                 <GridView>
-                    <Grid Width="375" Height="215" Margin="8">
+                    <Grid x:Name="grid" Width="350" Height="210" Margin="8">
 
                         <Image Source="https://scontent-kul1-1.xx.fbcdn.net/hphotos-xpf1/t31.0-8/12716187_1017520988305704_4823205151213614149_o.jpghttps://scontent-kul1-1.xx.fbcdn.net/hphotos-xpf1/t31.0-8/12716187_1017520988305704_4823205151213614149_o.jpg"
                        Stretch="Fill" />
@@ -44,11 +69,11 @@
                     </Grid>
                 </GridView>
             </StackPanel>
-            
+
             <TextBlock Text="Lunch" FontSize="20" FontWeight="ExtraLight" Margin="0,24,0,0"/>
 
             <GridView>
-                <Grid Width="330" Height="220" Margin="8">
+                <Grid x:Name="grid1" Width="300" Height="220" Margin="8">
 
                     <Image Source="https://irs0.4sqi.net/img/general/width960/135219081_qBWUK0bsEkh7H3SsYNi6Orc9xJjJqaGceYQLawtYGfE.jpg"
                        Stretch="Fill" />
@@ -72,7 +97,7 @@
                     </Grid>
                 </Grid>
             </GridView>
-            
+
         </StackPanel>
     </Grid>
 </Page>

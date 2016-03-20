@@ -8,8 +8,39 @@
     mc:Ignorable="d">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <StackPanel>
-            <Grid Margin="28,28,28,16">
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup x:Name="VisualStateGroup">
+                <VisualState x:Name="Mobile">
+                    <VisualState.Setters>
+                        <Setter Target="grid.(FrameworkElement.Margin)">
+                            <Setter.Value>
+                                <Thickness>8</Thickness>
+                            </Setter.Value>
+                        </Setter>
+                        <Setter Target="grid1.(FrameworkElement.Margin)">
+                            <Setter.Value>
+                                <Thickness>0,4</Thickness>
+                            </Setter.Value>
+                        </Setter>
+                        <Setter Target="stackPanel.(FrameworkElement.Margin)">
+                            <Setter.Value>
+                                <Thickness>0,0,8,0</Thickness>
+                            </Setter.Value>
+                        </Setter>
+                    </VisualState.Setters>
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowHeight="0" MinWindowWidth="0"/>
+                    </VisualState.StateTriggers>
+                </VisualState>
+                <VisualState x:Name="Desktop">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="600"/>
+                    </VisualState.StateTriggers>
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
+        <StackPanel x:Name="stackPanel">
+            <Grid x:Name="grid" Margin="16,16,16,16">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*" />
                     <ColumnDefinition Width="Auto" />
@@ -17,19 +48,19 @@
                 <TextBox PlaceholderText="Share your story..." Background="White" Foreground="Black" Height="80"/>
                 <Button Grid.Column="1" FontFamily="Segoe MDL2 Assets" Content="" Background="#FF0055A6" VerticalAlignment="Stretch" Width="48"/>
             </Grid>
-            <ListView Margin="8">
+            <ListView>
                 <ListView.ItemContainerStyle>
                     <Style TargetType="ListViewItem">
                         <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
                     </Style>
                 </ListView.ItemContainerStyle>
-                <Grid Background="White" Margin="8">
+                <Grid x:Name="grid1" Background="White" Margin="8">
 
                     <Grid.RowDefinitions>
                         <RowDefinition Height="*" />
                         <RowDefinition Height="Auto" />
                     </Grid.RowDefinitions>
-                    <TextBlock Margin="8" Foreground="Black" HorizontalAlignment="Stretch">
+                    <TextBlock Margin="8" Foreground="Black" HorizontalAlignment="Stretch" TextWrapping="WrapWholeWords">
                     that lecturer on 10am class today is so stupid<LineBreak/>
                     come down<LineBreak/>
                     i teach you
@@ -41,14 +72,14 @@
                             <ColumnDefinition Width="*" />
                             <ColumnDefinition Width="Auto" />
                         </Grid.ColumnDefinitions>
-                        <Grid>                            
+                        <Grid>
                             <StackPanel Orientation="Horizontal" Margin="8,4" Width="50" HorizontalAlignment="Left">
                                 <TextBlock FontFamily="Segoe MDL2 Assets" Text="" Foreground="Green" VerticalAlignment="Center" Opacity="0.85"/>
                                 <TextBlock Margin="8,4" Text="150" Foreground="Green" Opacity="0.85"/>
                             </StackPanel>
                             <Button Background="Transparent" Width="58" VerticalAlignment="Stretch"/>
                         </Grid>
-                        <Grid Grid.Column="1">                            
+                        <Grid Grid.Column="1">
                             <StackPanel Orientation="Horizontal" Margin="8,4" Width="50" HorizontalAlignment="Left">
                                 <TextBlock FontFamily="Segoe MDL2 Assets" Text="" Foreground="Red" VerticalAlignment="Center" Opacity="0.85"/>
                                 <TextBlock Margin="8,4" Text="15" Foreground="Red" Opacity="0.85"/>
