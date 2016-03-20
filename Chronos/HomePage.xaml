@@ -18,6 +18,9 @@
                                 <Thickness>8,0,0,0</Thickness>
                             </Setter.Value>
                         </Setter>
+                        <Setter Target="ellipse.(FrameworkElement.Width)" Value="80"/>
+                        <Setter Target="ellipse.(FrameworkElement.Height)" Value="80"/>
+                        <Setter Target="textBlock.(TextBlock.FontSize)" Value="40"/>
                     </VisualState.Setters>
 
                     <VisualState.StateTriggers>
@@ -26,7 +29,7 @@
                 </VisualState>
                 <VisualState x:Name="Desktop">
                     <VisualState.StateTriggers>
-                        <AdaptiveTrigger MinWindowWidth="600"/>
+                        <AdaptiveTrigger MinWindowWidth="800"/>
                     </VisualState.StateTriggers>
                 </VisualState>
             </VisualStateGroup>
@@ -35,8 +38,8 @@
             <StackPanel HorizontalAlignment="Center">
                 <TextBlock Text="Hi, Lee" FontSize="28" FontWeight="Thin" Margin="16" HorizontalAlignment="Center"/>
                 <Grid>
-                    <Ellipse Height="80" Width="80" Stroke="White" StrokeThickness="2"/>
-                    <TextBlock FontFamily="Segoe MDL2 Assets" Text="" FontSize="40" 
+                    <Ellipse x:Name="ellipse" Height="120" Width="120" Stroke="White" StrokeThickness="2"/>
+                    <TextBlock x:Name="textBlock" FontFamily="Segoe MDL2 Assets" Text="" FontSize="60" 
                            HorizontalAlignment="Center" VerticalAlignment="Center" />
                 </Grid>
                 <TextBlock Text="updated as of 5:04PM" FontSize="12" FontWeight="Thin" Margin="8"/>
