@@ -20,6 +20,7 @@
                             </Setter.Value>
                         </Setter>
                         <Setter Target="stackPanel1.(StackPanel.Orientation)" Value="Vertical"/>
+                        <Setter Target="calendarView1.(CalendarView.NumberOfWeeksInView)" Value="4"/>
                     </VisualState.Setters>
                     <VisualState.StateTriggers>
                         <AdaptiveTrigger MinWindowHeight="0" MinWindowWidth="0"/>
