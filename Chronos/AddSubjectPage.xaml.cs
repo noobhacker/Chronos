@@ -12,6 +12,8 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using ChronosWebAPI.Models;
+using System.Collections.ObjectModel;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -20,21 +22,39 @@ namespace Chronos
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
-    public sealed partial class HomePage : Page
+    public sealed partial class AddSubjectPage : Page
     {
-        public HomePage()
+        public AddSubjectPage()
         {
             this.InitializeComponent();
         }
 
+        ObservableCollection<SubjectSession> sessions = new ObservableCollection<SubjectSession>();
+
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
-            ProgressControl.SetBarLength(0.78);
+            //dayCB.ItemsSource = days;
+            //sessionTypeCB.ItemsSource = sessionTypes;
+
+            sessions.Add(new SubjectSession());
+
+            sessionsGV.ItemsSource = sessions;
+
+        }
+        
+        private void addSessionBtn_Click(object sender, RoutedEventArgs e)
+        {
+            sessions.Add(new SubjectSession());
         }
 
-        private void addSubjectBtn_Click(object sender, RoutedEventArgs e)
+        private void deleteSessionBtn_Click(object sender, RoutedEventArgs e)
         {
-            this.Frame.Navigate(typeof(AddSubjectPage)); ;
+
+        }
+
+        private void saveBtn_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

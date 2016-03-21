@@ -1,0 +1,76 @@
+﻿<Page
+    x:Class="Chronos.AddSubjectPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Chronos"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup x:Name="VisualStateGroup">
+                <VisualState x:Name="Mobile">
+                    <VisualState.Setters>
+                        <Setter Target="addSessionBtn.(FrameworkElement.HorizontalAlignment)" Value="Stretch"/>
+                        <Setter Target="deleteSessionBtn.(FrameworkElement.HorizontalAlignment)" Value="Stretch"/>
+                        <Setter Target="saveBtn.(FrameworkElement.HorizontalAlignment)" Value="Stretch"/>
+                        <Setter Target="codeTB.(FrameworkElement.Width)" Value="300"/>
+                        <Setter Target="subjectTB.(FrameworkElement.Width)" Value="300"/>
+                        <Setter Target="lecturerTB.(FrameworkElement.Width)" Value="300"/>
+                        <Setter Target="stackPanel2.(StackPanel.Orientation)" Value="Vertical"/>
+
+
+                    </VisualState.Setters>
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="0"/>
+                    </VisualState.StateTriggers>
+                </VisualState>
+                <VisualState x:Name="Desktop">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="800"/>
+                    </VisualState.StateTriggers>
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
+        <StackPanel Margin="4">
+            <TextBlock FontSize="28" FontWeight="Thin" Text="Add a subject" />
+            <StackPanel Orientation="Vertical" HorizontalAlignment="Left">
+                <TextBox Name="codeTB" Header="Subject Code" Width="608" Margin="4"/>
+                <TextBox Name="subjectTB" Header="Subject Name" Width="608" Margin="4"/>
+                <TextBox Name="lecturerTB" Header="Lecturer Name" Width="608" Margin="4"/>
+            </StackPanel>
+            <TextBlock FontSize="28" FontWeight="Thin" Text="Sessions" />
+            <GridView Name="sessionsGV">
+                <GridView.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel>
+                            <ComboBox Name="sessionTypeCB" Header="Session Type" Width="300" Margin="4,12,4,4" SelectedValue="{Binding SessionType}">
+                                <ComboBoxItem Content="Lecture"/>
+                                <ComboBoxItem Content="Tutorial"/>
+                                <ComboBoxItem Content="Laboratory"/>
+                            </ComboBox>
+                            <ComboBox Name="dayCB" Header="Day" Width="300" Margin="4" SelectedValue="{Binding Day}">
+                                <ComboBoxItem Content="Sunday"/>
+                                <ComboBoxItem Content="Monday"/>
+                                <ComboBoxItem Content="Tuesday"/>
+                                <ComboBoxItem Content="Wednesday"/>
+                                <ComboBoxItem Content="Thursday"/>
+                                <ComboBoxItem Content="Friday"/>
+                                <ComboBoxItem Content="Saturday"/>
+                            </ComboBox>
+                            <TimePicker Name="startTimeTP" Header="Start time" Width="300" Margin="4" Time="{Binding StartTime.TimeOfDay}"/>
+                            <TimePicker Name="endTimeTP" Header="End time" Width="300" Margin="4" Time="{Binding EndTime.TimeOfDay}"/>
+                        </StackPanel>
+                    </DataTemplate>
+                </GridView.ItemTemplate>
+            </GridView>
+            <StackPanel x:Name="stackPanel2" Orientation="Horizontal">
+                <Button Name="addSessionBtn" Content="Add more sessions" Margin="4" Click="addSessionBtn_Click"/>
+                <Button Name="deleteSessionBtn" Content="Deleted selected sessions" Margin="4" Click="deleteSessionBtn_Click"/>
+                <Button Name="saveBtn" Content="Save changes to subject" Margin="4" Click="saveBtn_Click"/>
+
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Page>
