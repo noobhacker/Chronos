@@ -12,10 +12,12 @@ namespace ChronosWebAPI.Models
     {
         public int Id { get; set; }
 
-        [Column(Order = 1), Key, ForeignKey("Subject")]
-        public int Subject_Id { get; set; }
+        //[Column(Order = 1), Key, ForeignKey("Subject")]
+        //public int Subject_Id { get; set; }
 
-        [Column(Order = 2), Key, ForeignKey("SubjectSession")]
-        public int SubjectSession_Id { get; set; }
+        //[Column(Order = 2), Key, ForeignKey("SubjectSession")]
+        //public int SubjectSession_Id { get; set; }
+        public Subject Subject { get; set; }
+        public SubjectSession SubjectSession { get; set; }
     }
 }

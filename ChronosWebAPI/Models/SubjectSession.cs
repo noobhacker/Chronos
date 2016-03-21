@@ -11,7 +11,7 @@ namespace ChronosWebAPI.Models
         public int Id { get; set; }
         public int Day { get; set; }
         public DateTime StartTime { get; set; }
-        public TimeSpan Duration { get; set; }
+        public TimeSpan Duration { get; set; } // default 1 hr, fixed
         public string SessionType { get; set; }
     }
 }

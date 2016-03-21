@@ -24,5 +24,9 @@ namespace ChronosWebAPI.Models
         public System.Data.Entity.DbSet<ChronosWebAPI.Models.Subject> Subjects { get; set; }
 
         public System.Data.Entity.DbSet<ChronosWebAPI.Models.Student_Subject> Student_Subject { get; set; }
+
+        public System.Data.Entity.DbSet<ChronosWebAPI.Models.SubjectSession> SubjectSessions { get; set; }
+
+        public System.Data.Entity.DbSet<ChronosWebAPI.Models.Subject_SubjectSession> Subject_SubjectSession { get; set; }
     }
 }
