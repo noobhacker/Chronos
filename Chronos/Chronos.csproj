@@ -104,6 +104,7 @@
     <Compile Include="ConfessionPage.xaml.cs">
       <DependentUpon>ConfessionPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="GlobalViewModel.cs" />
     <Compile Include="HomePage.xaml.cs">
       <DependentUpon>HomePage.xaml</DependentUpon>
     </Compile>
@@ -113,6 +114,13 @@
     <Compile Include="MarketPage.xaml.cs">
       <DependentUpon>MarketPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Models\Confession.cs" />
+    <Compile Include="Models\ConfessionLikes.cs" />
+    <Compile Include="Models\PrivateMessage.cs" />
+    <Compile Include="Models\Student.cs" />
+    <Compile Include="Models\Student_Subject.cs" />
+    <Compile Include="Models\Subject.cs" />
+    <Compile Include="Models\SubjectSession.cs" />
     <Compile Include="PlacesPage.xaml.cs">
       <DependentUpon>PlacesPage.xaml</DependentUpon>
     </Compile>

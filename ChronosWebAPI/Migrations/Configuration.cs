@@ -4,7 +4,6 @@ namespace ChronosWebAPI.Migrations
     using System.Data.Entity;
     using System.Data.Entity.Migrations;
     using System.Linq;
-    using Models;
 
     internal sealed class Configuration : DbMigrationsConfiguration<ChronosWebAPI.Models.ChronosWebAPIContext>
     {
@@ -27,16 +26,6 @@ namespace ChronosWebAPI.Migrations
             //      new Person { FullName = "Rowan Miller" }
             //    );
             //
-
-            context.Students.AddOrUpdate(s => s.Id, new Student
-            {
-                FullName = "Developer",
-                Email = "chronosmy@outlook.com",
-                Password = "Microsoft123",
-                StudentId = "999999999",
-                DailyConfessionChance = 888
-            });
-
         }
     }
 }

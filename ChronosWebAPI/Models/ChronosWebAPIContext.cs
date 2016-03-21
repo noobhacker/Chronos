@@ -27,6 +27,12 @@ namespace ChronosWebAPI.Models
 
         public System.Data.Entity.DbSet<ChronosWebAPI.Models.SubjectSession> SubjectSessions { get; set; }
 
-        public System.Data.Entity.DbSet<ChronosWebAPI.Models.Subject_SubjectSession> Subject_SubjectSession { get; set; }
+        public System.Data.Entity.DbSet<ChronosWebAPI.Models.Confession> Confessions { get; set; }
+
+        public System.Data.Entity.DbSet<ChronosWebAPI.Models.ConfessionLikes> ConfessionLikes { get; set; }
+
+        public System.Data.Entity.DbSet<ChronosWebAPI.Models.PrivateMessage> PrivateMessages { get; set; }
+
+        public System.Data.Entity.DbSet<ChronosWebAPI.Models.MarketItem> MarketItems { get; set; }
     }
 }
