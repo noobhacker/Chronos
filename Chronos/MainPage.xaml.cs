@@ -58,6 +58,9 @@ namespace Chronos
                     case 3:
                         navigationFrame.Navigate(typeof(PlacesPage));
                         break;
+                    case 4:
+                        navigationFrame.Navigate(typeof(MarketPage));
+                        break;
                 }
             }
             catch { }
