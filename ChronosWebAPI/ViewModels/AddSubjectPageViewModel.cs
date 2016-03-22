@@ -14,9 +14,12 @@ namespace Chronos
     
         public ObservableCollection<SubjectSession> sessions = new ObservableCollection<SubjectSession>();
 
+        public Student student { get; set; } 
+
         public AddSubjectPageViewModel()
         {
             subject = new Subject();
+            //student = GlobalVariables.CurrentUser;
         }
 
     }

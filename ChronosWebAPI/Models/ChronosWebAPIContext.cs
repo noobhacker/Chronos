@@ -35,5 +35,6 @@ namespace ChronosWebAPI.Models
 
         public System.Data.Entity.DbSet<ChronosWebAPI.Models.MarketItem> MarketItems { get; set; }
 
+        public System.Data.Entity.DbSet<ChronosWebAPI.Models.Event> Events { get; set; }
     }
 }

@@ -44,7 +44,12 @@ namespace Chronos
 
         private async void saveBtn_Click(object sender, RoutedEventArgs e)
         {
-            string a = "";
+            string target = string.Format("SubjectTimeTable");
+
+            var obj = JsonConvert.SerializeObject(vm);
+            await postJsonToServerAsync(obj, target);
+
+
             //vm.subject.Code = codeTB.Text;
             //vm.subject.Name = subjectTB.Text;
             //vm.subject.Lecturer = lecturerTB.Text;
@@ -63,10 +68,10 @@ namespace Chronos
             //    Student = GlobalVariables.CurrentUser
             //}, "Student_Subject");
 
-            //this.Frame.Navigate(typeof(HomePage));
+            this.Frame.Navigate(typeof(HomePage));
         }
         
-        private async Task<bool> postJsonToServer(object json, string target)
+        private async Task<bool> postJsonToServerAsync(object json, string target)
         {
             var subjectJson = JsonConvert.SerializeObject(json);
             var client = new HttpClient();
@@ -74,9 +79,7 @@ namespace Chronos
             HttpContent.Headers.ContentType = new Windows.Web.Http.Headers.HttpMediaTypeHeaderValue("application/json");
 
             var returnValue = await client.PostAsync(new Uri(GlobalVariables.WebAPIAddress + target), HttpContent);
-
-            string a = "";
-
+            
             return true;
         }
 

@@ -29,13 +29,14 @@ namespace Chronos
         public HomePage()
         {
             this.InitializeComponent();
+            nowTB.Text = DateTime.Now.ToString("d MMM yyyy");
         }
                 
         private async void update()
         {
             try
             {
-                string subjectsJson = await getJsonFromServer("GetTimeTable");
+                string subjectsJson = await getJsonFromServer("SubjectTimeTable");
                 var subjects = JsonConvert.DeserializeObject<List<Subject>>(subjectsJson);
                 laterGV.ItemsSource = subjects;
             }

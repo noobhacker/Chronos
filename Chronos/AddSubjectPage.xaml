@@ -55,7 +55,7 @@
                                 <ComboBoxItem Content="Laboratory"/>
                             </ComboBox>
                             <ComboBox Name="dayCB" Header="Day" Width="300" 
-                                      Margin="4" SelectedValuePath="Content" SelectedValue="{Binding Day, Mode=TwoWay}">
+                                      Margin="4" SelectedValuePath="Content" SelectedIndex="{Binding Day, Mode=TwoWay}">
                                 <ComboBoxItem Content="Sunday"/>
                                 <ComboBoxItem Content="Monday"/>
                                 <ComboBoxItem Content="Tuesday"/>

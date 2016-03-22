@@ -12,6 +12,7 @@ using System.Web.Http.Description;
 using ChronosWebAPI.Models;
 using Chronos;
 using System.Collections.ObjectModel;
+using Newtonsoft.Json;
 
 namespace ChronosWebAPI.Controllers
 {
@@ -20,11 +21,13 @@ namespace ChronosWebAPI.Controllers
         private ChronosWebAPIContext db = new ChronosWebAPIContext();
 
         // POST: api/SubjectSessions
-        [ResponseType(typeof(AddSubjectPageViewModel))]
-        public async Task<IHttpActionResult> PostSubjectTimeTable(int id, string password, AddSubjectPageViewModel vm)
+        [ResponseType(typeof(string))]
+        public async Task<IHttpActionResult> PostSubjectTimeTable([FromBody]string _vm)
         {
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
+
+            var vm = JsonConvert.DeserializeObject<AddSubjectPageViewModel>(_vm);
 
             var subjectResult = db.Subjects.Add(vm.subject);
 
@@ -33,17 +36,17 @@ namespace ChronosWebAPI.Controllers
 
             db.Student_Subject.Add(new Student_Subject()
             {
-                StudentId = id,
+                StudentId = vm.student.Id,
                 SubjectId = subjectResult.Id
             });
 
             await db.SaveChangesAsync();
 
-            return CreatedAtRoute("DefaultApi", new { id = id }, vm);
+            return CreatedAtRoute("DefaultApi", new { id = vm.student.Id }, vm);
         }
 
         // GET: api/Student_Subject
-        public HomePageViewModel GetSubjectTimeTable(int Id)
+        public string GetSubjectTimeTable(int Id)
         {
             //return db.Student_Subject;
 
@@ -64,7 +67,7 @@ namespace ChronosWebAPI.Controllers
             var returnValue = new HomePageViewModel();
             returnValue.laterGVItems = new ObservableCollection<SubjectTimeTable>(result);
 
-            return returnValue;
+            return JsonConvert.SerializeObject(returnValue);
         }
     }
     
