@@ -31,8 +31,15 @@ namespace ChronosWebAPI.Controllers
 
             var subjectResult = db.Subjects.Add(vm.subject);
 
+            await db.SaveChangesAsync();
+
             foreach (var s in vm.sessions)
+            {
+                s.SubjectId = subjectResult.Id;
                 db.SubjectSessions.Add(s);
+            }
+
+            await db.SaveChangesAsync();
 
             db.Student_Subject.Add(new Student_Subject()
             {
