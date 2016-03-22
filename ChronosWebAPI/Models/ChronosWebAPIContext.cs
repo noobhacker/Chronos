@@ -34,5 +34,6 @@ namespace ChronosWebAPI.Models
         public System.Data.Entity.DbSet<ChronosWebAPI.Models.PrivateMessage> PrivateMessages { get; set; }
 
         public System.Data.Entity.DbSet<ChronosWebAPI.Models.MarketItem> MarketItems { get; set; }
+
     }
 }

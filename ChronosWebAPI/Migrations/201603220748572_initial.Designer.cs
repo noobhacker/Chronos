@@ -13,7 +13,7 @@ namespace ChronosWebAPI.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "201603220323485_initial"; }
+            get { return "201603220748572_initial"; }
         }
         
         string IMigrationMetadata.Source

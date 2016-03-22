@@ -42,12 +42,15 @@
                     <TextBlock x:Name="textBlock" FontFamily="Segoe MDL2 Assets" Text="" FontSize="60" 
                            HorizontalAlignment="Center" VerticalAlignment="Center" />
                 </Grid>
-                <TextBlock Text="updated as of 5:04PM" FontSize="12" FontWeight="Thin" Margin="8"/>
+                <TextBlock Name="updatedTB" Text="updated as of 5:04PM" FontSize="12" FontWeight="Thin" Margin="8"/>
             </StackPanel>
 
-            <TextBlock Text="Now - Friday, 18 March 2016" FontSize="20" FontWeight="ExtraLight" Margin="0,24,0,0"/>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Now - " FontSize="20" FontWeight="ExtraLight" Margin="0,24,8,0"/>
+                <TextBlock Name="nowTB" Text="Friday, 18 March 2016" FontSize="20" FontWeight="ExtraLight" Margin="0,24,0,0"/>
+            </StackPanel>
 
-            <StackPanel x:Name="stackPanel" Orientation="Horizontal" Margin="0,20,0,0">
+            <StackPanel x:Name="stackPanel" Orientation="Horizontal" Margin="0,20,0,0" Visibility="Collapsed">
 
                 <Grid>
                     <local:RoundProgressControl x:Name="ProgressControl" RenderTransformOrigin="0.5,0.5" Height="180">
@@ -55,7 +58,7 @@
                             <CompositeTransform Rotation="180" ScaleY="1.2" ScaleX="1.2"/>
                         </local:RoundProgressControl.RenderTransform>
                     </local:RoundProgressControl>
-                    <TextBlock Width="120" TextAlignment="Center" Text="78%" HorizontalAlignment="Center" 
+                    <TextBlock Name="nowPercentTB" Width="120" TextAlignment="Center" Text="78%" HorizontalAlignment="Center" 
                            VerticalAlignment="Center" FontSize="32" FontWeight="Light"
                            Margin="8,0,0,0"/>
                 </Grid>
@@ -68,36 +71,43 @@
                         <RowDefinition Height="Auto" />
                     </Grid.RowDefinitions>
 
-                    <TextBlock Text="DCS 5086 Computer Communications and Network" FontSize="16" Margin="0,32,0,0" TextWrapping="WrapWholeWords"/>
-                    <TextBlock Text="2:00 PM - 4:00 PM" FontSize="16" Margin="0,4,0,0" Grid.Row="1" FontWeight="Light"/>
-                    <TextBlock Text="Mr Ponkoodalingam Kannan" FontSize="12" Margin="0,0,0,28" FontWeight="Light" Grid.Row="3"/>
+                    <TextBlock Name="nowSubjectTB" Text="DCS 5086 Computer Communications and Network" FontSize="16" Margin="0,32,0,0" TextWrapping="WrapWholeWords"/>
+                    <TextBlock Name="nowSubjectTime"  Text="2:00 PM - 4:00 PM" FontSize="16" Margin="0,4,0,0" Grid.Row="1" FontWeight="Light"/>
+                    <TextBlock Name="nowSubjectLecturer" Text="Mr Ponkoodalingam Kannan" FontSize="12" Margin="0,0,0,28" FontWeight="Light" Grid.Row="3"/>
 
                 </Grid>
 
             </StackPanel>
 
             <TextBlock Text="Later" FontSize="20" FontWeight="ExtraLight" Margin="0,24,0,0"/>
-            <Grid Height="90" Margin="0,16,0,0">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="10" />
-                    <ColumnDefinition Width="*" />
-                </Grid.ColumnDefinitions>
-                <Grid Background="Aqua" Opacity="0.85"/>
-                <Grid Grid.Column="1" Margin="8,0,0,0">
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="Auto" />
-                        <RowDefinition Height="Auto" />
-                        <RowDefinition Height="*" />
-                        <RowDefinition Height="Auto" />
-                    </Grid.RowDefinitions>
+            <GridView Name="laterGV">
+                
+                        <Grid Height="90" Margin="0,16,0,0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="10" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Grid Background="Aquamarine" Opacity="0.85"/>
+                            <Grid Grid.Column="1" Margin="8,0,0,0">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="*" />
+                                    <RowDefinition Height="Auto" />
+                                </Grid.RowDefinitions>
 
-                    <TextBlock Text="DCS 5086 Computer Communications and Network" FontSize="16" TextWrapping="WrapWholeWords"/>
-                    <TextBlock Text="4:00 PM - 6:00 PM" FontSize="16" Margin="0,4,0,0" Grid.Row="1" FontWeight="Light"/>
-                    <TextBlock Text="Mr Ponkoodalingam Kannan" FontSize="12" Margin="0,0,0,4" FontWeight="Light" Grid.Row="3"/>
+                                <TextBlock Text="{Binding SubjectText}" FontSize="16" TextWrapping="WrapWholeWords"/>
+                        <TextBlock Text="{Binding ClassType}" FontSize="12"/>
+                        <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="{Binding StartTime}" FontSize="16" Margin="0,4,0,0" Grid.Row="1" FontWeight="Light"/>
+                                    <TextBlock Text="-" FontSize="16" Margin="4" Grid.Row="1" FontWeight="Light"/>
+                                    <TextBlock Text="{Binding EndTime}" FontSize="16" Margin="0,4,0,0" Grid.Row="1" FontWeight="Light"/>
+                                </StackPanel>
+                                <TextBlock Text="{Binding Lecturer}" FontSize="12" Margin="0,0,0,4" FontWeight="Light" Grid.Row="3"/>
 
-
-                </Grid>
-            </Grid>
+                            </Grid>
+                        </Grid>
+            </GridView>
             <Button Name="addSubjectBtn" Content="Add more subjects..." Background="Transparent" HorizontalAlignment="Stretch" Click="addSubjectBtn_Click"
                     Margin="0,12,0,0"/>
         </StackPanel>

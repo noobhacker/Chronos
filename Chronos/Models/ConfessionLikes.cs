@@ -9,7 +9,11 @@ namespace ChronosWebAPI.Models
     public class ConfessionLikes
     {
         public int Id { get; set; }
+
+        public int ConfessionId { get; set; }
+
+        public int LikedById { get; set; }
         public Confession Confession { get; set; }
-        public Student LikedBy { get; set; }
+        public Student Student { get; set; }
     }
 }

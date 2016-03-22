@@ -6,16 +6,12 @@ using System.Threading.Tasks;
 
 namespace ChronosWebAPI.Models
 {
-    public class SubjectSession
+    public class SubjectTimeTable
     {
-        public int Id { get; set; }
-
-        public string SessionType { get; set; }
-        public DayOfWeek Day { get; set; }
+        public string SubjectText { get; set; }
         public TimeSpan StartTime { get; set; }
         public TimeSpan EndTime { get; set; }
-
-        public int SubjectId { get; set; }
-        public Subject Subject { get; set; }
+        public string Lecturer { get; set; }
+        public string ClassType { get; set; }
     }
 }

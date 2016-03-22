@@ -119,11 +119,13 @@
     </Compile>
     <Compile Include="Models\Confession.cs" />
     <Compile Include="Models\ConfessionLikes.cs" />
+    <Compile Include="Models\MarketItem.cs" />
     <Compile Include="Models\PrivateMessage.cs" />
     <Compile Include="Models\Student.cs" />
     <Compile Include="Models\Student_Subject.cs" />
     <Compile Include="Models\Subject.cs" />
     <Compile Include="Models\SubjectSession.cs" />
+    <Compile Include="Models\SubjectTimeTable.cs" />
     <Compile Include="PlacesPage.xaml.cs">
       <DependentUpon>PlacesPage.xaml</DependentUpon>
     </Compile>

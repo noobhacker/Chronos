@@ -1,16 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Runtime.InteropServices.WindowsRuntime;
-using Windows.Foundation;
-using Windows.Foundation.Collections;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Controls.Primitives;
-using Windows.UI.Xaml.Data;
-using Windows.UI.Xaml.Input;
-using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 using ChronosWebAPI.Models;
 using System.Collections.ObjectModel;
@@ -27,9 +17,10 @@ namespace Chronos
     /// </summary>
     public sealed partial class AddSubjectPage : Page
     {
+        
         public AddSubjectPage()
         {
-            this.InitializeComponent();
+            this.InitializeComponent();        
         }
 
         Subject subject = new Subject();
@@ -62,7 +53,7 @@ namespace Chronos
 
             foreach(var s in sessions)
             {
-                s.Subject = subject;
+                s.Subject = subject;                
                 await postJsonToServer(s, "SubjectSessions");
             }
 
