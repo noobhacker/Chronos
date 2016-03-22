@@ -12,7 +12,6 @@ namespace ChronosWebAPI.Models
     {
         public int Id { get; set; }
         
-        //[Column(Order = 1), Key, ForeignKey("Student")]
         public Student Student { get; set; }
         
         public Subject Subject { get; set; }

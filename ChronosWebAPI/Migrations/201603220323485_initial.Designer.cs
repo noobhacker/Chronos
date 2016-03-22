@@ -7,13 +7,13 @@ namespace ChronosWebAPI.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class MoreandMoredatabases : IMigrationMetadata
+    public sealed partial class initial : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(MoreandMoredatabases));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(initial));
         
         string IMigrationMetadata.Id
         {
-            get { return "201603211010539_MoreandMoredatabases"; }
+            get { return "201603220323485_initial"; }
         }
         
         string IMigrationMetadata.Source

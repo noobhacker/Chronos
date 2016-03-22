@@ -36,21 +36,26 @@
         <StackPanel Margin="4">
             <TextBlock FontSize="28" FontWeight="Thin" Text="Add a subject" />
             <StackPanel Orientation="Vertical" HorizontalAlignment="Left">
-                <TextBox Name="codeTB" Header="Subject Code" Width="608" Margin="4"/>
-                <TextBox Name="subjectTB" Header="Subject Name" Width="608" Margin="4"/>
-                <TextBox Name="lecturerTB" Header="Lecturer Name" Width="608" Margin="4"/>
+                <TextBox Name="codeTB" Header="Subject Code" Width="608" 
+                         Margin="4" Text="{Binding Code, Mode=TwoWay}"/>
+                <TextBox Name="subjectTB" Header="Subject Name" Width="608" 
+                         Margin="4" Text="{Binding Name, Mode=TwoWay}"/>
+                <TextBox Name="lecturerTB" Header="Lecturer Name" Width="608" 
+                         Margin="4" Text="{Binding Lecturer, Mode=TwoWay}"/>
             </StackPanel>
             <TextBlock FontSize="28" FontWeight="Thin" Text="Sessions" />
             <GridView Name="sessionsGV">
                 <GridView.ItemTemplate>
                     <DataTemplate>
                         <StackPanel>
-                            <ComboBox Name="sessionTypeCB" Header="Session Type" Width="300" Margin="4,12,4,4" SelectedValue="{Binding SessionType}">
+                            <ComboBox Name="sessionTypeCB" Header="Session Type" Width="300" 
+                                      Margin="4,12,4,4" SelectedValuePath="Content" SelectedValue="{Binding SessionType, Mode=TwoWay}">
                                 <ComboBoxItem Content="Lecture"/>
                                 <ComboBoxItem Content="Tutorial"/>
                                 <ComboBoxItem Content="Laboratory"/>
                             </ComboBox>
-                            <ComboBox Name="dayCB" Header="Day" Width="300" Margin="4" SelectedValue="{Binding Day}">
+                            <ComboBox Name="dayCB" Header="Day" Width="300" 
+                                      Margin="4" SelectedValuePath="Content" SelectedValue="{Binding Day, Mode=TwoWay}">
                                 <ComboBoxItem Content="Sunday"/>
                                 <ComboBoxItem Content="Monday"/>
                                 <ComboBoxItem Content="Tuesday"/>
@@ -59,8 +64,8 @@
                                 <ComboBoxItem Content="Friday"/>
                                 <ComboBoxItem Content="Saturday"/>
                             </ComboBox>
-                            <TimePicker Name="startTimeTP" Header="Start time" Width="300" Margin="4" Time="{Binding StartTime.TimeOfDay}"/>
-                            <TimePicker Name="endTimeTP" Header="End time" Width="300" Margin="4" Time="{Binding EndTime.TimeOfDay}"/>
+                            <TimePicker Name="startTimeTP" Header="Start time" Width="300" Margin="4" Time="{Binding StartTime, Mode=TwoWay}"/>
+                            <TimePicker Name="endTimeTP" Header="End time" Width="300" Margin="4" Time="{Binding EndTime, Mode=TwoWay}"/>
                         </StackPanel>
                     </DataTemplate>
                 </GridView.ItemTemplate>

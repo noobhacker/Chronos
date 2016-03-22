@@ -107,7 +107,7 @@
     <Compile Include="ConfessionPage.xaml.cs">
       <DependentUpon>ConfessionPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="GlobalViewModel.cs" />
+    <Compile Include="GlobalVariables.cs" />
     <Compile Include="HomePage.xaml.cs">
       <DependentUpon>HomePage.xaml</DependentUpon>
     </Compile>

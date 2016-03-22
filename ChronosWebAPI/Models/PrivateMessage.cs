@@ -11,7 +11,7 @@ namespace ChronosWebAPI.Models
         public int Id { get; set; }
         public Student Sender { get; set; }
         public Student Receiver { get; set; }
-        public string Message { get; set; }
         public DateTime SentDatetime { get; set; }
+        public string Message { get; set; }
     }
 }
