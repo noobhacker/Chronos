@@ -98,6 +98,7 @@
     <Compile Include="AddSubjectPage.xaml.cs">
       <DependentUpon>AddSubjectPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="AddSubjectPageViewModel.cs" />
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
@@ -111,6 +112,7 @@
     <Compile Include="HomePage.xaml.cs">
       <DependentUpon>HomePage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="HomePageViewModel.cs" />
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
@@ -125,7 +127,6 @@
     <Compile Include="Models\Student_Subject.cs" />
     <Compile Include="Models\Subject.cs" />
     <Compile Include="Models\SubjectSession.cs" />
-    <Compile Include="Models\SubjectTimeTable.cs" />
     <Compile Include="PlacesPage.xaml.cs">
       <DependentUpon>PlacesPage.xaml</DependentUpon>
     </Compile>

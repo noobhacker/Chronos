@@ -21,14 +21,6 @@ using ChronosWebAPI.Models;
 
 namespace Chronos
 {
-    public class SubjectTimeTable
-    {
-        public string SubjectText { get; set; }
-        public TimeSpan StartTime { get; set; }
-        public TimeSpan EndTime { get; set; }
-        public string Lecturer { get; set; }
-        public string ClassType { get; set; }
-    }
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>

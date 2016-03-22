@@ -10,6 +10,8 @@ using System.Threading.Tasks;
 using System.Web.Http;
 using System.Web.Http.Description;
 using ChronosWebAPI.Models;
+using Chronos;
+using System.Collections.ObjectModel;
 
 namespace ChronosWebAPI.Controllers
 {
@@ -17,17 +19,40 @@ namespace ChronosWebAPI.Controllers
     {
         private ChronosWebAPIContext db = new ChronosWebAPIContext();
 
+        // POST: api/SubjectSessions
+        [ResponseType(typeof(AddSubjectPageViewModel))]
+        public async Task<IHttpActionResult> PostSubjectTimeTable(int id, string password, AddSubjectPageViewModel vm)
+        {
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
+
+            var subjectResult = db.Subjects.Add(vm.subject);
+
+            foreach (var s in vm.sessions)
+                db.SubjectSessions.Add(s);
+
+            db.Student_Subject.Add(new Student_Subject()
+            {
+                StudentId = id,
+                SubjectId = subjectResult.Id
+            });
+
+            await db.SaveChangesAsync();
+
+            return CreatedAtRoute("DefaultApi", new { id = id }, vm);
+        }
+
         // GET: api/Student_Subject
-        public IQueryable<SubjectTimeTable> GetTimeTable(int Id)
+        public HomePageViewModel GetSubjectTimeTable(int Id)
         {
             //return db.Student_Subject;
 
             var result = from a in db.Students
-                         join b in db.Student_Subject on a.Id equals b.Student.Id
-                         join c in db.Subjects on b.Subject.Id equals c.Id
-                         join d in db.SubjectSessions on c.Id equals d.Subject.Id
+                         join b in db.Student_Subject on a.Id equals b.StudentId
+                         join c in db.Subjects on b.SubjectId equals c.Id
+                         join d in db.SubjectSessions on c.Id equals d.SubjectId
                          select new SubjectTimeTable()
-                         {
+                         {                              
                              SubjectText = c.Code + " " + c.Name,
                              ClassType = d.SessionType,
                              Lecturer = c.Lecturer,
@@ -36,8 +61,10 @@ namespace ChronosWebAPI.Controllers
                          };
 
             //var result = from a in db.Students select a;
+            var returnValue = new HomePageViewModel();
+            returnValue.laterGVItems = new ObservableCollection<SubjectTimeTable>(result);
 
-            return result;
+            return returnValue;
         }
     }
     

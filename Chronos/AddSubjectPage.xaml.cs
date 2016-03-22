@@ -17,25 +17,24 @@ namespace Chronos
     /// </summary>
     public sealed partial class AddSubjectPage : Page
     {
-        
+        AddSubjectPageViewModel vm = new AddSubjectPageViewModel();
         public AddSubjectPage()
         {
-            this.InitializeComponent();        
+            this.InitializeComponent();
+            this.DataContext = vm;      
         }
 
-        Subject subject = new Subject();
-        ObservableCollection<SubjectSession> sessions = new ObservableCollection<SubjectSession>();
-
+      
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
-            sessions.Add(new SubjectSession());
-            sessionsGV.ItemsSource = sessions;
+            vm.sessions.Add(new SubjectSession());
+            sessionsGV.ItemsSource = vm.sessions;
 
         }
         
         private void addSessionBtn_Click(object sender, RoutedEventArgs e)
         {
-            sessions.Add(new SubjectSession());
+            vm.sessions.Add(new SubjectSession());
         }
 
         private void deleteSessionBtn_Click(object sender, RoutedEventArgs e)
@@ -45,25 +44,26 @@ namespace Chronos
 
         private async void saveBtn_Click(object sender, RoutedEventArgs e)
         {
-            subject.Code = codeTB.Text;
-            subject.Name = subjectTB.Text;
-            subject.Lecturer = lecturerTB.Text;
+            string a = "";
+            //vm.subject.Code = codeTB.Text;
+            //vm.subject.Name = subjectTB.Text;
+            //vm.subject.Lecturer = lecturerTB.Text;
 
-            await postJsonToServer(subject, "Subjects");
+            //await postJsonToServer(subject, "Subjects");
 
-            foreach(var s in sessions)
-            {
-                s.Subject = subject;                
-                await postJsonToServer(s, "SubjectSessions");
-            }
+            //foreach(var s in sessions)
+            //{
+            //    s.Subject = subject;                
+            //    await postJsonToServer(s, "SubjectSessions");
+            //}
 
-            await postJsonToServer(new Student_Subject()
-            {
-                Subject = subject,
-                Student = GlobalVariables.CurrentUser
-            }, "Student_Subject");
+            //await postJsonToServer(new Student_Subject()
+            //{
+            //    Subject = subject,
+            //    Student = GlobalVariables.CurrentUser
+            //}, "Student_Subject");
 
-            this.Frame.Navigate(typeof(HomePage));
+            //this.Frame.Navigate(typeof(HomePage));
         }
         
         private async Task<bool> postJsonToServer(object json, string target)

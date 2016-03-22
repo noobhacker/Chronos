@@ -1,10 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ChronosWebAPI.Models
+namespace Chronos
 {
     public class SubjectTimeTable
     {
@@ -13,5 +14,10 @@ namespace ChronosWebAPI.Models
         public TimeSpan EndTime { get; set; }
         public string Lecturer { get; set; }
         public string ClassType { get; set; }
+    }
+    public class HomePageViewModel
+    {
+        ObservableCollection<SubjectTimeTable> laterGVItems = 
+            new ObservableCollection<SubjectTimeTable>();
     }
 }

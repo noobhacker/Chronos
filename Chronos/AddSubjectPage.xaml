@@ -37,11 +37,11 @@
             <TextBlock FontSize="28" FontWeight="Thin" Text="Add a subject" />
             <StackPanel Orientation="Vertical" HorizontalAlignment="Left">
                 <TextBox Name="codeTB" Header="Subject Code" Width="608" 
-                         Margin="4" Text="{Binding Code, Mode=TwoWay}"/>
+                         Margin="4" Text="{Binding Path=subject.Code, Mode=TwoWay}"/>
                 <TextBox Name="subjectTB" Header="Subject Name" Width="608" 
-                         Margin="4" Text="{Binding Name, Mode=TwoWay}"/>
+                         Margin="4" Text="{Binding Path=subject.Name, Mode=TwoWay}"/>
                 <TextBox Name="lecturerTB" Header="Lecturer Name" Width="608" 
-                         Margin="4" Text="{Binding Lecturer, Mode=TwoWay}"/>
+                         Margin="4" Text="{Binding Path=subject.Lecturer, Mode=TwoWay}"/>
             </StackPanel>
             <TextBlock FontSize="28" FontWeight="Thin" Text="Sessions" />
             <GridView Name="sessionsGV">
