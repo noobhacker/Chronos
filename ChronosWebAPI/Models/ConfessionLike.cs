@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ChronosWebAPI.Models
 {
-    public class ConfessionLikes
+    public class ConfessionLike
     {
         public int Id { get; set; }
 

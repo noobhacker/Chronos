@@ -39,7 +39,11 @@
         <Grid>
             <StackPanel x:Name="stackPanel" Orientation="Horizontal" Background="#FF45546E">
                 <Button Height="50" FontFamily="Segoe MDL2 Assets" Content="" Padding="16,0" Background="Transparent" Name="hamburgerBtn" Click="hamburgerBtn_Click"/>
-                <TextBlock FontWeight="Bold" Text="CHRONOS" VerticalAlignment="Center" Margin="16,0,0,0" FontSize="20" FontFamily="Segoe UI"/>
+                <TextBlock FontWeight="SemiBold" Text="CHRONOS" VerticalAlignment="Center" Margin="16,0,0,0" FontSize="20" FontFamily="Segoe UI" RenderTransformOrigin="0.5,0.5">
+                    <TextBlock.RenderTransform>
+                        <CompositeTransform ScaleY="0.9"/>
+                    </TextBlock.RenderTransform>
+                </TextBlock>
             </StackPanel>
         </Grid>
 

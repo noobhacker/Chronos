@@ -52,7 +52,7 @@ namespace Chronos
 
             await WebAPIClass.PostJsonToServerAsync(obj, target);
             
-            this.Frame.Navigate(typeof(HomePage));
+            this.Frame.Navigate(typeof(HomeView));
         }
        
 

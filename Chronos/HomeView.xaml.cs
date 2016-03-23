@@ -24,10 +24,10 @@ namespace Chronos
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
-    public sealed partial class HomePage : Page
+    public sealed partial class HomeView : Page
     {
         HomePageViewModel vm = new HomePageViewModel();
-        public HomePage()
+        public HomeView()
         {
             this.InitializeComponent();
             nowTB.Text = DateTime.Now.ToString("D");
@@ -39,7 +39,9 @@ namespace Chronos
             string target = "SubjectTimeTable";
             string subjectsJson = await WebAPIClass.GetJsonFromServerAsync(target);
 
-            vm = JsonConvert.DeserializeObject<HomePageViewModel>(subjectsJson);
+            var _vm = JsonConvert.DeserializeObject<HomePageViewModel>(subjectsJson);
+        
+            vm.laterGVItems = _vm.laterGVItems;
 
             foreach (var s in vm.laterGVItems)
                 s.StartTimeText = DateTime.Today.Add(s.StartTime).ToString("hh.mmtt");

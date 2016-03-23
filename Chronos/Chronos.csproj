@@ -114,8 +114,8 @@
     </Compile>
     <Compile Include="ConfessionViewModel.cs" />
     <Compile Include="GlobalVariables.cs" />
-    <Compile Include="HomePage.xaml.cs">
-      <DependentUpon>HomePage.xaml</DependentUpon>
+    <Compile Include="HomeView.xaml.cs">
+      <DependentUpon>HomeView.xaml</DependentUpon>
     </Compile>
     <Compile Include="HomePageViewModel.cs" />
     <Compile Include="MainPage.xaml.cs">
@@ -133,15 +133,13 @@
     <Compile Include="Models\Student_Subject.cs" />
     <Compile Include="Models\Subject.cs" />
     <Compile Include="Models\SubjectSession.cs" />
-    <Compile Include="PlacesPage.xaml.cs">
-      <DependentUpon>PlacesPage.xaml</DependentUpon>
+    <Compile Include="PlacesView.xaml.cs">
+      <DependentUpon>PlacesView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="PlacesViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RoundProgressControl.xaml.cs">
       <DependentUpon>RoundProgressControl.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="StorePage.xaml.cs">
-      <DependentUpon>StorePage.xaml</DependentUpon>
     </Compile>
     <Compile Include="WebAPIClass.cs" />
   </ItemGroup>
@@ -192,7 +190,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="HomePage.xaml">
+    <Page Include="HomeView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -204,15 +202,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="PlacesPage.xaml">
+    <Page Include="PlacesView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="RoundProgressControl.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="StorePage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

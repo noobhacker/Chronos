@@ -252,6 +252,11 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\SampleDirection.cs" />
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
+    <Compile Include="Migrations\201603231520048_i31.cs" />
+    <Compile Include="Migrations\201603231520048_i31.Designer.cs">
+      <DependentUpon>201603231520048_i31.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Event.cs" />
     <Compile Include="ViewModels\MarketViewModel.cs" />
     <None Include="Controllers\AccountController.cs.backup" />
     <Compile Include="Controllers\ConfessionController.cs" />
@@ -278,8 +283,8 @@
     <None Include="Models\AccountViewModels.cs.backup" />
     <Compile Include="Models\ChronosWebAPIContext.cs" />
     <Compile Include="Models\Confession.cs" />
-    <Compile Include="Models\ConfessionLikes.cs" />
-    <Compile Include="Models\Event.cs" />
+    <Compile Include="Models\ConfessionLike.cs" />
+    <Compile Include="Models\Happening.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\MarketItem.cs" />
     <Compile Include="Models\PrivateMessage.cs" />
@@ -398,6 +403,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201603230900519_i3.resx">
       <DependentUpon>201603230900519_i3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201603231520048_i31.resx">
+      <DependentUpon>201603231520048_i31.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

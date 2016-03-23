@@ -31,7 +31,7 @@ namespace Chronos
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
-            navigationFrame.Navigate(typeof(HomePage));
+            navigationFrame.Navigate(typeof(HomeView));
         }
 
         private void hamburgerBtn_Click(object sender, RoutedEventArgs e)
@@ -47,7 +47,7 @@ namespace Chronos
                 switch (listview.SelectedIndex)
                 {
                     case 0:
-                        navigationFrame.Navigate(typeof(HomePage));
+                        navigationFrame.Navigate(typeof(HomeView));
                         break;
                     case 1:
                         navigationFrame.Navigate(typeof(CalendarPage));
@@ -56,7 +56,7 @@ namespace Chronos
                         navigationFrame.Navigate(typeof(ConfessionView));
                         break;
                     case 3:
-                        navigationFrame.Navigate(typeof(PlacesPage));
+                        navigationFrame.Navigate(typeof(PlacesView));
                         break;
                     case 4:
                         navigationFrame.Navigate(typeof(MarketView));
