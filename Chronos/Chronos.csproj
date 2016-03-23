@@ -124,6 +124,7 @@
     <Compile Include="MarketView.xaml.cs">
       <DependentUpon>MarketView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="MarketViewModel.cs" />
     <Compile Include="Models\Confession.cs" />
     <Compile Include="Models\ConfessionLikes.cs" />
     <Compile Include="Models\MarketItem.cs" />

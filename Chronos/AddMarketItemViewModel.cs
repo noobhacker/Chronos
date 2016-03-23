@@ -15,6 +15,7 @@ namespace Chronos
         public AddMarketItemViewModel()
         {
             student = GlobalVariables.CurrentUser;
+            marketItem = new MarketItem();
         }
     }
 }

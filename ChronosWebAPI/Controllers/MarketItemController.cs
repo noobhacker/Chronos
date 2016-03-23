@@ -27,19 +27,31 @@ namespace ChronosWebAPI.Controllers
 
             db.MarketItems.Add(new MarketItem()
             {
-                 ItemName=vm.
+                ItemName = vm.marketItem.ItemName,
+                Price = vm.marketItem.Price,
+                Description = vm.marketItem.Description,
+                ImageUrl = vm.marketItem.ImageUrl,
+                PostDateTime = DateTime.Now,
+                SellerId = vm.student.Id
             });
-
-            //db.Confessions.Add(new Confession()
-            //{
-            //    PostDateTime = DateTime.Now,
-            //    PostedById = vm.student.Id,
-            //    Message = vm.PostMessage
-            //});
-
+            
             await db.SaveChangesAsync();
 
             return CreatedAtRoute("DefaultApi", new { id = vm.student.Id }, vm);
         }
+
+        [ResponseType(typeof(MarketViewModel))]
+        public async Task<IHttpActionResult> Get()
+        {
+            var result = from a in db.MarketItems
+                         select a;
+
+
+            var returnValue = new MarketViewModel();
+            returnValue.itemList = new ObservableCollection<MarketItem>(result);
+
+            return Ok(returnValue);
+        }
+
     }
 }

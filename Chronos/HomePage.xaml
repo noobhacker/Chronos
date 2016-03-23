@@ -45,7 +45,7 @@
                     <TextBlock x:Name="textBlock" FontFamily="Segoe MDL2 Assets" Text="" FontSize="60" 
                            HorizontalAlignment="Center" VerticalAlignment="Center" />
                 </Grid>
-                <TextBlock Name="updatedTB" Text="updated as of 5:04PM" FontSize="12" FontWeight="Thin" Margin="8" HorizontalAlignment="Center"/>
+                <TextBlock Name="updatedTB" Text="loading" FontSize="12" FontWeight="Thin" Margin="8" HorizontalAlignment="Center"/>
             </StackPanel>
 
                 <TextBlock Name="nowTB" Text="Friday, 18 March 2016" FontSize="20" FontWeight="ExtraLight" Margin="0,24,0,0"/>

@@ -19,7 +19,7 @@ namespace Chronos
         public AddSubjectPageViewModel()
         {
             subject = new Subject();
-            student = GlobalVariables.CurrentUser;
+            //student = GlobalVariables.CurrentUser;
         }
 
     }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -22,9 +23,24 @@ namespace Chronos
     /// </summary>
     public sealed partial class MarketView : Page
     {
+        MarketViewModel vm = new MarketViewModel();
         public MarketView()
         {
             this.InitializeComponent();
+        }
+
+        protected override async void OnNavigatedTo(NavigationEventArgs e)
+        {
+            string response = await WebAPIClass.GetJsonFromServerAsync("MarketItem");
+            var _vm = JsonConvert.DeserializeObject<MarketViewModel>(response);
+            vm = _vm;
+
+            gridview.ItemsSource = vm.itemList;
+        }
+
+        private void sellBtn_Click(object sender, RoutedEventArgs e)
+        {
+            this.Frame.Navigate(typeof(AddMarketItemView));
         }
     }
 }

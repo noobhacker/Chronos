@@ -45,7 +45,7 @@
                     <ColumnDefinition Width="*" />
                     <ColumnDefinition Width="Auto" />
                 </Grid.ColumnDefinitions>
-                <TextBox Name="postTB" Text="{Binding Path=PostMessage, Mode=TwoWay}" PlaceholderText="Share your story..." Background="White" Foreground="Black" Height="80"/>
+                <TextBox Name="postTB" Text="{Binding PostMessage, Mode=TwoWay}" PlaceholderText="Share your story..." Background="White" Foreground="Black" Height="80"/>
                 <Button Grid.Column="1" FontFamily="Segoe MDL2 Assets" Content="" 
                         Background="#FF0055A6" VerticalAlignment="Stretch" Width="48"
                         Name="postBtn" Click="postBtn_Click"/>

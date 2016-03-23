@@ -56,7 +56,7 @@ namespace Chronos
         {
             //ProgressControl.SetBarLength(0.78);
             await update();
-            updatedTB.Text = "updated as of " + DateTime.Now.ToString("HH.mmtt");
+            updatedTB.Text = "updated as of " + DateTime.Now.ToString("hh.mmtt");
         }
 
         private void addSubjectBtn_Click(object sender, RoutedEventArgs e)

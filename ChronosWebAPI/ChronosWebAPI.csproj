@@ -252,6 +252,7 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\SampleDirection.cs" />
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
+    <Compile Include="ViewModels\MarketViewModel.cs" />
     <None Include="Controllers\AccountController.cs.backup" />
     <Compile Include="Controllers\ConfessionController.cs" />
     <Compile Include="Controllers\MarketItemController.cs" />
@@ -267,6 +268,10 @@
     <Compile Include="Migrations\201603230648096_i2.cs" />
     <Compile Include="Migrations\201603230648096_i2.Designer.cs">
       <DependentUpon>201603230648096_i2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201603230900519_i3.cs" />
+    <Compile Include="Migrations\201603230900519_i3.Designer.cs">
+      <DependentUpon>201603230900519_i3.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <None Include="Models\AccountBindingModels.cs.backup" />
@@ -286,6 +291,8 @@
     <Compile Include="Providers\ApplicationOAuthProvider.cs" />
     <Compile Include="Results\ChallengeResult.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="ViewModels\AddMarketItemViewModel.cs" />
+    <Compile Include="ViewModels\AddSubjectPageViewModel.cs" />
     <Compile Include="ViewModels\ConfessionViewModel.cs" />
     <Compile Include="ViewModels\HomePageViewModel.cs" />
   </ItemGroup>
@@ -388,6 +395,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201603230648096_i2.resx">
       <DependentUpon>201603230648096_i2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201603230900519_i3.resx">
+      <DependentUpon>201603230900519_i3.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
