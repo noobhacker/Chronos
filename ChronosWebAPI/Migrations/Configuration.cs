@@ -29,7 +29,7 @@ namespace ChronosWebAPI.Migrations
             //
             context.Students.AddOrUpdate(new Student()
             {
-                Id = 0,
+                Id = 1,
                 Email = "chronosmy@outlook.com",
                 FullName = "Developer",
                 StudentId = "888888888",

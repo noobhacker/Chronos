@@ -49,6 +49,19 @@ namespace ChronosWebAPI.Migrations
                 .PrimaryKey(t => t.Id);
             
             CreateTable(
+                "dbo.Events",
+                c => new
+                    {
+                        Id = c.Int(nullable: false, identity: true),
+                        StartDateTime = c.DateTime(nullable: false),
+                        EndDateTime = c.DateTime(nullable: false),
+                        Price = c.Double(nullable: false),
+                        Location = c.String(),
+                        ImageUrl = c.String(),
+                    })
+                .PrimaryKey(t => t.Id);
+            
+            CreateTable(
                 "dbo.MarketItems",
                 c => new
                     {
@@ -144,6 +157,7 @@ namespace ChronosWebAPI.Migrations
             DropTable("dbo.Student_Subject");
             DropTable("dbo.PrivateMessages");
             DropTable("dbo.MarketItems");
+            DropTable("dbo.Events");
             DropTable("dbo.Students");
             DropTable("dbo.Confessions");
             DropTable("dbo.ConfessionLikes");

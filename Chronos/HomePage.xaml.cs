@@ -42,10 +42,10 @@ namespace Chronos
             vm = JsonConvert.DeserializeObject<HomePageViewModel>(subjectsJson);
 
             foreach (var s in vm.laterGVItems)
-                s.StartTimeText = DateTime.Today.Add(s.StartTime).ToString("HH.mmtt");
+                s.StartTimeText = DateTime.Today.Add(s.StartTime).ToString("hh.mmtt");
 
             foreach (var e in vm.laterGVItems)
-                e.EndTimeText = DateTime.Today.Add(e.EndTime).ToString("HH.mmtt");
+                e.EndTimeText = DateTime.Today.Add(e.EndTime).ToString("hh.mmtt");
 
             laterGV.ItemsSource = vm.laterGVItems;
             return true;

@@ -253,21 +253,18 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
     <None Include="Controllers\AccountController.cs.backup" />
+    <Compile Include="Controllers\ConfessionController.cs" />
     <Compile Include="Controllers\SubjectTimeTableController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201603220748572_initial.cs" />
-    <Compile Include="Migrations\201603220748572_initial.Designer.cs">
-      <DependentUpon>201603220748572_initial.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201603221528432_initial1.cs" />
-    <Compile Include="Migrations\201603221528432_initial1.Designer.cs">
-      <DependentUpon>201603221528432_initial1.cs</DependentUpon>
+    <Compile Include="Migrations\201603230332111_initial.cs" />
+    <Compile Include="Migrations\201603230332111_initial.Designer.cs">
+      <DependentUpon>201603230332111_initial.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
-    <Compile Include="Models\AccountBindingModels.cs" />
-    <Compile Include="Models\AccountViewModels.cs" />
+    <None Include="Models\AccountBindingModels.cs.backup" />
+    <None Include="Models\AccountViewModels.cs.backup" />
     <Compile Include="Models\ChronosWebAPIContext.cs" />
     <Compile Include="Models\Confession.cs" />
     <Compile Include="Models\ConfessionLikes.cs" />
@@ -284,6 +281,7 @@
     <Compile Include="Results\ChallengeResult.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="ViewModels\AddSubjectPageViewModel.cs" />
+    <Compile Include="ViewModels\ConfessionViewModel.cs" />
     <Compile Include="ViewModels\HomePageViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -380,11 +378,8 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201603220748572_initial.resx">
-      <DependentUpon>201603220748572_initial.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201603221528432_initial1.resx">
-      <DependentUpon>201603221528432_initial1.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201603230332111_initial.resx">
+      <DependentUpon>201603230332111_initial.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

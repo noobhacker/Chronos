@@ -105,9 +105,10 @@
     <Compile Include="CalendarPage.xaml.cs">
       <DependentUpon>CalendarPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="ConfessionPage.xaml.cs">
-      <DependentUpon>ConfessionPage.xaml</DependentUpon>
+    <Compile Include="ConfessionView.xaml.cs">
+      <DependentUpon>ConfessionView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ConfessionViewModel.cs" />
     <Compile Include="GlobalVariables.cs" />
     <Compile Include="HomePage.xaml.cs">
       <DependentUpon>HomePage.xaml</DependentUpon>
@@ -177,7 +178,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="ConfessionPage.xaml">
+    <Page Include="ConfessionView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -22,6 +22,18 @@ namespace ChronosWebAPI.Controllers
 
             var vm = JsonConvert.DeserializeObject<AddSubjectPageViewModel>(_vm);
 
+            Student stud = await db.Students.FindAsync(vm.student.Id);
+
+            // check if found
+            if (stud != null)
+            {
+                // check if correct id and password
+                if (!(stud.Id == vm.student.Id) || !(stud.Password == vm.student.Password))
+                    return BadRequest(ModelState);
+            }
+            else
+                return BadRequest(ModelState);
+
             var subjectResult = db.Subjects.Add(vm.subject);
 
             // await db.SaveChangesAsync();
@@ -54,7 +66,7 @@ namespace ChronosWebAPI.Controllers
                          join b in db.Student_Subject on a.Id equals b.StudentId
                          join c in db.Subjects on b.SubjectId equals c.Id
                          join d in db.SubjectSessions on c.Id equals d.SubjectId
-                         //where a.Id == Id
+                         where a.Id == Id
                          select new SubjectTimeTable()
                          {
                              SubjectText = c.Code + " " + c.Name,
