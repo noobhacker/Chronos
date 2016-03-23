@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Chronos
 {
-    public class EventList
+    public class EventListItem
     {
         public int Id { get; set; }
         public string EventName { get; set; }
@@ -19,7 +19,7 @@ namespace Chronos
     }
     public class PlacesViewModel
     {
-        public ObservableCollection<EventList> eventList
-            = new ObservableCollection<EventList>();
+        public ObservableCollection<EventListItem> eventList
+            = new ObservableCollection<EventListItem>();
     }
 }

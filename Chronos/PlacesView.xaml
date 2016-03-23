@@ -35,6 +35,7 @@
         </VisualStateManager.VisualStateGroups>
         <StackPanel Margin="8,0">
             <StackPanel>
+                <Button Content="test" Click="Button_Click" />
                 <Grid>
                     <TextBox Margin="8,36" Background="White" PlaceholderText="Search"/>
                     <Button HorizontalAlignment="Right" FontFamily="Segoe MDL2 Assets" Content="" 

@@ -26,7 +26,7 @@ namespace Chronos
     /// </summary>
     public sealed partial class HomeView : Page
     {
-        HomePageViewModel vm = new HomePageViewModel();
+        HomeViewModel vm = new HomeViewModel();
         public HomeView()
         {
             this.InitializeComponent();
@@ -39,7 +39,7 @@ namespace Chronos
             string target = "SubjectTimeTable";
             string subjectsJson = await WebAPIClass.GetJsonFromServerAsync(target);
 
-            var _vm = JsonConvert.DeserializeObject<HomePageViewModel>(subjectsJson);
+            var _vm = JsonConvert.DeserializeObject<HomeViewModel>(subjectsJson);
         
             vm.laterGVItems = _vm.laterGVItems;
 

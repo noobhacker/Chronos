@@ -17,7 +17,7 @@ namespace Chronos
         public string StartTimeText { get; set; }
         public string EndTimeText { get; set; }
     }
-    public class HomePageViewModel
+    public class HomeViewModel
     {
         public ObservableCollection<SubjectTimeTable> laterGVItems = 
             new ObservableCollection<SubjectTimeTable>();

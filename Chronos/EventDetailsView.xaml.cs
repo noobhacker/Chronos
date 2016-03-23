@@ -20,16 +20,13 @@ namespace Chronos
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
-    public sealed partial class PlacesView : Page
+    public sealed partial class EventDetailsView : Page
     {
-        public PlacesView()
+        EventDetailsViewModel vm = new EventDetailsViewModel();
+        public EventDetailsView()
         {
             this.InitializeComponent();
-        }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            Frame.Navigate(typeof(EventDetailsView));
+            this.DataContext = vm;
         }
     }
 }

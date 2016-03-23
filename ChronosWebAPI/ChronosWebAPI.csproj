@@ -299,7 +299,7 @@
     <Compile Include="ViewModels\AddMarketItemViewModel.cs" />
     <Compile Include="ViewModels\AddSubjectViewModel.cs" />
     <Compile Include="ViewModels\ConfessionViewModel.cs" />
-    <Compile Include="ViewModels\HomePageViewModel.cs" />
+    <Compile Include="ViewModels\HomeViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Areas\HelpPage\HelpPage.css" />

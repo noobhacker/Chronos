@@ -33,7 +33,7 @@
                 </VisualState>
             </VisualStateGroup>
         </VisualStateManager.VisualStateGroups>
-        <StackPanel Margin="4">
+        <StackPanel Margin="4" HorizontalAlignment="Center">
             <TextBlock FontSize="28" FontWeight="Thin" Text="Add a subject" />
             <StackPanel Orientation="Vertical" HorizontalAlignment="Left">
                 <TextBox Name="codeTB" Header="Subject Code" Width="608" 

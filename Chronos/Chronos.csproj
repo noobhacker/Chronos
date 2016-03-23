@@ -113,11 +113,15 @@
       <DependentUpon>ConfessionView.xaml</DependentUpon>
     </Compile>
     <Compile Include="ConfessionViewModel.cs" />
+    <Compile Include="EventDetailsView.xaml.cs">
+      <DependentUpon>EventDetailsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="EventDetailsViewModel.cs" />
     <Compile Include="GlobalVariables.cs" />
     <Compile Include="HomeView.xaml.cs">
       <DependentUpon>HomeView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="HomePageViewModel.cs" />
+    <Compile Include="HomeViewModel.cs" />
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
@@ -127,6 +131,8 @@
     <Compile Include="MarketViewModel.cs" />
     <Compile Include="Models\Confession.cs" />
     <Compile Include="Models\ConfessionLikes.cs" />
+    <Compile Include="Models\Event.cs" />
+    <Compile Include="Models\Happening.cs" />
     <Compile Include="Models\MarketItem.cs" />
     <Compile Include="Models\PrivateMessage.cs" />
     <Compile Include="Models\Student.cs" />
@@ -187,6 +193,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="ConfessionView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="EventDetailsView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

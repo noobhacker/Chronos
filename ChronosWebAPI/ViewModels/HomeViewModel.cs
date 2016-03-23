@@ -15,7 +15,7 @@ namespace Chronos
         public string Lecturer { get; set; }
         public string ClassType { get; set; }
     }
-    public class HomePageViewModel
+    public class HomeViewModel
     {
         public ObservableCollection<SubjectTimeTable> laterGVItems = 
             new ObservableCollection<SubjectTimeTable>();

@@ -45,7 +45,7 @@ namespace ChronosWebAPI.Controllers
         }
 
         // GET: api/Student_Subject
-        [ResponseType(typeof(HomePageViewModel))]
+        [ResponseType(typeof(HomeViewModel))]
         public async Task<IHttpActionResult> GetSubjectTimeTable(int Id)
         {
             var result = from a in db.Students
@@ -62,7 +62,7 @@ namespace ChronosWebAPI.Controllers
                              EndTime = d.EndTime
                          };
 
-            var returnValue = new HomePageViewModel();
+            var returnValue = new HomeViewModel();
             returnValue.laterGVItems = new ObservableCollection<SubjectTimeTable>(result);
             
             return Ok(returnValue);
