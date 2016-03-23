@@ -95,6 +95,10 @@
     <None Include="project.json" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddMarketItemView.xaml.cs">
+      <DependentUpon>AddMarketItemView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AddMarketItemViewModel.cs" />
     <Compile Include="AddSubjectPage.xaml.cs">
       <DependentUpon>AddSubjectPage.xaml</DependentUpon>
     </Compile>
@@ -117,8 +121,8 @@
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="MarketPage.xaml.cs">
-      <DependentUpon>MarketPage.xaml</DependentUpon>
+    <Compile Include="MarketView.xaml.cs">
+      <DependentUpon>MarketView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Models\Confession.cs" />
     <Compile Include="Models\ConfessionLikes.cs" />
@@ -171,6 +175,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="AddMarketItemView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="AddSubjectPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -191,7 +199,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="MarketPage.xaml">
+    <Page Include="MarketView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

@@ -254,6 +254,7 @@
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
     <None Include="Controllers\AccountController.cs.backup" />
     <Compile Include="Controllers\ConfessionController.cs" />
+    <Compile Include="Controllers\MarketItemController.cs" />
     <Compile Include="Controllers\SubjectTimeTableController.cs" />
     <Compile Include="Controllers\UserValidator.cs" />
     <Compile Include="Global.asax.cs">
@@ -285,7 +286,6 @@
     <Compile Include="Providers\ApplicationOAuthProvider.cs" />
     <Compile Include="Results\ChallengeResult.cs" />
     <Compile Include="Startup.cs" />
-    <Compile Include="ViewModels\AddSubjectPageViewModel.cs" />
     <Compile Include="ViewModels\ConfessionViewModel.cs" />
     <Compile Include="ViewModels\HomePageViewModel.cs" />
   </ItemGroup>

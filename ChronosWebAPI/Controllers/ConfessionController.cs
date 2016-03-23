@@ -15,7 +15,7 @@ namespace ChronosWebAPI.Controllers
         private ChronosWebAPIContext db = new ChronosWebAPIContext();
 
         [ResponseType(typeof(ConfessionViewModel))]
-        public async Task<IHttpActionResult> PostConfession([FromBody]ConfessionViewModel vm)
+        public async Task<IHttpActionResult> Post([FromBody]ConfessionViewModel vm)
         {
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
@@ -39,7 +39,7 @@ namespace ChronosWebAPI.Controllers
 
         // get confession based on id later
         [ResponseType(typeof(ConfessionViewModel))]
-        public async Task<IHttpActionResult> GetConfession()
+        public async Task<IHttpActionResult> Get()
         {
             var result = from a in db.Confessions
                          select new ConfessionList()

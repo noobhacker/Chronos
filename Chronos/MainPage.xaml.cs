@@ -59,7 +59,7 @@ namespace Chronos
                         navigationFrame.Navigate(typeof(PlacesPage));
                         break;
                     case 4:
-                        navigationFrame.Navigate(typeof(MarketPage));
+                        navigationFrame.Navigate(typeof(MarketView));
                         break;
                 }
             }
