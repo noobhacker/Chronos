@@ -14,24 +14,15 @@ namespace ChronosWebAPI.Controllers
     {
         private ChronosWebAPIContext db = new ChronosWebAPIContext();
 
-        [ResponseType(typeof(string))]
-        public async Task<IHttpActionResult> PostConfession([FromBody]string _vm)
+        [ResponseType(typeof(ConfessionViewModel))]
+        public async Task<IHttpActionResult> PostConfession([FromBody]ConfessionViewModel vm)
         {
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
 
-            var vm = JsonConvert.DeserializeObject<ConfessionViewModel>(_vm);
+            // var vm = JsonConvert.DeserializeObject<ConfessionViewModel>(_vm);
 
-            Student stud = await db.Students.FindAsync(vm.student.Id);
-
-            // check if found
-            if (stud != null)
-            {
-                // check if correct id and password
-                if (!(stud.Id == vm.student.Id) || !(stud.Password == vm.student.Password))
-                    return BadRequest(ModelState);
-            }
-            else
+            if (await UserValidator.ValidateUser(vm.student) == false)
                 return BadRequest(ModelState);
 
             db.Confessions.Add(new Confession()
@@ -58,13 +49,14 @@ namespace ChronosWebAPI.Controllers
                              PostDateTime=a.PostDateTime
                          };
 
-            foreach(var r in result)
-            {
-                r.Likes = (from a in db.Confessions
-                           join b in db.ConfessionLikes on a.Id equals b.ConfessionId
-                           where a.Id == r.Id
-                           select a).Count().ToString();
-            }
+            //foreach(var r in result)
+            //{
+            //    var q = from a in db.Confessions
+            //             join b in db.ConfessionLikes on a.Id equals b.ConfessionId
+            //             where a.Id == r.Id
+            //             select a;
+            //    //r.Likes = q.ToList().Count();
+            //}
 
             var returnValue = new ConfessionViewModel();
             returnValue.confessionList = new ObservableCollection<ConfessionList>(result);

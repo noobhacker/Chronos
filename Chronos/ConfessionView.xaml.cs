@@ -1,17 +1,6 @@
 ﻿using Newtonsoft.Json;
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Runtime.InteropServices.WindowsRuntime;
-using Windows.Foundation;
-using Windows.Foundation.Collections;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Controls.Primitives;
-using Windows.UI.Xaml.Data;
-using Windows.UI.Xaml.Input;
-using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 using System.Collections.ObjectModel;
 
@@ -34,10 +23,11 @@ namespace Chronos
         private async void refreshList()
         {
             string response = await WebAPIClass.GetJsonFromServerAsync("Confession");
-            vm = JsonConvert.DeserializeObject<ConfessionViewModel>(response);
+            var _vm = JsonConvert.DeserializeObject<ConfessionViewModel>(response);
+            vm.confessionList = _vm.confessionList;
             listview.ItemsSource = vm.confessionList;
 
-            if (vm.student.DailyConfessionChance == 0)
+            if (GlobalVariables.CurrentUser.DailyConfessionChance == 0)
                 postTB.Visibility = Visibility.Collapsed;
         }
 
@@ -48,6 +38,7 @@ namespace Chronos
 
         private async void postBtn_Click(object sender, RoutedEventArgs e)
         {
+            vm.PostMessage = postTB.Text; // remove this after binding is working
             var _vm = vm;
             // remove entries downloaded before upload
             // don't post message only because need student for auth

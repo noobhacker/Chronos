@@ -255,12 +255,17 @@
     <None Include="Controllers\AccountController.cs.backup" />
     <Compile Include="Controllers\ConfessionController.cs" />
     <Compile Include="Controllers\SubjectTimeTableController.cs" />
+    <Compile Include="Controllers\UserValidator.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Migrations\201603230332111_initial.cs" />
     <Compile Include="Migrations\201603230332111_initial.Designer.cs">
       <DependentUpon>201603230332111_initial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201603230648096_i2.cs" />
+    <Compile Include="Migrations\201603230648096_i2.Designer.cs">
+      <DependentUpon>201603230648096_i2.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <None Include="Models\AccountBindingModels.cs.backup" />
@@ -380,6 +385,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201603230332111_initial.resx">
       <DependentUpon>201603230332111_initial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201603230648096_i2.resx">
+      <DependentUpon>201603230648096_i2.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

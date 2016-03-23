@@ -12,8 +12,9 @@ namespace Chronos
     {
         public int Id { get; set; } //hold id for likes target
         public string Message { get; set; }
-        public string Likes { get; set; }
+        public int Likes { get; set; }
         public DateTime PostDateTime { get; set; }
+        public string PostDateTimeText { get; set; }
     }
     public class ConfessionViewModel
     {

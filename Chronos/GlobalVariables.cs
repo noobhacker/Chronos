@@ -21,7 +21,8 @@ namespace Chronos
                 Email = "chronosmy@outlook.com",
                 FullName = "Developer",
                 StudentId = "888888888",
-                Password = "Microsoft123"
+                Password = "Microsoft123",
+                DailyConfessionChance = 100
             };
         }
 

@@ -22,30 +22,17 @@ namespace ChronosWebAPI.Controllers
 
             var vm = JsonConvert.DeserializeObject<AddSubjectPageViewModel>(_vm);
 
-            Student stud = await db.Students.FindAsync(vm.student.Id);
-
-            // check if found
-            if (stud != null)
-            {
-                // check if correct id and password
-                if (!(stud.Id == vm.student.Id) || !(stud.Password == vm.student.Password))
-                    return BadRequest(ModelState);
-            }
-            else
+            if (await UserValidator.ValidateUser(vm.student) == false)
                 return BadRequest(ModelState);
 
             var subjectResult = db.Subjects.Add(vm.subject);
-
-            // await db.SaveChangesAsync();
-
+            
             foreach (var s in vm.sessions)
             {
                 s.SubjectId = subjectResult.Id;
                 db.SubjectSessions.Add(s);
             }
-
-            // await db.SaveChangesAsync();
-
+            
             db.Student_Subject.Add(new Student_Subject()
             {
                 StudentId = vm.student.Id,
