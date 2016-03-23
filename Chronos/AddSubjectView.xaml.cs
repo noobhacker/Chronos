@@ -15,10 +15,10 @@ namespace Chronos
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
-    public sealed partial class AddSubjectPage : Page
+    public sealed partial class AddSubjectView : Page
     {
-        AddSubjectPageViewModel vm = new AddSubjectPageViewModel();
-        public AddSubjectPage()
+        AddSubjectViewModel vm = new AddSubjectViewModel();
+        public AddSubjectView()
         {
             this.InitializeComponent();
             this.DataContext = vm;      

@@ -12,15 +12,14 @@ namespace ChronosWebAPI.Controllers
     public class SubjectTimeTableController : ApiController
     {
         private ChronosWebAPIContext db = new ChronosWebAPIContext();
-
-        // POST: api/SubjectSessions
+        
         [ResponseType(typeof(string))]
         public async Task<IHttpActionResult> PostSubjectTimeTable([FromBody]string _vm)
         {
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
 
-            var vm = JsonConvert.DeserializeObject<AddSubjectPageViewModel>(_vm);
+            var vm = JsonConvert.DeserializeObject<AddSubjectViewModel>(_vm);
 
             if (await UserValidator.ValidateUser(vm.student) == false)
                 return BadRequest(ModelState);

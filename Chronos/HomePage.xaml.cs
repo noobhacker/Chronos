@@ -61,7 +61,7 @@ namespace Chronos
 
         private void addSubjectBtn_Click(object sender, RoutedEventArgs e)
         {
-            this.Frame.Navigate(typeof(AddSubjectPage)); ;
+            this.Frame.Navigate(typeof(AddSubjectView)); ;
         }
     }
 

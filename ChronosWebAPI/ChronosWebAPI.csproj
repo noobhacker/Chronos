@@ -292,7 +292,7 @@
     <Compile Include="Results\ChallengeResult.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="ViewModels\AddMarketItemViewModel.cs" />
-    <Compile Include="ViewModels\AddSubjectPageViewModel.cs" />
+    <Compile Include="ViewModels\AddSubjectViewModel.cs" />
     <Compile Include="ViewModels\ConfessionViewModel.cs" />
     <Compile Include="ViewModels\HomePageViewModel.cs" />
   </ItemGroup>

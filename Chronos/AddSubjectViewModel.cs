@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Chronos
 {
-    public class AddSubjectPageViewModel
+    public class AddSubjectViewModel
     {
         public Subject subject { get; set; }
     
@@ -16,7 +16,7 @@ namespace Chronos
 
         public Student student { get; set; } 
 
-        public AddSubjectPageViewModel()
+        public AddSubjectViewModel()
         {
             subject = new Subject();
             student = GlobalVariables.CurrentUser;

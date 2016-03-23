@@ -5,7 +5,6 @@ using System.Web.Http.Description;
 using ChronosWebAPI.Models;
 using Chronos;
 using System.Collections.ObjectModel;
-using Newtonsoft.Json;
 using System;
 
 namespace ChronosWebAPI.Controllers
