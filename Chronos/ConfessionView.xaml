@@ -45,10 +45,12 @@
                     <ColumnDefinition Width="*" />
                     <ColumnDefinition Width="Auto" />
                 </Grid.ColumnDefinitions>
-                <TextBox PlaceholderText="Share your story..." Background="White" Foreground="Black" Height="80"/>
-                <Button Grid.Column="1" FontFamily="Segoe MDL2 Assets" Content="" Background="#FF0055A6" VerticalAlignment="Stretch" Width="48"/>
+                <TextBox Name="postTB" Text="{Binding PostMessage, Mode=TwoWay}" PlaceholderText="Share your story..." Background="White" Foreground="Black" Height="80"/>
+                <Button Grid.Column="1" FontFamily="Segoe MDL2 Assets" Content="" 
+                        Background="#FF0055A6" VerticalAlignment="Stretch" Width="48"
+                        Name="postBtn" Click="postBtn_Click"/>
             </Grid>
-            <ListView>
+            <ListView Name="listview">
                 <ListView.ItemContainerStyle>
                     <Style TargetType="ListViewItem">
                         <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
@@ -84,7 +86,10 @@
                                     </StackPanel>
                                     <Button Background="Transparent" Width="58" VerticalAlignment="Stretch"/>
                                 </Grid>
-                                <TextBlock Grid.Column="3" VerticalAlignment="Center" Text="3 minute ago" Margin="8" FontWeight="Light" FontSize="12" Opacity="0.85"/>
+                                <StackPanel Orientation="Horizontal" Grid.Column="3" VerticalAlignment="Center" Margin="8" >
+                                    <TextBlock Text="{Binding PostDateTimeText}" FontWeight="Light" FontSize="12" Opacity="0.85"/>
+                                    <TextBlock Text="minute ago" Margin="4,0,0,0" FontWeight="Light" FontSize="12" Opacity="0.85"/>
+                                </StackPanel>
                             </Grid>
                         </Grid>
 

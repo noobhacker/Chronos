@@ -47,42 +47,14 @@ namespace Chronos
             string target = string.Format("SubjectTimeTable");
             vm.subject.Code = vm.subject.Code.Replace(" ", "");
             var obj = JsonConvert.SerializeObject(vm);
+
+            vm.student.FullName = ""; // remove this because name doesnt matter in adding subject, only id required
+
+            await WebAPIClass.PostJsonToServerAsync(obj, target);
             
-            await postJsonToServerAsync(obj, target);
-
-
-            //vm.subject.Code = codeTB.Text;
-            //vm.subject.Name = subjectTB.Text;
-            //vm.subject.Lecturer = lecturerTB.Text;
-
-            //await postJsonToServer(subject, "Subjects");
-
-            //foreach(var s in sessions)
-            //{
-            //    s.Subject = subject;                
-            //    await postJsonToServer(s, "SubjectSessions");
-            //}
-
-            //await postJsonToServer(new Student_Subject()
-            //{
-            //    Subject = subject,
-            //    Student = GlobalVariables.CurrentUser
-            //}, "Student_Subject");
-
             this.Frame.Navigate(typeof(HomePage));
         }
-        
-        private async Task<bool> postJsonToServerAsync(object json, string target)
-        {
-            var subjectJson = JsonConvert.SerializeObject(json);
-            var client = new HttpClient();
-            var HttpContent = new HttpStringContent(subjectJson);
-            HttpContent.Headers.ContentType = new Windows.Web.Http.Headers.HttpMediaTypeHeaderValue("application/json");
-
-            var returnValue = await client.PostAsync(new Uri(GlobalVariables.WebAPIAddress + target), HttpContent);
-            
-            return true;
-        }
+       
 
     }
 }

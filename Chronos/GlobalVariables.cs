@@ -11,8 +11,6 @@ namespace Chronos
 {
     public static class GlobalVariables
     {
-        public const string WebAPIAddress = "http://localhost:17461/api/"; // "http://chronosmy.azurewebsites.net/api/";
-
         public static Student CurrentUser { get; set; }
 
         static GlobalVariables()

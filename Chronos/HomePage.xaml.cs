@@ -37,7 +37,7 @@ namespace Chronos
         private async Task<bool> update()
         {
             string target = "SubjectTimeTable";
-            string subjectsJson = await getJsonFromServer(target);
+            string subjectsJson = await WebAPIClass.GetJsonFromServerAsync(target);
 
             vm = JsonConvert.DeserializeObject<HomePageViewModel>(subjectsJson);
 
@@ -51,14 +51,6 @@ namespace Chronos
             return true;
         }   
 
-        private async Task<string> getJsonFromServer(string target)
-        {
-            var client = new HttpClient();
-            string result = await client.GetStringAsync(GlobalVariables.WebAPIAddress + 
-                target + "/" + GlobalVariables.CurrentUser.Id);
-
-            return result;
-        }
 
         protected override async void OnNavigatedTo(NavigationEventArgs e)
         {

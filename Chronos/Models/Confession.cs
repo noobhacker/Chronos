@@ -14,5 +14,7 @@ namespace ChronosWebAPI.Models
         
         public int PostedById { get; set; }
         public Student Student { get; set; }
+
+        public string Message { get; set; }
     }
 }

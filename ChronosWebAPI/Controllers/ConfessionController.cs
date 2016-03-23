@@ -6,6 +6,7 @@ using ChronosWebAPI.Models;
 using Chronos;
 using System.Collections.ObjectModel;
 using Newtonsoft.Json;
+using System;
 
 namespace ChronosWebAPI.Controllers
 {
@@ -19,67 +20,58 @@ namespace ChronosWebAPI.Controllers
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
 
-            //var vm = JsonConvert.DeserializeObject<AddSubjectPageViewModel>(_vm);
+            var vm = JsonConvert.DeserializeObject<ConfessionViewModel>(_vm);
 
-            //Student stud = await db.Students.FindAsync(vm.student.Id);
+            Student stud = await db.Students.FindAsync(vm.student.Id);
 
-            //// check if found
-            //if (stud != null)
-            //{
-            //    // check if correct id and password
-            //    if (!(stud.Id == vm.student.Id) || !(stud.Password == vm.student.Password))
-            //        return BadRequest(ModelState);
-            //}
-            //else
-            //    return BadRequest(ModelState);
+            // check if found
+            if (stud != null)
+            {
+                // check if correct id and password
+                if (!(stud.Id == vm.student.Id) || !(stud.Password == vm.student.Password))
+                    return BadRequest(ModelState);
+            }
+            else
+                return BadRequest(ModelState);
 
-            //var subjectResult = db.Subjects.Add(vm.subject);
+            db.Confessions.Add(new Confession()
+            {
+                PostDateTime = DateTime.Now,
+                PostedById = vm.student.Id,
+                Message = vm.PostMessage
+            });
+                       
+            await db.SaveChangesAsync();
 
-            //// await db.SaveChangesAsync();
-
-            //foreach (var s in vm.sessions)
-            //{
-            //    s.SubjectId = subjectResult.Id;
-            //    db.SubjectSessions.Add(s);
-            //}
-
-            //// await db.SaveChangesAsync();
-
-            //db.Student_Subject.Add(new Student_Subject()
-            //{
-            //    StudentId = vm.student.Id,
-            //    SubjectId = subjectResult.Id,
-            //    // Student= vm.student // what is this for @@?
-            //});
-
-            //await db.SaveChangesAsync();
-
-            //return CreatedAtRoute("DefaultApi", new { id = vm.student.Id }, vm);
+            return CreatedAtRoute("DefaultApi", new { id = vm.student.Id }, vm);
         }
 
-        //[ResponseType(typeof(HomePageViewModel))]
-        //public async Task<IHttpActionResult> GetConfession(int Id)
-        //{
-        //    //var result = from a in db.Students
-        //    //             join b in db.Student_Subject on a.Id equals b.StudentId
-        //    //             join c in db.Subjects on b.SubjectId equals c.Id
-        //    //             join d in db.SubjectSessions on c.Id equals d.SubjectId
-        //    //             where a.Id == Id
-        //    //             select new SubjectTimeTable()
-        //    //             {
-        //    //                 SubjectText = c.Code + " " + c.Name,
-        //    //                 ClassType = d.SessionType,
-        //    //                 Lecturer = c.Lecturer,
-        //    //                 StartTime = d.StartTime,
-        //    //                 EndTime = d.EndTime
-        //    //             };
+        // get confession based on id later
+        [ResponseType(typeof(ConfessionViewModel))]
+        public async Task<IHttpActionResult> GetConfession()
+        {
+            var result = from a in db.Confessions
+                         select new ConfessionList()
+                         {
+                             Id=a.Id,
+                             Message=a.Message,
+                             PostDateTime=a.PostDateTime
+                         };
 
-        //    //var returnValue = new HomePageViewModel();
-        //    //returnValue.laterGVItems = new ObservableCollection<SubjectTimeTable>(result);
+            foreach(var r in result)
+            {
+                r.Likes = (from a in db.Confessions
+                           join b in db.ConfessionLikes on a.Id equals b.ConfessionId
+                           where a.Id == r.Id
+                           select a).Count().ToString();
+            }
 
-        //    //return Ok(returnValue);
+            var returnValue = new ConfessionViewModel();
+            returnValue.confessionList = new ObservableCollection<ConfessionList>(result);
 
-        //}
+            return Ok(returnValue);
+
+        }
     }
     
 }
