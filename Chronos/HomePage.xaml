@@ -36,19 +36,19 @@
         </VisualStateManager.VisualStateGroups>
         <StackPanel x:Name="stackPanel1">
             <StackPanel HorizontalAlignment="Center">
-                <TextBlock Text="Hi, Lee" FontSize="28" FontWeight="Thin" Margin="16" HorizontalAlignment="Center"/>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Hi, " FontSize="28" FontWeight="Thin" Margin="16,16,4,16" HorizontalAlignment="Center"/>
+                    <TextBlock Name="nameTB" Text="Lee" FontSize="28" FontWeight="Thin" Margin="4,16,16,16" HorizontalAlignment="Center"/>
+                </StackPanel>
                 <Grid>
                     <Ellipse x:Name="ellipse" Height="120" Width="120" Stroke="White" StrokeThickness="2"/>
                     <TextBlock x:Name="textBlock" FontFamily="Segoe MDL2 Assets" Text="" FontSize="60" 
                            HorizontalAlignment="Center" VerticalAlignment="Center" />
                 </Grid>
-                <TextBlock Name="updatedTB" Text="updated as of 5:04PM" FontSize="12" FontWeight="Thin" Margin="8"/>
+                <TextBlock Name="updatedTB" Text="updated as of 5:04PM" FontSize="12" FontWeight="Thin" Margin="8" HorizontalAlignment="Center"/>
             </StackPanel>
 
-            <StackPanel Orientation="Horizontal">
-                <TextBlock Text="Now - " FontSize="20" FontWeight="ExtraLight" Margin="0,24,8,0"/>
                 <TextBlock Name="nowTB" Text="Friday, 18 March 2016" FontSize="20" FontWeight="ExtraLight" Margin="0,24,0,0"/>
-            </StackPanel>
 
             <StackPanel x:Name="stackPanel" Orientation="Horizontal" Margin="0,20,0,0" Visibility="Collapsed">
 
@@ -81,8 +81,9 @@
 
             <TextBlock Text="Later" FontSize="20" FontWeight="ExtraLight" Margin="0,24,0,0"/>
             <GridView Name="laterGV">
-                
-                        <Grid Height="90" Margin="0,16,0,0">
+                <GridView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid Height="90" Margin="0,16,0,0" Width="300">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="10" />
                                 <ColumnDefinition Width="*" />
@@ -91,22 +92,24 @@
                             <Grid Grid.Column="1" Margin="8,0,0,0">
                                 <Grid.RowDefinitions>
                                     <RowDefinition Height="Auto" />
-                                    <RowDefinition Height="Auto" />
                                     <RowDefinition Height="*" />
                                     <RowDefinition Height="Auto" />
                                 </Grid.RowDefinitions>
-
-                                <TextBlock Text="{Binding SubjectText}" FontSize="16" TextWrapping="WrapWholeWords"/>
-                        <TextBlock Text="{Binding ClassType}" FontSize="12"/>
-                        <StackPanel Orientation="Horizontal">
-                                    <TextBlock Text="{Binding StartTime}" FontSize="16" Margin="0,4,0,0" Grid.Row="1" FontWeight="Light"/>
-                                    <TextBlock Text="-" FontSize="16" Margin="4" Grid.Row="1" FontWeight="Light"/>
-                                    <TextBlock Text="{Binding EndTime}" FontSize="16" Margin="0,4,0,0" Grid.Row="1" FontWeight="Light"/>
+                                <StackPanel>
+                                    <TextBlock Text="{Binding SubjectText}" FontSize="16" TextWrapping="WrapWholeWords"/>
+                                    <TextBlock Text="{Binding ClassType}" FontSize="12"/>
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock Text="{Binding StartTimeText}" FontSize="16" Margin="0,4,0,0" Grid.Row="1" FontWeight="Light" />
+                                        <TextBlock Text="-" FontSize="16" Margin="4" Grid.Row="1" FontWeight="Light"/>
+                                        <TextBlock Text="{Binding EndTimeText}" FontSize="16" Margin="0,4,0,0" Grid.Row="1" FontWeight="Light"/>
+                                    </StackPanel>
                                 </StackPanel>
-                                <TextBlock Text="{Binding Lecturer}" FontSize="12" Margin="0,0,0,4" FontWeight="Light" Grid.Row="3"/>
+                                <TextBlock Text="{Binding Lecturer}" FontSize="12" Margin="0,0,0,4" FontWeight="Light" Grid.Row="2"/>
 
                             </Grid>
                         </Grid>
+                    </DataTemplate>
+                </GridView.ItemTemplate>
             </GridView>
             <Button Name="addSubjectBtn" Content="Add more subjects..." Background="Transparent" HorizontalAlignment="Stretch" Click="addSubjectBtn_Click"
                     Margin="0,12,0,0"/>

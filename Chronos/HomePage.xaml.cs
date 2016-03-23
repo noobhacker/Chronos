@@ -26,22 +26,30 @@ namespace Chronos
     /// </summary>
     public sealed partial class HomePage : Page
     {
+        HomePageViewModel vm = new HomePageViewModel();
         public HomePage()
         {
             this.InitializeComponent();
-            nowTB.Text = DateTime.Now.ToString("d MMM yyyy");
+            nowTB.Text = DateTime.Now.ToString("D");
+            nameTB.Text = GlobalVariables.CurrentUser.FullName;
         }
-                
-        private async void update()
+
+        private async Task<bool> update()
         {
-            try
-            {
-                string subjectsJson = await getJsonFromServer("SubjectTimeTable");
-                var subjects = JsonConvert.DeserializeObject<List<Subject>>(subjectsJson);
-                laterGV.ItemsSource = subjects;
-            }
-            catch { }
-        }        
+            string target = "SubjectTimeTable";
+            string subjectsJson = await getJsonFromServer(target);
+
+            vm = JsonConvert.DeserializeObject<HomePageViewModel>(subjectsJson);
+
+            foreach (var s in vm.laterGVItems)
+                s.StartTimeText = DateTime.Today.Add(s.StartTime).ToString("HH.mmtt");
+
+            foreach (var e in vm.laterGVItems)
+                e.EndTimeText = DateTime.Today.Add(e.EndTime).ToString("HH.mmtt");
+
+            laterGV.ItemsSource = vm.laterGVItems;
+            return true;
+        }   
 
         private async Task<string> getJsonFromServer(string target)
         {
@@ -52,10 +60,11 @@ namespace Chronos
             return result;
         }
 
-        protected override void OnNavigatedTo(NavigationEventArgs e)
+        protected override async void OnNavigatedTo(NavigationEventArgs e)
         {
             //ProgressControl.SetBarLength(0.78);
-            update();
+            await update();
+            updatedTB.Text = "updated as of " + DateTime.Now.ToString("HH.mmtt");
         }
 
         private void addSubjectBtn_Click(object sender, RoutedEventArgs e)

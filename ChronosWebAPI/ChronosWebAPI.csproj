@@ -252,18 +252,8 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\SampleDirection.cs" />
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
-    <Compile Include="Controllers\AccountController.cs" />
-    <Compile Include="Controllers\ConfessionLikesController.cs" />
-    <Compile Include="Controllers\ConfessionsController.cs" />
-    <Compile Include="Controllers\EventsController.cs" />
-    <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\MarketItemsController.cs" />
+    <None Include="Controllers\AccountController.cs.backup" />
     <Compile Include="Controllers\SubjectTimeTableController.cs" />
-    <Compile Include="Controllers\PrivateMessagesController.cs" />
-    <Compile Include="Controllers\StudentsController.cs" />
-    <Compile Include="Controllers\Student_SubjectController.cs" />
-    <Compile Include="Controllers\SubjectsController.cs" />
-    <Compile Include="Controllers\SubjectSessionsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -305,8 +295,8 @@
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
-    <Content Include="Scripts\ai.0.22.8-build00154.js" />
-    <Content Include="Scripts\ai.0.22.8-build00154.min.js" />
+    <Content Include="Scripts\ai.0.22.9-build00167.js" />
+    <Content Include="Scripts\ai.0.22.9-build00167.min.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Areas\HelpPage\Views\Web.config" />

@@ -14,10 +14,12 @@ namespace Chronos
         public TimeSpan EndTime { get; set; }
         public string Lecturer { get; set; }
         public string ClassType { get; set; }
+        public string StartTimeText { get; set; }
+        public string EndTimeText { get; set; }
     }
     public class HomePageViewModel
     {
-        ObservableCollection<SubjectTimeTable> laterGVItems = 
+        public ObservableCollection<SubjectTimeTable> laterGVItems = 
             new ObservableCollection<SubjectTimeTable>();
     }
 }

@@ -11,14 +11,6 @@ namespace Chronos
 {
     public static class GlobalVariables
     {
-        #region INotifyPropertyChanged
-        //public event PropertyChangedEventHandler PropertyChanged;
-        //protected void OnPropertyChanged([CallerMemberName] string propertyName = null)
-        //{
-        //    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        //}
-        #endregion
-
         public const string WebAPIAddress = "http://localhost:17461/api/"; // "http://chronosmy.azurewebsites.net/api/";
 
         public static Student CurrentUser { get; set; }
@@ -27,7 +19,7 @@ namespace Chronos
         {
             CurrentUser = new Student()
             {
-                Id = 0,
+                Id = 1,
                 Email = "chronosmy@outlook.com",
                 FullName = "Developer",
                 StudentId = "888888888",
