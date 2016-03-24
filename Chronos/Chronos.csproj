@@ -144,6 +144,7 @@
       <DependentUpon>PlacesView.xaml</DependentUpon>
     </Compile>
     <Compile Include="PlacesViewModel.cs" />
+    <Compile Include="PrivateMessageViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RoundProgressControl.xaml.cs">
       <DependentUpon>RoundProgressControl.xaml</DependentUpon>

@@ -12,16 +12,11 @@ namespace Chronos
     {
         public ObservableCollection<Event> eventList =
             new ObservableCollection<Event>();
-
-        public ObservableCollection<string> upcomingList =
-            new ObservableCollection<string>();
-
         public Event input { get; set; }
-        public Student student { get; set; }
+        public Student student { get; set; }        
         public CalendarViewModel()
         {
-            student = GlobalVariables.CurrentUser;
-            input = new Event();
+            //student = GlobalVariables.CurrentUser;
         }
     }
 }

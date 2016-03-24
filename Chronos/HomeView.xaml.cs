@@ -30,11 +30,12 @@ namespace Chronos
         public HomeView()
         {
             this.InitializeComponent();
+            this.NavigationCacheMode = NavigationCacheMode.Enabled;
             nowTB.Text = DateTime.Now.ToString("D");
             nameTB.Text = GlobalVariables.CurrentUser.FullName;
         }
 
-        private async Task<bool> update()
+        private async Task<bool> refresh()
         {
             string target = "SubjectTimeTable";
             string subjectsJson = await WebAPIClass.GetJsonFromServerAsync(target, GlobalVariables.CurrentUser.Id.ToString());
@@ -57,7 +58,7 @@ namespace Chronos
         protected override async void OnNavigatedTo(NavigationEventArgs e)
         {
             //ProgressControl.SetBarLength(0.78);
-            await update();
+            await refresh();
             updatedTB.Text = "updated as of " + DateTime.Now.ToString("hh.mmtt");
         }
 

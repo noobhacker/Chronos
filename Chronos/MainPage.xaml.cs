@@ -62,6 +62,7 @@ namespace Chronos
                         navigationFrame.Navigate(typeof(MarketView));
                         break;
                 }
+                
             }
             catch { }
         }

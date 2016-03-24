@@ -45,21 +45,15 @@
                     </Grid.RowDefinitions>
 
                     <TextBlock Text="Upcoming" Margin="8" VerticalAlignment="Top" HorizontalAlignment="Left" FontSize="24"/>
-                    <ListView Grid.Row="1">
-                        <StackPanel Orientation="Horizontal" >
-                            <StackPanel Orientation="Horizontal" VerticalAlignment="Top" Margin="0,-8,0,0">
-                                <TextBlock FontFamily="Segoe MDL2 Assets" Text="" VerticalAlignment="Center"/>
-                                <TextBlock Name="dayleftTB" Text="3" Margin="8" VerticalAlignment="Center"/>
-                                <TextBlock Text=":" Margin="0,0,8,0" VerticalAlignment="Center"/>
-                            </StackPanel>
-                            <StackPanel x:Name="stackPanel1" Orientation="Horizontal">
-                                <StackPanel Orientation="Horizontal">
-                                    <TextBlock Name="eventTB" Text="20 March, 10AM"/>
-                                    <TextBlock Margin="4,0" Text=" - "/>
+                    <ListView Grid.Row="1" Name="upcomingLst">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal" >
+                                    <TextBlock FontFamily="Segoe MDL2 Assets" Text="" VerticalAlignment="Center"/>
+                                    <TextBlock Name="dayleftTB" Text="{Binding}" Margin="8" VerticalAlignment="Center"/>
                                 </StackPanel>
-                                <TextBlock Name="event2TB" Text="Database Test"/>
-                            </StackPanel>
-                        </StackPanel>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
                     </ListView>
                 </Grid>
 
@@ -67,14 +61,15 @@
             <CalendarView x:Name="calendarView" Margin="16,32,16,16" HorizontalAlignment="Stretch" Height="500" 
                           DayOfWeekFormat="{}{dayofweek.solo.abbreviated(8)}"
                           NumberOfWeeksInView="4"/>
-            <StackPanel>
+            <StackPanel Margin="4">
                 <TextBlock Text="Add new event" FontSize="20" FontWeight="ExtraLight" Margin="0,24,0,0"/>
-                <TextBox Header="Name" Margin="4"/>
+                <TextBox Name="addNameTB" Header="Name" Margin="4" Text="{Binding Path=input.Desc, Mode=TwoWay}"/>
+                
                 <StackPanel Orientation="Horizontal" Margin="4">
-                    <DatePicker Header="Due date" />
-                    <TimePicker Header=" "/>
+                    <DatePicker Name="dueDateDP" Header="Due date" Date="{Binding Path=input.DueDate.Date, Mode=TwoWay}"/>
+                    <TimePicker Name="dueTimeTP" Header=" "/>
                 </StackPanel>
-                <Button Name="addBtn" Content="Add event"/>
+                <Button Name="addBtn" Content="Add event" Click="addBtn_Click"/>
             </StackPanel>
         </StackPanel>
 

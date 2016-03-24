@@ -18,9 +18,7 @@ namespace ChronosWebAPI.Controllers
         {
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
-
-            // var vm = JsonConvert.DeserializeObject<ConfessionViewModel>(_vm);
-
+            
             if (await UserValidator.ValidateUser(vm.student) == false)
                 return BadRequest(ModelState);
 

@@ -9,8 +9,7 @@ namespace ChronosWebAPI.Models
 {
     public class PrivateMessage
     {
-        public int Id { get; set; }
-  
+        public int Id { get; set; }  
        
         public int SenderId { get; set; }
         
