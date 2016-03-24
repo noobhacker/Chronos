@@ -25,6 +25,13 @@
                     </VisualState.StateTriggers>
                 </VisualState>
                 <VisualState x:Name="Desktop">
+                    <VisualState.Setters>
+                        <Setter Target="navigationFrame.(FrameworkElement.Margin)">
+                            <Setter.Value>
+                                <Thickness>32,0,32,0</Thickness>
+                            </Setter.Value>
+                        </Setter>
+                    </VisualState.Setters>
                     <VisualState.StateTriggers>
                         <AdaptiveTrigger MinWindowWidth="800"/>
                     </VisualState.StateTriggers>
@@ -147,7 +154,7 @@
                 </SplitView.Pane>
                 <SplitView.Content>
                     <ScrollViewer>
-                        <Frame x:Name="navigationFrame" Grid.Column="1" Margin="32,0"/>
+                        <Frame x:Name="navigationFrame" Grid.Column="1"/>
                     </ScrollViewer>
                 </SplitView.Content>
             </SplitView>

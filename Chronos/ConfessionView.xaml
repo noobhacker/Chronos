@@ -14,7 +14,7 @@
                     <VisualState.Setters>
                         <Setter Target="grid.(FrameworkElement.Margin)">
                             <Setter.Value>
-                                <Thickness>8</Thickness>
+                                <Thickness>0</Thickness>
                             </Setter.Value>
                         </Setter>
                         <Setter Target="stackPanel.(FrameworkElement.Margin)">
