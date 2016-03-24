@@ -106,17 +106,18 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
-    <Compile Include="CalendarPage.xaml.cs">
-      <DependentUpon>CalendarPage.xaml</DependentUpon>
+    <Compile Include="CalendarView.xaml.cs">
+      <DependentUpon>CalendarView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="CalendarViewModel.cs" />
     <Compile Include="ConfessionView.xaml.cs">
       <DependentUpon>ConfessionView.xaml</DependentUpon>
     </Compile>
     <Compile Include="ConfessionViewModel.cs" />
-    <Compile Include="EventDetailsView.xaml.cs">
-      <DependentUpon>EventDetailsView.xaml</DependentUpon>
+    <Compile Include="HapDetailsView.xaml.cs">
+      <DependentUpon>HapDetailsView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="EventDetailsViewModel.cs" />
+    <Compile Include="HapDetailsViewModel.cs" />
     <Compile Include="GlobalVariables.cs" />
     <Compile Include="HomeView.xaml.cs">
       <DependentUpon>HomeView.xaml</DependentUpon>
@@ -188,7 +189,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="CalendarPage.xaml">
+    <Page Include="CalendarView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -196,7 +197,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="EventDetailsView.xaml">
+    <Page Include="HapDetailsView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -9,6 +9,7 @@ namespace ChronosWebAPI.Models
     public class Happening
     {
         public int Id { get; set; }
+        public string Name { get; set; }
         public DateTime StartDateTime { get; set; }
         public DateTime EndDateTime { get; set; }
         public double Price { get; set; }
@@ -18,5 +19,7 @@ namespace ChronosWebAPI.Models
         public string ImageUrl { get; set; }
         public string Description { get; set; }
         public string Contact { get; set; }
+        public string FbUrl { get; set; }
+        public string Organizer { get; set; }
     }
 }

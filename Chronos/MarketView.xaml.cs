@@ -21,7 +21,7 @@ namespace Chronos
 
         protected override async void OnNavigatedTo(NavigationEventArgs e)
         {
-            string response = await WebAPIClass.GetJsonFromServerAsync("MarketItem");
+            string response = await WebAPIClass.GetJsonFromServerAsync("MarketItem","");
             var _vm = JsonConvert.DeserializeObject<MarketViewModel>(response);
             vm = _vm;
 

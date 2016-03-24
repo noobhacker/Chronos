@@ -37,7 +37,7 @@ namespace Chronos
         private async Task<bool> update()
         {
             string target = "SubjectTimeTable";
-            string subjectsJson = await WebAPIClass.GetJsonFromServerAsync(target);
+            string subjectsJson = await WebAPIClass.GetJsonFromServerAsync(target, GlobalVariables.CurrentUser.Id.ToString());
 
             var _vm = JsonConvert.DeserializeObject<HomeViewModel>(subjectsJson);
         

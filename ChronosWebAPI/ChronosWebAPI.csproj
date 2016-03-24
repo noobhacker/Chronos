@@ -252,11 +252,27 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\SampleDirection.cs" />
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
+    <Compile Include="Controllers\HapDetailsController.cs" />
+    <Compile Include="Controllers\PlacesController.cs" />
     <Compile Include="Migrations\201603231520048_i31.cs" />
     <Compile Include="Migrations\201603231520048_i31.Designer.cs">
       <DependentUpon>201603231520048_i31.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201603240200210_i4.cs" />
+    <Compile Include="Migrations\201603240200210_i4.Designer.cs">
+      <DependentUpon>201603240200210_i4.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201603240326326_i5.cs" />
+    <Compile Include="Migrations\201603240326326_i5.Designer.cs">
+      <DependentUpon>201603240326326_i5.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201603240349066_i6.cs" />
+    <Compile Include="Migrations\201603240349066_i6.Designer.cs">
+      <DependentUpon>201603240349066_i6.cs</DependentUpon>
+    </Compile>
     <Compile Include="Models\Event.cs" />
+    <Compile Include="ViewModels\HapDetailsViewModel.cs" />
+    <Compile Include="ViewModels\PlacesViewModel.cs" />
     <Compile Include="ViewModels\MarketViewModel.cs" />
     <None Include="Controllers\AccountController.cs.backup" />
     <Compile Include="Controllers\ConfessionController.cs" />
@@ -406,6 +422,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201603231520048_i31.resx">
       <DependentUpon>201603231520048_i31.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201603240200210_i4.resx">
+      <DependentUpon>201603240200210_i4.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201603240326326_i5.resx">
+      <DependentUpon>201603240326326_i5.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201603240349066_i6.resx">
+      <DependentUpon>201603240349066_i6.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

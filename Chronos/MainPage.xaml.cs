@@ -50,7 +50,7 @@ namespace Chronos
                         navigationFrame.Navigate(typeof(HomeView));
                         break;
                     case 1:
-                        navigationFrame.Navigate(typeof(CalendarPage));
+                        navigationFrame.Navigate(typeof(CalendarView));
                         break;
                     case 2:
                         navigationFrame.Navigate(typeof(ConfessionView));

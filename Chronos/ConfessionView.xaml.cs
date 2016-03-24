@@ -22,7 +22,7 @@ namespace Chronos
 
         private async void refreshList()
         {
-            string response = await WebAPIClass.GetJsonFromServerAsync("Confession");
+            string response = await WebAPIClass.GetJsonFromServerAsync("Confession","");
             var _vm = JsonConvert.DeserializeObject<ConfessionViewModel>(response);
             vm.confessionList = _vm.confessionList;
             listview.ItemsSource = vm.confessionList;

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -11,6 +12,7 @@ using Windows.UI.Xaml.Controls.Primitives;
 using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
+using Windows.UI.Xaml.Media.Animation;
 using Windows.UI.Xaml.Navigation;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
@@ -22,14 +24,23 @@ namespace Chronos
     /// </summary>
     public sealed partial class PlacesView : Page
     {
+        PlacesViewModel vm = new PlacesViewModel();
         public PlacesView()
         {
             this.InitializeComponent();
+            this.DataContext = vm;
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        protected override async void OnNavigatedTo(NavigationEventArgs e)
         {
-            Frame.Navigate(typeof(EventDetailsView));
+            string response = await WebAPIClass.GetJsonFromServerAsync("Places","");
+            vm = JsonConvert.DeserializeObject<PlacesViewModel>(response);
+            hapListview.ItemsSource = vm.hapList;
+        }
+
+        private void hapListview_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            this.Frame.Navigate(typeof(HapDetailsView), hapListview.SelectedIndex + 1);
         }
     }
 }

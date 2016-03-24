@@ -35,7 +35,6 @@
         </VisualStateManager.VisualStateGroups>
         <StackPanel Margin="8,0">
             <StackPanel>
-                <Button Content="test" Click="Button_Click" />
                 <Grid>
                     <TextBox Margin="8,36" Background="White" PlaceholderText="Search"/>
                     <Button HorizontalAlignment="Right" FontFamily="Segoe MDL2 Assets" Content="" 
@@ -43,11 +42,11 @@
                 </Grid>
                 <TextBlock x:Name="textBlock" Text="Happenings" FontSize="20" FontWeight="ExtraLight" Margin="0,24,0,0"/>
 
-                <GridView>
-                    <Grid x:Name="grid" Width="350" Height="210" Margin="8">                       
-                        <Grid>
-                            <Image Source="https://scontent-kul1-1.xx.fbcdn.net/hphotos-xpf1/t31.0-8/12716187_1017520988305704_4823205151213614149_o.jpghttps://scontent-kul1-1.xx.fbcdn.net/hphotos-xpf1/t31.0-8/12716187_1017520988305704_4823205151213614149_o.jpg"
-                       Stretch="Fill" />
+                <GridView Name="hapListview" SelectionChanged="hapListview_SelectionChanged">
+                    <GridView.ItemTemplate>
+                        <DataTemplate>
+                            <Grid x:Name="grid" Width="350" Height="210" Margin="8">
+                                <Image Source="{Binding ImageUrl}" Stretch="Fill" />
                                 <Grid>
                                     <Grid.Background>
                                         <LinearGradientBrush EndPoint="0.5,0" StartPoint="0.5,1">
@@ -58,21 +57,18 @@
                                 </Grid>
                                 <Grid VerticalAlignment="Bottom">
                                     <StackPanel HorizontalAlignment="Left" Margin="8">
-                                        <TextBlock Text="MVA and Azure Workshop"/>
-                                        <StackPanel Orientation="Horizontal">
-                                            <TextBlock Text="09.00AM - 05.00PM" FontSize="12" FontWeight="Light"/>
-                                        </StackPanel>
-                                    <TextBlock Text="FIST Graphic Lab, 27th of March" FontSize="8" FontWeight="Light" Margin="0,0,4,0"/>
-                                        
-                                    </StackPanel>
-                                    <StackPanel Orientation="Horizontal" Margin="12,4" HorizontalAlignment="Right" VerticalAlignment="Center">
-                                        <TextBlock Text="RM" Foreground="Green" VerticalAlignment="Center" Opacity="0.85" Visibility="Collapsed"/>
-                                        <TextBlock Margin="8,4" Text="FREE" Foreground="Green" Opacity="0.85"/>
+                                        <TextBlock Text="{Binding EventName}"/>
+                                        <TextBlock Text="{Binding TimeText}" FontSize="12" FontWeight="Light"/>
+
+                                        <TextBlock Text="{Binding LocationText}" FontSize="8" FontWeight="Light" Margin="0,0,4,0"/>
 
                                     </StackPanel>
+                                    <TextBlock Margin="12,4" HorizontalAlignment="Right" VerticalAlignment="Center" 
+                                               Text="{Binding Price}" Foreground="Green" Opacity="0.85"/>
                                 </Grid>
-                            </Grid>                        
-                    </Grid>
+                            </Grid>
+                        </DataTemplate>
+                    </GridView.ItemTemplate>
                 </GridView>
             </StackPanel>
 

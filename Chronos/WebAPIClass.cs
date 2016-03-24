@@ -23,11 +23,14 @@ namespace Chronos
             return true;
         }
 
-        public static async Task<string> GetJsonFromServerAsync(string target)
+        public static async Task<string> GetJsonFromServerAsync(string target, string targetId)
         {
             var client = new HttpClient();
-            string result = await client.GetStringAsync(new Uri(WebAPIAddress +
-                target + "/" + GlobalVariables.CurrentUser.Id));
+            string address = WebAPIAddress + target;
+            if(targetId != "")
+               address += "/" + targetId;
+
+            string result = await client.GetStringAsync(new Uri(address));
 
             return result;
         }
