@@ -53,7 +53,8 @@ namespace ChronosWebAPI.Controllers
                          {
                              SenderId = a.SenderId,
                              SenderName = b.FullName,
-                             Message = a.Message
+                             Message = a.Message,
+                              SentTime=a.SentDatetime
                          };
 
             var returnValue = new PrivateMessageViewModel();

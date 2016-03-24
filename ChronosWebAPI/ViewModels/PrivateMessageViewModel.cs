@@ -12,6 +12,8 @@ namespace Chronos
         public int SenderId { get; set; }
         public string SenderName { get; set; }
         public string Message { get; set; }
+        public DateTime SentTime { get; set; }
+        public string SentTimeText { get; set; }
     }
 
     public class PrivateMessageViewModel

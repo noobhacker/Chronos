@@ -42,6 +42,12 @@ namespace Chronos
         private void listview_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             //if (listview.SelectedIndex != ((ListView)e.OriginalSource).SelectedIndex) // experiment
+
+            if (listview.SelectedIndex == 5)
+                navigationFrame.Margin = new Thickness(0);
+            else
+                navigationFrame.Margin = new Thickness(32, 0, 32, 0);
+
             try
             {
                 switch (listview.SelectedIndex)
@@ -60,6 +66,12 @@ namespace Chronos
                         break;
                     case 4:
                         navigationFrame.Navigate(typeof(MarketView));
+                        break;
+                    case 5:
+                        navigationFrame.Navigate(typeof(PrivateMessageView));
+                        break;
+                    case 6:
+                        navigationFrame.Navigate(typeof(SettingsView));
                         break;
                 }
                 

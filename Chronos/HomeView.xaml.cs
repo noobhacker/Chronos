@@ -58,7 +58,13 @@ namespace Chronos
 
                 double percentage = currentValue / maxValue;
                 ProgressControl.SetBarLength(percentage);
-                nowPercentTB.Text = Math.Round(percentage).ToString();
+                nowPercentTB.Text = Math.Round(percentage*100).ToString() + "%";
+
+                nowSubjectTB.Text = vm.laterGVItems[0].SubjectText;
+                nowClassTypeTB.Text = vm.laterGVItems[0].ClassType;
+                nowSubjectTime.Text = vm.laterGVItems[0].StartTimeText + " - " + 
+                    vm.laterGVItems[0].EndTimeText;
+                nowSubjectLecturer.Text = vm.laterGVItems[0].Lecturer;
             }
             else
                 stackPanel.Visibility = Visibility.Collapsed;
@@ -88,6 +94,7 @@ namespace Chronos
             //ProgressControl.SetBarLength(0.78);
             await refresh();
             Timer_Tick(null, null); // trigger before update duration, 30 sec
+            loading.Visibility = Visibility.Collapsed;
             updatedTB.Text = "updated as of " + DateTime.Now.ToString("hh.mmtt");
         }
 

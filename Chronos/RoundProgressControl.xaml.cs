@@ -38,7 +38,7 @@ namespace Chronos
                 {
                     TheSegment.IsLargeArc = Angle >= 3.14159265;
                     TheSegment.Point = new Point(X, Y);
-
+                    
                     /*
                      * I had been using a storyboard animation to ensure that 
                      * the UI updated the control smoothly, but that doesn\'t 

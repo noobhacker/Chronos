@@ -272,6 +272,10 @@
     <Compile Include="Migrations\201603240349066_i6.Designer.cs">
       <DependentUpon>201603240349066_i6.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201603241233144_i7.cs" />
+    <Compile Include="Migrations\201603241233144_i7.Designer.cs">
+      <DependentUpon>201603241233144_i7.cs</DependentUpon>
+    </Compile>
     <Compile Include="Models\Event.cs" />
     <Compile Include="ViewModels\CalendarViewModel.cs" />
     <Compile Include="ViewModels\HapDetailsViewModel.cs" />
@@ -436,6 +440,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201603240349066_i6.resx">
       <DependentUpon>201603240349066_i6.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201603241233144_i7.resx">
+      <DependentUpon>201603241233144_i7.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

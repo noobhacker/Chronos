@@ -50,6 +50,7 @@
 
                 <TextBlock Name="nowTB" Text="Friday, 18 March 2016" FontSize="20" FontWeight="ExtraLight" Margin="0,24,0,0"/>
 
+            <ProgressRing Name="loading" IsActive="True" Width="60" Height="60"/>
             <StackPanel x:Name="stackPanel" Orientation="Horizontal" Margin="0,20,0,0" Visibility="Collapsed">
 
                 <Grid>
@@ -67,13 +68,15 @@
                     <Grid.RowDefinitions>
                         <RowDefinition Height="Auto" />
                         <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
                         <RowDefinition Height="*" />
                         <RowDefinition Height="Auto" />
                     </Grid.RowDefinitions>
 
                     <TextBlock Name="nowSubjectTB" Text="DCS 5086 Computer Communications and Network" FontSize="16" Margin="0,32,0,0" TextWrapping="WrapWholeWords"/>
-                    <TextBlock Name="nowSubjectTime"  Text="2:00 PM - 4:00 PM" FontSize="16" Margin="0,4,0,0" Grid.Row="1" FontWeight="Light"/>
-                    <TextBlock Name="nowSubjectLecturer" Text="Mr Ponkoodalingam Kannan" FontSize="12" Margin="0,0,0,28" FontWeight="Light" Grid.Row="3"/>
+                    <TextBlock Name="nowClassTypeTB" Grid.Row="1" FontSize="12"/>
+                    <TextBlock Name="nowSubjectTime"  Text="2:00 PM - 4:00 PM" FontSize="16" Margin="0,4,0,0" Grid.Row="2" FontWeight="Light"/>
+                    <TextBlock Name="nowSubjectLecturer" Text="Mr Ponkoodalingam Kannan" FontSize="12" Margin="0,0,0,28" FontWeight="Light" Grid.Row="4"/>
 
                 </Grid>
 
@@ -111,6 +114,7 @@
                     </DataTemplate>
                 </GridView.ItemTemplate>
             </GridView>
+
             <Button Name="addSubjectBtn" Content="Add more subjects..." Background="Transparent" HorizontalAlignment="Stretch" Click="addSubjectBtn_Click"
                     Margin="0,12,0,0"/>
         </StackPanel>
