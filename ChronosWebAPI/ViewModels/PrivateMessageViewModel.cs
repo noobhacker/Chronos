@@ -8,8 +8,7 @@ using System.Threading.Tasks;
 namespace Chronos
 {
     public class InboxItem
-    {
-        public int Id { get; set; }
+    {       
         public int SenderId { get; set; }
         public string SenderName { get; set; }
         public string Message { get; set; }

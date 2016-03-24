@@ -5,7 +5,6 @@ using System.Web.Http.Description;
 using ChronosWebAPI.Models;
 using Chronos;
 using System.Collections.ObjectModel;
-using Newtonsoft.Json;
 using System;
 
 namespace ChronosWebAPI.Controllers
@@ -14,7 +13,27 @@ namespace ChronosWebAPI.Controllers
     {
         private ChronosWebAPIContext db = new ChronosWebAPIContext();
 
-        //Post
+        [ResponseType(typeof(PostMessageViewModel))]
+        public async Task<IHttpActionResult> Post([FromBody]PostMessageViewModel vm)
+        {
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
+            
+            if (await UserValidator.ValidateUser(vm.student) == false)
+                return BadRequest(ModelState);
+
+            db.PrivateMessages.Add(new PrivateMessage()
+            {
+                Message = vm.Message,
+                ReceiverId = vm.ReceiverId,
+                SenderId = vm.student.Id,
+                SentDatetime = DateTime.Now
+            });
+
+            await db.SaveChangesAsync();
+
+            return CreatedAtRoute("DefaultApi", new { id = vm.student.Id }, vm);
+        }
 
         [ResponseType(typeof(PrivateMessageViewModel))]
         public async Task<IHttpActionResult> Get(int Id, string password)

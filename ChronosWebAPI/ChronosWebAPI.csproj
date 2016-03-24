@@ -255,6 +255,7 @@
     <Compile Include="Controllers\CalendarController.cs" />
     <Compile Include="Controllers\HapDetailsController.cs" />
     <Compile Include="Controllers\PlacesController.cs" />
+    <Compile Include="Controllers\PrivateMessageController.cs" />
     <Compile Include="Migrations\201603231520048_i31.cs" />
     <Compile Include="Migrations\201603231520048_i31.Designer.cs">
       <DependentUpon>201603231520048_i31.cs</DependentUpon>
@@ -276,6 +277,8 @@
     <Compile Include="ViewModels\HapDetailsViewModel.cs" />
     <Compile Include="ViewModels\PlacesViewModel.cs" />
     <Compile Include="ViewModels\MarketViewModel.cs" />
+    <Compile Include="ViewModels\PostMessageViewModel.cs" />
+    <Compile Include="ViewModels\PrivateMessageViewModel.cs" />
     <None Include="Controllers\AccountController.cs.backup" />
     <Compile Include="Controllers\ConfessionController.cs" />
     <Compile Include="Controllers\MarketItemController.cs" />
