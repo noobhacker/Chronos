@@ -38,8 +38,10 @@ namespace ChronosWebAPI.Controllers
         [ResponseType(typeof(CalendarViewModel))]
         public async Task<IHttpActionResult> Get(int Id)
         {
+            var now = DateTime.Now;
             var result = from a in db.Events
                          where a.StudentId == Id
+                         //&& a.DueDate > now
                          select a;
 
             var returnValue = new CalendarViewModel();

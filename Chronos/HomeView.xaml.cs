@@ -27,12 +27,41 @@ namespace Chronos
     public sealed partial class HomeView : Page
     {
         HomeViewModel vm = new HomeViewModel();
+        DispatcherTimer timer = new DispatcherTimer();
         public HomeView()
         {
             this.InitializeComponent();
             this.NavigationCacheMode = NavigationCacheMode.Enabled;
             nowTB.Text = DateTime.Now.ToString("D");
             nameTB.Text = GlobalVariables.CurrentUser.FullName;
+
+            timer.Interval = new TimeSpan(0, 0, 30);
+            timer.Tick += Timer_Tick;
+            timer.Start();
+        }
+
+        private void Timer_Tick(object sender, object e)
+        {
+            if (vm.laterGVItems.Count == 0)
+                return;
+
+            DateTime start = DateTime.Today.Add(vm.laterGVItems[0].StartTime);
+            DateTime end = DateTime.Today.Add(vm.laterGVItems[0].EndTime);
+
+            DateTime now = DateTime.Now;
+
+            if (now > start && now < end)
+            {
+                stackPanel.Visibility = Visibility.Visible;
+                var maxValue = end.TimeOfDay.TotalSeconds - start.TimeOfDay.TotalSeconds;
+                var currentValue = now.TimeOfDay.TotalSeconds ;
+
+                double percentage = currentValue / maxValue;
+                ProgressControl.SetBarLength(percentage);
+                nowPercentTB.Text = Math.Round(percentage).ToString();
+            }
+            else
+                stackPanel.Visibility = Visibility.Collapsed;
         }
 
         private async Task<bool> refresh()
@@ -53,12 +82,12 @@ namespace Chronos
             laterGV.ItemsSource = vm.laterGVItems;
             return true;
         }   
-
-
+        
         protected override async void OnNavigatedTo(NavigationEventArgs e)
         {
             //ProgressControl.SetBarLength(0.78);
             await refresh();
+            Timer_Tick(null, null); // trigger before update duration, 30 sec
             updatedTB.Text = "updated as of " + DateTime.Now.ToString("hh.mmtt");
         }
 

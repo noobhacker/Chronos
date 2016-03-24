@@ -6,6 +6,10 @@ using ChronosWebAPI.Models;
 using Chronos;
 using System.Collections.ObjectModel;
 using Newtonsoft.Json;
+using System;
+using System.Data.Entity;
+using System.Data.Entity.Infrastructure;
+using System.Net;
 
 namespace ChronosWebAPI.Controllers
 {
@@ -48,11 +52,14 @@ namespace ChronosWebAPI.Controllers
         [ResponseType(typeof(HomeViewModel))]
         public async Task<IHttpActionResult> GetSubjectTimeTable(int Id)
         {
+            var now = DateTime.Now;
             var result = from a in db.Students
                          join b in db.Student_Subject on a.Id equals b.StudentId
                          join c in db.Subjects on b.SubjectId equals c.Id
                          join d in db.SubjectSessions on c.Id equals d.SubjectId
-                         where a.Id == Id
+                         where a.Id == Id &&
+                         d.Day == now.DayOfWeek &&
+                         d.EndTime > now.TimeOfDay
                          select new SubjectTimeTable()
                          {
                              SubjectText = c.Code + " " + c.Name,
@@ -68,6 +75,48 @@ namespace ChronosWebAPI.Controllers
             return Ok(returnValue);
 
         }
+
+        #region under construction
+        // PUT: api/MarketItems/5
+        [ResponseType(typeof(void))]
+        public async Task<IHttpActionResult> Put(AddSubjectViewModel vm)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            //db.Entry(marketItem).State = EntityState.Modified;
+            
+            await db.SaveChangesAsync();
+            
+
+            return StatusCode(HttpStatusCode.NoContent);
+        }
+
+        // DELETE: api/MarketItems/5
+        [ResponseType(typeof(MarketItem))]
+        public async Task<IHttpActionResult> Delete(int Id, string password)
+        {
+            MarketItem marketItem = await db.MarketItems.FindAsync(Id);
+            if (marketItem == null)
+            {
+                return NotFound();
+            }
+
+            if (await UserValidator.ValidateUser(new Student()
+            {
+                Id = Id,
+                Password = password
+            }) == false)
+                return BadRequest(ModelState);
+
+            db.MarketItems.Remove(marketItem);
+            await db.SaveChangesAsync();
+
+            return Ok(marketItem);
+        }
+        #endregion 
     }
-    
+
 }
