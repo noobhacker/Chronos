@@ -34,7 +34,7 @@
                 </VisualState>
             </VisualStateGroup>
         </VisualStateManager.VisualStateGroups>
-        <StackPanel x:Name="stackPanel1">
+        <StackPanel x:Name="stackPanel1" Margin="8">
             <StackPanel HorizontalAlignment="Center">
                 <StackPanel Orientation="Horizontal">
                     <TextBlock Text="Hi, " FontSize="28" FontWeight="Thin" Margin="16,16,4,16" HorizontalAlignment="Center"/>

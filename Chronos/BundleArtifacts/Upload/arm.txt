@@ -1,0 +1,6 @@
+MainPackage=C:\Users\Song\Documents\GitHub\Chronos\bin\ARM\Release\Upload\Chronos_1.1.1.0_ARM.appx
+SymbolPackage=C:\Users\Song\Documents\GitHub\Chronos\AppPackages\Chronos_1.1.1.0\Chronos_1.1.1.0_ARM.appxsym
+ResourcePack=C:\Users\Song\Documents\GitHub\Chronos\_scale-100.appx
+ResourcePack=C:\Users\Song\Documents\GitHub\Chronos\_scale-125.appx
+ResourcePack=C:\Users\Song\Documents\GitHub\Chronos\_scale-150.appx
+ResourcePack=C:\Users\Song\Documents\GitHub\Chronos\_scale-400.appx

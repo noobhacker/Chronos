@@ -70,5 +70,9 @@ namespace Chronos
 
         }
 
+        private void endTimeTP_TimeChanged(object sender, TimePickerValueChangedEventArgs e)
+        {
+
+        }
     }
 }

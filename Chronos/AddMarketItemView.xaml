@@ -27,7 +27,7 @@
             </VisualStateGroup>
         </VisualStateManager.VisualStateGroups>
         
-        <StackPanel Margin="4">
+        <StackPanel Margin="4" HorizontalAlignment="Center">
             <StackPanel x:Name="stackPanel" Orientation="Horizontal">
                 <TextBox Name="itemNameTB" Header="Item Name" Text="{Binding Path=marketItem.ItemName, Mode=TwoWay}"
                      Width="300" HorizontalAlignment="Left" Margin="4" 
@@ -72,13 +72,16 @@
                     </StackPanel>
                 </Grid>
             </Grid>
-            <Button Name="addBtn" Content="Add Item" Margin="4" 
-                    Click="addBtn_Click"/>
+           
         </StackPanel>
 
         <CommandBar VerticalAlignment="Bottom">
-            
+            <AppBarButton Name="saveBtn" Icon="Save" Label="Put on market"
+                          Click="saveBtn_Click"/>
+            <AppBarButton Name="deleteBtn" Icon="Delete" Label="Remove from market" />
         </CommandBar>
         
+        <ProgressRing Name="loading" IsActive="False" Width="60" Height="60"/>
+
     </Grid>
 </Page>

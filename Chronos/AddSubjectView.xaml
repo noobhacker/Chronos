@@ -70,7 +70,10 @@
                                 <ComboBoxItem Content="Saturday"/>
                             </ComboBox>
                             <TimePicker Name="startTimeTP" Header="Start time" Width="300" Margin="4" Time="{Binding StartTime, Mode=TwoWay}"/>
-                            <TimePicker Name="endTimeTP" Header="End time" Width="300" Margin="4" Time="{Binding EndTime, Mode=TwoWay}"/>
+                            <TimePicker Name="endTimeTP" Header="End time" Width="300" 
+                                        Margin="4" TimeChanged="endTimeTP_TimeChanged"
+                                        Time="{Binding EndTime, Mode=TwoWay}"/>
+                            <TextBlock />
                         </StackPanel>
                     </DataTemplate>
                 </GridView.ItemTemplate>

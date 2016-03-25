@@ -1,0 +1,2 @@
+MainPackage=C:\Users\Song\Documents\GitHub\Chronos\bin\x64\Release\Upload\Chronos_1.1.1.0_x64.appx
+SymbolPackage=C:\Users\Song\Documents\GitHub\Chronos\AppPackages\Chronos_1.1.1.0\Chronos_1.1.1.0_x64.appxsym

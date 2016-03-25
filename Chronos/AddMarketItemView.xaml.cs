@@ -32,12 +32,6 @@ namespace Chronos
             this.DataContext = vm;
         }
 
-        private async void addBtn_Click(object sender, RoutedEventArgs e)
-        {
-            await WebAPIClass.PostJsonToServerAsync(vm, "MarketItem");
-            this.Frame.Navigate(typeof(MarketView));
-        }
-
         // if implement notifychaged in mvvm will upload
         // twice amount of data to cloud
         #region Update previews
@@ -66,5 +60,11 @@ namespace Chronos
         }
         #endregion
 
+        private async void saveBtn_Click(object sender, RoutedEventArgs e)
+        {
+            loading.IsActive = true;
+            await WebAPIClass.PostJsonToServerAsync(vm, "MarketItem");
+            this.Frame.Navigate(typeof(MarketView));
+        }
     }
 }
