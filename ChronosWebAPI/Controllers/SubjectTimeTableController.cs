@@ -10,6 +10,7 @@ using System;
 using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
 using System.Net;
+using Chronos.ViewModels;
 
 namespace ChronosWebAPI.Controllers
 {
@@ -39,8 +40,7 @@ namespace ChronosWebAPI.Controllers
             db.Student_Subject.Add(new Student_Subject()
             {
                 StudentId = vm.student.Id,
-                SubjectId = subjectResult.Id,
-                // Student= vm.student // what is this for @@?
+                SubjectId = subjectResult.Id
             });
 
             await db.SaveChangesAsync();
@@ -78,21 +78,43 @@ namespace ChronosWebAPI.Controllers
 
         #region under construction
         // PUT: api/MarketItems/5
-        [ResponseType(typeof(void))]
+        [ResponseType(typeof(AddSubjectViewModel))]
         public async Task<IHttpActionResult> Put(AddSubjectViewModel vm)
         {
             if (!ModelState.IsValid)
-            {
                 return BadRequest(ModelState);
+
+            if (await UserValidator.ValidateUser(vm.student) == false)
+                return BadRequest(ModelState);
+
+            db.Subjects.Attach(vm.subject);
+
+            var query = from a in db.SubjectSessions
+                        where a.SubjectId == vm.subject.Id
+                        select a;
+
+            foreach (var d in query)
+            { 
+                foreach (var s in vm.sessions)
+                {
+                    if (CountSubjectSession(s.Id) > 0)
+                        db.SubjectSessions.Attach(s);
+                    else
+                        db.SubjectSessions.Add(s);
+                }
+                if (d.SubjectId == vm.subject.Id &&
+                    vm.sessions.Count(e => e.Id == d.SubjectId) == 0)
+                    db.SubjectSessions.Remove(d);
             }
 
-            //db.Entry(marketItem).State = EntityState.Modified;
-            
             await db.SaveChangesAsync();
-            
 
             return StatusCode(HttpStatusCode.NoContent);
         }
+
+        private int CountSubjectSession(int id) => 
+            db.SubjectSessions.Count(e => e.Id == id);
+
 
         // DELETE: api/MarketItems/5
         [ResponseType(typeof(MarketItem))]

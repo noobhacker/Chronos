@@ -6,6 +6,7 @@ using ChronosWebAPI.Models;
 using Chronos;
 using System.Collections.ObjectModel;
 using System;
+using Chronos.ViewModels;
 
 namespace ChronosWebAPI.Controllers
 {

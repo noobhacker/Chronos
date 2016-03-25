@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Chronos
+namespace Chronos.ViewModels
 {
     public class InboxItem
     {       

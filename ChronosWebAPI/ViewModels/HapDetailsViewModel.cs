@@ -7,7 +7,7 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Chronos
+namespace Chronos.ViewModels
 {
     public class HapDetailsViewModel
     { 

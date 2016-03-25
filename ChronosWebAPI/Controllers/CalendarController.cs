@@ -7,6 +7,7 @@ using Chronos;
 using System.Collections.ObjectModel;
 using Newtonsoft.Json;
 using System;
+using Chronos.ViewModels;
 
 namespace ChronosWebAPI.Controllers
 {

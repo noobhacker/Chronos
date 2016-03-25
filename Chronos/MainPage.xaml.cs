@@ -43,10 +43,10 @@ namespace Chronos
         {
             //if (listview.SelectedIndex != ((ListView)e.OriginalSource).SelectedIndex) // experiment
 
-            if (listview.SelectedIndex == 5)
-                navigationFrame.Margin = new Thickness(0);
-            else
-                navigationFrame.Margin = new Thickness(32, 0, 32, 0);
+            //if (listview.SelectedIndex == 5)
+            //    navigationFrame.Margin = new Thickness(0);
+            //else
+            //    navigationFrame.Margin = new Thickness(32, 0, 32, 0);
 
             try
             {

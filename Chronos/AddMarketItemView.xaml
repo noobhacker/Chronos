@@ -26,6 +26,7 @@
                 </VisualState>
             </VisualStateGroup>
         </VisualStateManager.VisualStateGroups>
+        
         <StackPanel Margin="4">
             <StackPanel x:Name="stackPanel" Orientation="Horizontal">
                 <TextBox Name="itemNameTB" Header="Item Name" Text="{Binding Path=marketItem.ItemName, Mode=TwoWay}"
@@ -74,5 +75,10 @@
             <Button Name="addBtn" Content="Add Item" Margin="4" 
                     Click="addBtn_Click"/>
         </StackPanel>
+
+        <CommandBar VerticalAlignment="Bottom">
+            
+        </CommandBar>
+        
     </Grid>
 </Page>

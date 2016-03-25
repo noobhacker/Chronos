@@ -7,6 +7,7 @@ using System.Collections.ObjectModel;
 using Newtonsoft.Json;
 using Windows.Web.Http;
 using System.Threading.Tasks;
+using Chronos.ViewModels;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -31,7 +32,15 @@ namespace Chronos
             sessionsGV.ItemsSource = vm.sessions;
 
         }
-        
+
+        private void sessionsGV_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (sessionsGV.SelectedItems.Count != 0)
+                deleteSessionBtn.IsEnabled = true;
+            else
+                deleteSessionBtn.IsEnabled = false;
+        }
+
         private void addSessionBtn_Click(object sender, RoutedEventArgs e)
         {
             vm.sessions.Add(new SubjectSession());
@@ -39,7 +48,7 @@ namespace Chronos
 
         private void deleteSessionBtn_Click(object sender, RoutedEventArgs e)
         {
-
+            vm.sessions.RemoveAt(sessionsGV.SelectedIndex);            
         }
 
         private async void saveBtn_Click(object sender, RoutedEventArgs e)
@@ -54,7 +63,11 @@ namespace Chronos
             
             this.Frame.Navigate(typeof(HomeView));
         }
-       
+
+        private void deleteBtn_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
 
     }
 }

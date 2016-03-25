@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using ChronosWebAPI.Models;
 
-namespace Chronos
+namespace Chronos.ViewModels
 {
     public class AddMarketItemViewModel
     {

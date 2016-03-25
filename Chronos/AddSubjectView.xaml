@@ -18,9 +18,6 @@
                         <Setter Target="codeTB.(FrameworkElement.Width)" Value="300"/>
                         <Setter Target="subjectTB.(FrameworkElement.Width)" Value="300"/>
                         <Setter Target="lecturerTB.(FrameworkElement.Width)" Value="300"/>
-                        <Setter Target="stackPanel2.(StackPanel.Orientation)" Value="Vertical"/>
-
-
                     </VisualState.Setters>
                     <VisualState.StateTriggers>
                         <AdaptiveTrigger MinWindowWidth="0"/>
@@ -33,49 +30,64 @@
                 </VisualState>
             </VisualStateGroup>
         </VisualStateManager.VisualStateGroups>
-        <StackPanel Margin="4" HorizontalAlignment="Center">
-            <TextBlock FontSize="28" FontWeight="Thin" Text="Add a subject" />
-            <StackPanel Orientation="Vertical" HorizontalAlignment="Left">
-                <TextBox Name="codeTB" Header="Subject Code" Width="608" 
+        
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+        </Grid>
+        
+        <ScrollViewer>
+            <StackPanel Margin="4" HorizontalAlignment="Center">
+                <TextBlock FontSize="28" FontWeight="Thin" Text="Add a subject" />
+                <StackPanel Orientation="Vertical" HorizontalAlignment="Left">
+                    <TextBox Name="codeTB" Header="Subject Code" Width="608" 
                          Margin="4" Text="{Binding Path=subject.Code, Mode=TwoWay}"/>
-                <TextBox Name="subjectTB" Header="Subject Name" Width="608" 
+                    <TextBox Name="subjectTB" Header="Subject Name" Width="608" 
                          Margin="4" Text="{Binding Path=subject.Name, Mode=TwoWay}"/>
-                <TextBox Name="lecturerTB" Header="Lecturer Name" Width="608" 
+                    <TextBox Name="lecturerTB" Header="Lecturer Name" Width="608" 
                          Margin="4" Text="{Binding Path=subject.Lecturer, Mode=TwoWay}"/>
-            </StackPanel>
-            <TextBlock FontSize="28" FontWeight="Thin" Text="Sessions" />
-            <GridView Name="sessionsGV">
-                <GridView.ItemTemplate>
-                    <DataTemplate>
-                        <StackPanel>
-                            <ComboBox Name="sessionTypeCB" Header="Session Type" Width="300" 
+                </StackPanel>
+                <TextBlock FontSize="28" FontWeight="Thin" Text="Sessions" />
+                <GridView Name="sessionsGV" SelectionChanged="sessionsGV_SelectionChanged">
+                    <GridView.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel>
+                                <ComboBox Name="sessionTypeCB" Header="Session Type" Width="300" 
                                       Margin="4,12,4,4" SelectedValuePath="Content" SelectedValue="{Binding SessionType, Mode=TwoWay}">
-                                <ComboBoxItem Content="Lecture"/>
-                                <ComboBoxItem Content="Tutorial"/>
-                                <ComboBoxItem Content="Laboratory"/>
-                            </ComboBox>
-                            <ComboBox Name="dayCB" Header="Day" Width="300" 
+                                    <ComboBoxItem Content="Lecture"/>
+                                    <ComboBoxItem Content="Tutorial"/>
+                                    <ComboBoxItem Content="Laboratory"/>
+                                </ComboBox>
+                                <ComboBox Name="dayCB" Header="Day" Width="300" 
                                       Margin="4" SelectedValuePath="Content" SelectedIndex="{Binding Day, Mode=TwoWay}">
-                                <ComboBoxItem Content="Sunday"/>
-                                <ComboBoxItem Content="Monday"/>
-                                <ComboBoxItem Content="Tuesday"/>
-                                <ComboBoxItem Content="Wednesday"/>
-                                <ComboBoxItem Content="Thursday"/>
-                                <ComboBoxItem Content="Friday"/>
-                                <ComboBoxItem Content="Saturday"/>
-                            </ComboBox>
-                            <TimePicker Name="startTimeTP" Header="Start time" Width="300" Margin="4" Time="{Binding StartTime, Mode=TwoWay}"/>
-                            <TimePicker Name="endTimeTP" Header="End time" Width="300" Margin="4" Time="{Binding EndTime, Mode=TwoWay}"/>
-                        </StackPanel>
-                    </DataTemplate>
-                </GridView.ItemTemplate>
-            </GridView>
-            <StackPanel x:Name="stackPanel2" Orientation="Horizontal">
-                <Button Name="addSessionBtn" Content="Add more sessions" Margin="4" Click="addSessionBtn_Click"/>
-                <Button Name="deleteSessionBtn" Content="Deleted selected sessions" Margin="4" Click="deleteSessionBtn_Click"/>
-                <Button Name="saveBtn" Content="Save changes to subject" Margin="4" Click="saveBtn_Click"/>
-
+                                    <ComboBoxItem Content="Sunday"/>
+                                    <ComboBoxItem Content="Monday"/>
+                                    <ComboBoxItem Content="Tuesday"/>
+                                    <ComboBoxItem Content="Wednesday"/>
+                                    <ComboBoxItem Content="Thursday"/>
+                                    <ComboBoxItem Content="Friday"/>
+                                    <ComboBoxItem Content="Saturday"/>
+                                </ComboBox>
+                                <TimePicker Name="startTimeTP" Header="Start time" Width="300" Margin="4" Time="{Binding StartTime, Mode=TwoWay}"/>
+                                <TimePicker Name="endTimeTP" Header="End time" Width="300" Margin="4" Time="{Binding EndTime, Mode=TwoWay}"/>
+                            </StackPanel>
+                        </DataTemplate>
+                    </GridView.ItemTemplate>
+                </GridView>
             </StackPanel>
-        </StackPanel>
+        </ScrollViewer>
+        <CommandBar VerticalAlignment="Bottom" Grid.Row="1">
+            <AppBarButton Name="addSessionBtn" Icon="Add" Label="Add new session" 
+                          Click="addSessionBtn_Click"/>
+            <AppBarButton Name="deleteSessionBtn" Icon="Remove" Label="Remove selected session" 
+                          IsEnabled="False" Click="deleteSessionBtn_Click" />
+            <AppBarSeparator />
+            <AppBarButton Name="saveBtn" Icon="Save" Label="Save changes"
+                          Click="saveBtn_Click"/>
+            <AppBarButton Name="deleteBtn" Icon="Delete" Label="Delete this subject"
+                          Click="deleteBtn_Click" />
+        </CommandBar>
     </Grid>
 </Page>

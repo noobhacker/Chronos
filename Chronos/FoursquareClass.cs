@@ -11,8 +11,8 @@ namespace Chronos
 {
     public static class FoursquareClass
     {
-        private const string clientId = "BWVOT3CVKFPWHYN3VE23GIYE0KAMMC1HU3WZVLJEU1L0OKYB";
-        private const string clientSecret = "0LRAHA4ND2DSQA0OL3SKLTGNX2NTOBL2S3D52A01SK4MBCM4";
+        private const string clientId = "CB3B1EURDAQUAGZSPASA3QZX2Z0PEN3YP1MDJS0UKYNQ0ZX5";
+        private const string clientSecret = "GMIF0CVLMA2I0UOLVQKTKM0DZUWJ3PX1QLX1TGWQE0BKNZLB";
         private const string url = "https://api.foursquare.com/v2/venues/";
         private const string coordinate = "ll=2.249863,102.277030";
 

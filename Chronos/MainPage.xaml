@@ -14,28 +14,16 @@
                     <VisualState.Setters>
                         <Setter Target="splitview.(SplitView.IsPaneOpen)" Value="False"/>
                         <Setter Target="splitview.(SplitView.DisplayMode)" Value="Overlay"/>
-                        <Setter Target="navigationFrame.(FrameworkElement.Margin)">
-                            <Setter.Value>
-                                <Thickness>0</Thickness>
-                            </Setter.Value>
-                        </Setter>
                     </VisualState.Setters>
                     <VisualState.StateTriggers>
                         <AdaptiveTrigger MinWindowWidth="0"/>
                     </VisualState.StateTriggers>
                 </VisualState>
                 <VisualState x:Name="Desktop">
-                    <VisualState.Setters>
-                        <Setter Target="navigationFrame.(FrameworkElement.Margin)">
-                            <Setter.Value>
-                                <Thickness>32,0,32,0</Thickness>
-                            </Setter.Value>
-                        </Setter>
-                    </VisualState.Setters>
                     <VisualState.StateTriggers>
                         <AdaptiveTrigger MinWindowWidth="800"/>
                     </VisualState.StateTriggers>
-                </VisualState>                
+                </VisualState>
             </VisualStateGroup>
         </VisualStateManager.VisualStateGroups>
         <Grid.RowDefinitions>
