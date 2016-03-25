@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -22,9 +23,11 @@ namespace Chronos
     /// </summary>
     public sealed partial class PrivateMessageView : Page
     {
+        PrivateMessageViewModel vm = new PrivateMessageViewModel();
         public PrivateMessageView()
         {
             this.InitializeComponent();
+            this.DataContext = vm;
         }
 
         private void sendBtn_Click(object sender, RoutedEventArgs e)
@@ -39,6 +42,15 @@ namespace Chronos
                 secondColumn.Width = GridLength.Auto;
                 this.Frame.Navigate(typeof(PostMessageView));
             }
+        }
+
+        protected override async void OnNavigatedTo(NavigationEventArgs e)
+        {
+            string response = await WebAPIClass.GetJsonFromServerAsync("PrivateMessage", GlobalVariables.CurrentUser.Id.ToString());
+
+            vm = JsonConvert.DeserializeObject<PrivateMessageViewModel>(response);
+
+            listview.ItemsSource = vm.inboxList;
         }
     }
 }

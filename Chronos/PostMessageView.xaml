@@ -17,21 +17,34 @@
                 <CommandBar>
                     <AppBarButton Name="backBtn" Icon="Back" Label="Back"
                                   Click="backBtn_Click"/>
-                    <AppBarButton Icon="Send" Label="Send"/>
+                    <AppBarButton Name="sendBtn" Icon="Send" Label="Send"
+                                  Click="sendBtn_Click"/>
                 </CommandBar>
                 <StackPanel Orientation="Horizontal" Margin="0,0,200,0">
                     <TextBlock FontWeight="SemiBold" Text="Send to: " Margin="16,0,4,0"
                            VerticalAlignment="Center" />
-                    <TextBlock FontWeight="SemiBold" Text="Another Developer"
+                    <StackPanel Orientation="Horizontal" Name="replyGroup">
+                        <TextBlock FontWeight="SemiBold" Text="Another Developer"
                            VerticalAlignment="Center" />
-                    <TextBlock Text="(ID:" VerticalAlignment="Center" Margin="4,0" />
-                    <TextBlock Text="2" VerticalAlignment="Center"/>
-                    <TextBlock Text=")" VerticalAlignment="Center"/>
+                        <TextBlock Text="(ID:" VerticalAlignment="Center" Margin="4,0" />
+                        <TextBlock Text="2" VerticalAlignment="Center"/>
+                        <TextBlock Text=")" VerticalAlignment="Center"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Name="postGroup">
+                        <TextBox PlaceholderText="Enter receipent ID" BorderThickness="0" Name="receiverTB"
+                                 Background="Transparent" VerticalAlignment="Center" Margin="0,8,0,0" 
+                                 Width="150"/>
+                        <TextBlock Foreground="Red" Text="Please enter receipent ID" VerticalAlignment="Center" 
+                                   Opacity="0.85" Visibility="Collapsed" Name="noReceipentTB"/>
+                        <!--Text="{Binding ReceiverId}"-->
+                    </StackPanel>
                 </StackPanel>
             </Grid>
             <TextBox TextWrapping="Wrap" AcceptsReturn="True" VerticalAlignment="Stretch"
                      Margin="4" Grid.Row="1" BorderThickness="0"
-                     PlaceholderText="Enter message here..."/>
+                     PlaceholderText="Enter message here..." Text="{Binding Message, Mode=TwoWay}"/>
+            <ProgressRing Name="loading" Grid.Row="1" Width="60" Height="60"/>
+
         </Grid>
     </Grid>
 </Page>

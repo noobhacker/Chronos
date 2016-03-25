@@ -40,7 +40,7 @@ namespace Chronos
             vm.upcomingList.Clear();
             foreach (var itm in vm.eventList)
             {
-                string dueday = itm.DueDate.Subtract(DateTime.Now).Days.ToString();
+                int dueday = itm.DueDate.Day - DateTime.Now.Day;
                 vm.upcomingList.Add(dueday + " : " + itm.Desc);
             }
         }

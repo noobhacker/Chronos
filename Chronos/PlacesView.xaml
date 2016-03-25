@@ -72,32 +72,36 @@
                 </GridView>
             </StackPanel>
 
-            <TextBlock Text="Lunch" FontSize="20" FontWeight="ExtraLight" Margin="0,24,0,0"/>
+            <TextBlock Text="Food" FontSize="20" FontWeight="ExtraLight" Margin="0,24,0,0"/>
+            <ProgressRing Name="loading" IsActive="True" Width="60" Height="60"/>
 
-            <GridView>
-                <Grid x:Name="grid1" Width="300" Height="220" Margin="8">
-
-                    <Image Source="https://irs0.4sqi.net/img/general/width960/135219081_qBWUK0bsEkh7H3SsYNi6Orc9xJjJqaGceYQLawtYGfE.jpg"
+            <GridView Name="foodGV">
+                <GridView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid x:Name="grid1" Width="300" Height="220" Margin="8">
+                            <Image Source="{Binding ImageUrl}"
                        Stretch="Fill" />
-                    <Grid>
-                        <Grid.Background>
-                            <LinearGradientBrush EndPoint="0.5,0" StartPoint="0.5,1">
-                                <GradientStop Color="Black" Offset="0.119"/>
-                                <GradientStop Offset="0.673"/>
-                            </LinearGradientBrush>
-                        </Grid.Background>
-                    </Grid>
-                    <Grid VerticalAlignment="Bottom">
-                        <StackPanel HorizontalAlignment="Left" Margin="8">
-                            <TextBlock Text="Rice Rice Rice" FontWeight="Light" Margin="0,0,0,2"/>
-                            <TextBlock Text="Western" FontSize="12" FontWeight="Light"/>
-                        </StackPanel>
-                        <StackPanel Orientation="Horizontal" Margin="12,4" HorizontalAlignment="Right" VerticalAlignment="Center">
-                            <TextBlock Margin="8,4" Text="9.2" Foreground="Green" Opacity="0.85"/>
-                            <TextBlock FontFamily="Segoe MDL2 Assets" Text="" Foreground="Green" VerticalAlignment="Center" Opacity="0.85"/>
-                        </StackPanel>
-                    </Grid>
-                </Grid>
+                            <Grid>
+                                <Grid.Background>
+                                    <LinearGradientBrush EndPoint="0.5,0" StartPoint="0.5,1">
+                                        <GradientStop Color="Black" Offset="0.119"/>
+                                        <GradientStop Offset="0.673"/>
+                                    </LinearGradientBrush>
+                                </Grid.Background>
+                            </Grid>
+                            <Grid VerticalAlignment="Bottom">
+                                <StackPanel HorizontalAlignment="Left" Margin="8">
+                                    <TextBlock Text="{Binding LocationName}" FontWeight="Light" Margin="0,0,0,2"/>
+                                    <TextBlock Text="{Binding Category}" FontSize="12" FontWeight="Light"/>
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal" Margin="12,4" HorizontalAlignment="Right" VerticalAlignment="Center">
+                                    <TextBlock Text="{Binding Distance}" Foreground="Green" Opacity="0.85"/>
+                                    <TextBlock Text="m" Foreground="Green" VerticalAlignment="Center" Opacity="0.85"/>
+                                </StackPanel>
+                            </Grid>
+                        </Grid>
+                    </DataTemplate>
+                </GridView.ItemTemplate>
             </GridView>
 
         </StackPanel>

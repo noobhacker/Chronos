@@ -54,7 +54,7 @@ namespace Chronos
             {
                 stackPanel.Visibility = Visibility.Visible;
                 var maxValue = end.TimeOfDay.TotalSeconds - start.TimeOfDay.TotalSeconds;
-                var currentValue = end.TimeOfDay.TotalSeconds - now.TimeOfDay.TotalSeconds ;
+                var currentValue = now.TimeOfDay.TotalSeconds - start.TimeOfDay.TotalSeconds;
 
                 double percentage = currentValue / maxValue;
                 ProgressControl.SetBarLength(percentage);

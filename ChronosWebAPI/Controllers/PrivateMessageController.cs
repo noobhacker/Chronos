@@ -36,15 +36,8 @@ namespace ChronosWebAPI.Controllers
         }
 
         [ResponseType(typeof(PrivateMessageViewModel))]
-        public async Task<IHttpActionResult> Get(int Id, string password)
+        public async Task<IHttpActionResult> Get(int Id)
         {
-
-            if (await UserValidator.ValidateUser(new Student()
-            {
-                 Id=Id,
-                 Password=password
-            }) == false)
-                return BadRequest(ModelState);
 
             var result = from a in db.PrivateMessages
                          join b in db.Students on a.SenderId equals b.Id
@@ -59,6 +52,11 @@ namespace ChronosWebAPI.Controllers
 
             var returnValue = new PrivateMessageViewModel();
             returnValue.inboxList = new ObservableCollection<InboxItem>(result);
+
+            foreach(var itm in returnValue.inboxList)
+            {
+                itm.SentTimeText = itm.SentTime.ToString("hh.mmtt");
+            }
 
             return Ok(returnValue);
         }

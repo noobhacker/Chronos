@@ -114,6 +114,9 @@
       <DependentUpon>ConfessionView.xaml</DependentUpon>
     </Compile>
     <Compile Include="ConfessionViewModel.cs" />
+    <Compile Include="FoursquareClass.cs" />
+    <Compile Include="FoursquareImageJson.cs" />
+    <Compile Include="FoursquareJson.cs" />
     <Compile Include="HapDetailsView.xaml.cs">
       <DependentUpon>HapDetailsView.xaml</DependentUpon>
     </Compile>

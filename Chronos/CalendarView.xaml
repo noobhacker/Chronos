@@ -33,7 +33,7 @@
                 </VisualState>
             </VisualStateGroup>
         </VisualStateManager.VisualStateGroups>
-        <StackPanel Margin="0,10,0,6">
+        <StackPanel Margin="0,10,0,6"  HorizontalAlignment="Center">
             <StackPanel x:Name="stackPanel" Orientation="Horizontal">
                 <CalendarView x:Name="calendarView1" Margin="16,0" HorizontalAlignment="Center"/>
 
@@ -58,12 +58,15 @@
                 </Grid>
 
             </StackPanel>
+            <!--
             <CalendarView x:Name="calendarView" Margin="16,32,16,16" HorizontalAlignment="Stretch" Height="500" 
                           DayOfWeekFormat="{}{dayofweek.solo.abbreviated(8)}"
                           NumberOfWeeksInView="4"/>
+            -->
             <StackPanel Margin="4">
                 <TextBlock Text="Add new event" FontSize="20" FontWeight="ExtraLight" Margin="0,24,0,0"/>
-                <TextBox Name="addNameTB" Header="Name" Margin="4" Text="{Binding Path=input.Desc, Mode=TwoWay}"/>
+                <TextBox Name="addNameTB" Header="Name" Margin="4" Text="{Binding Path=input.Desc, Mode=TwoWay}"
+                         MaxWidth="600"/>
                 
                 <StackPanel Orientation="Horizontal" Margin="4">
                     <DatePicker Name="dueDateDP" Header="Due date" Date="{Binding Path=input.DueDate.Date, Mode=TwoWay}"/>

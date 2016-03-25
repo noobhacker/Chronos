@@ -22,9 +22,19 @@ namespace Chronos
     /// </summary>
     public sealed partial class PostMessageView : Page
     {
+        PostMessageViewModel vm = new PostMessageViewModel();
         public PostMessageView()
         {
             this.InitializeComponent();
+            this.DataContext = vm;
+        }
+
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            if (e.Parameter == null)
+                replyGroup.Visibility = Visibility.Collapsed;
+            else
+                postGroup.Visibility = Visibility.Collapsed;
         }
 
         private void backBtn_Click(object sender, RoutedEventArgs e)
@@ -33,6 +43,25 @@ namespace Chronos
                 this.Frame.GoBack();
             //else
                 // huh??
+        }
+
+        private async void sendBtn_Click(object sender, RoutedEventArgs e)
+        {
+            loading.IsActive = true;
+
+            if (vm.ReceiverId == 0)
+                try
+                {
+                    vm.ReceiverId = Convert.ToInt32(receiverTB.Text);
+                }
+                catch
+                {
+                    noReceipentTB.Visibility = Visibility.Visible;
+                }
+
+            var result = await WebAPIClass.PostJsonToServerAsync(vm,"PrivateMessage");
+
+            this.Frame.GoBack();
         }
     }
 }

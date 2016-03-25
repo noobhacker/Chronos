@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Chronos.FoursquareJson;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
@@ -17,9 +18,23 @@ namespace Chronos
         public string Price { get; set; }
 
     }
+
+    public class FoodListItem
+    {
+        public FoursquareRootObject JsonRootObject { get; set; } // to pass to next page
+        
+        public string ImageUrl { get; set; }
+        public string LocationName { get; set; }
+        public string Category { get; set; }
+        public int Distance { get; set; }
+    }
+
     public class PlacesViewModel
     {
         public ObservableCollection<HapListItem> hapList
             = new ObservableCollection<HapListItem>();
+
+        public ObservableCollection<FoodListItem> foodList
+            = new ObservableCollection<FoodListItem>();
     }
 }

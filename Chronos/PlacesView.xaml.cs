@@ -1,18 +1,6 @@
 ﻿using Newtonsoft.Json;
-using System;
-using System.Collections.Generic;
-using System.IO;
 using System.Linq;
-using System.Runtime.InteropServices.WindowsRuntime;
-using Windows.Foundation;
-using Windows.Foundation.Collections;
-using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Controls.Primitives;
-using Windows.UI.Xaml.Data;
-using Windows.UI.Xaml.Input;
-using Windows.UI.Xaml.Media;
-using Windows.UI.Xaml.Media.Animation;
 using Windows.UI.Xaml.Navigation;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
@@ -25,6 +13,7 @@ namespace Chronos
     public sealed partial class PlacesView : Page
     {
         PlacesViewModel vm = new PlacesViewModel();
+
         public PlacesView()
         {
             this.InitializeComponent();
@@ -36,6 +25,21 @@ namespace Chronos
             string response = await WebAPIClass.GetJsonFromServerAsync("Places","");
             vm = JsonConvert.DeserializeObject<PlacesViewModel>(response);
             hapListview.ItemsSource = vm.hapList;
+
+            var result = await FoursquareClass.GetFoursquareFoodAsync();
+
+            foreach (var v in result.response.venues)
+                vm.foodList.Add(new FoodListItem()
+                {
+                    JsonRootObject = result,
+                    ImageUrl = "", //throw notimplementedexception
+                    Category = v.categories.Count != 0 ? v.categories[0].name : "",
+                    Distance = v.location.distance,
+                    LocationName = v.name
+                });
+
+            foodGV.ItemsSource = vm.foodList.OrderBy(x => x.Distance).ToList();
+            loading.IsActive = false;
         }
 
         private void hapListview_SelectionChanged(object sender, SelectionChangedEventArgs e)
