@@ -58,11 +58,13 @@ namespace Chronos
                 catch
                 {
                     noReceipentTB.Visibility = Visibility.Visible;
+                    return;
                 }
 
             var result = await WebAPIClass.PostJsonToServerAsync(vm,"PrivateMessage");
 
-            this.Frame.GoBack();
+            if (this.Frame.CanGoBack)
+                this.Frame.GoBack();
         }
     }
 }

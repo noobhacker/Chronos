@@ -53,6 +53,7 @@ namespace Chronos
 
         private async void saveBtn_Click(object sender, RoutedEventArgs e)
         {
+            loading.IsActive = true;
             string target = string.Format("SubjectTimeTable");
             vm.subject.Code = vm.subject.Code.Replace(" ", "");
             var obj = JsonConvert.SerializeObject(vm);

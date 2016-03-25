@@ -10,7 +10,7 @@
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <StackPanel Margin="4">
             <ToggleSwitch Name="whiteThemeTG" Header="Use experimental white theme" Margin="4,12,4,4"
-                          Toggled="whiteThemeTG_Toggled"/>
+                          Toggled="whiteThemeTG_Toggled" IsEnabled="False"/>
         </StackPanel>
     </Grid>
 </Page>

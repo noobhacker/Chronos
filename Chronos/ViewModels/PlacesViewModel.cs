@@ -1,4 +1,4 @@
-﻿using Chronos.FoursquareJson;
+﻿using Chronos.Foursquare.FoursquareJson;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;

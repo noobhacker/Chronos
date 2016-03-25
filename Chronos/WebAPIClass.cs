@@ -19,7 +19,7 @@ namespace Chronos
             HttpContent.Headers.ContentType = new Windows.Web.Http.Headers.HttpMediaTypeHeaderValue("application/json");
 
             var returnValue = await client.PostAsync(new Uri(WebAPIAddress + target), HttpContent);
-
+            
             return true;
         }
 

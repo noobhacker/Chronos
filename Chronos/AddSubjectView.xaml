@@ -37,47 +37,47 @@
                 <RowDefinition Height="Auto" />
             </Grid.RowDefinitions>
         </Grid>
-        
-        <ScrollViewer>
-            <StackPanel Margin="4" HorizontalAlignment="Center">
-                <TextBlock FontSize="28" FontWeight="Thin" Text="Add a subject" />
-                <StackPanel Orientation="Vertical" HorizontalAlignment="Left">
-                    <TextBox Name="codeTB" Header="Subject Code" Width="608" 
+
+        <StackPanel Margin="4" HorizontalAlignment="Center">
+            <TextBlock FontSize="28" FontWeight="Thin" Text="Add a subject" />
+            <StackPanel Orientation="Vertical" HorizontalAlignment="Left">
+                <TextBox Name="codeTB" Header="Subject Code" Width="608" 
                          Margin="4" Text="{Binding Path=subject.Code, Mode=TwoWay}"/>
-                    <TextBox Name="subjectTB" Header="Subject Name" Width="608" 
+                <TextBox Name="subjectTB" Header="Subject Name" Width="608" 
                          Margin="4" Text="{Binding Path=subject.Name, Mode=TwoWay}"/>
-                    <TextBox Name="lecturerTB" Header="Lecturer Name" Width="608" 
+                <TextBox Name="lecturerTB" Header="Lecturer Name" Width="608" 
                          Margin="4" Text="{Binding Path=subject.Lecturer, Mode=TwoWay}"/>
-                </StackPanel>
-                <TextBlock FontSize="28" FontWeight="Thin" Text="Sessions" />
-                <GridView Name="sessionsGV" SelectionChanged="sessionsGV_SelectionChanged">
-                    <GridView.ItemTemplate>
-                        <DataTemplate>
-                            <StackPanel>
-                                <ComboBox Name="sessionTypeCB" Header="Session Type" Width="300" 
-                                      Margin="4,12,4,4" SelectedValuePath="Content" SelectedValue="{Binding SessionType, Mode=TwoWay}">
-                                    <ComboBoxItem Content="Lecture"/>
-                                    <ComboBoxItem Content="Tutorial"/>
-                                    <ComboBoxItem Content="Laboratory"/>
-                                </ComboBox>
-                                <ComboBox Name="dayCB" Header="Day" Width="300" 
-                                      Margin="4" SelectedValuePath="Content" SelectedIndex="{Binding Day, Mode=TwoWay}">
-                                    <ComboBoxItem Content="Sunday"/>
-                                    <ComboBoxItem Content="Monday"/>
-                                    <ComboBoxItem Content="Tuesday"/>
-                                    <ComboBoxItem Content="Wednesday"/>
-                                    <ComboBoxItem Content="Thursday"/>
-                                    <ComboBoxItem Content="Friday"/>
-                                    <ComboBoxItem Content="Saturday"/>
-                                </ComboBox>
-                                <TimePicker Name="startTimeTP" Header="Start time" Width="300" Margin="4" Time="{Binding StartTime, Mode=TwoWay}"/>
-                                <TimePicker Name="endTimeTP" Header="End time" Width="300" Margin="4" Time="{Binding EndTime, Mode=TwoWay}"/>
-                            </StackPanel>
-                        </DataTemplate>
-                    </GridView.ItemTemplate>
-                </GridView>
             </StackPanel>
-        </ScrollViewer>
+            <TextBlock FontSize="28" FontWeight="Thin" Text="Sessions" />
+            <GridView Name="sessionsGV" SelectionChanged="sessionsGV_SelectionChanged">
+                <GridView.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel>
+                            <ComboBox Name="sessionTypeCB" Header="Session Type" Width="300" 
+                                      Margin="4,12,4,4" SelectedValuePath="Content" SelectedValue="{Binding SessionType, Mode=TwoWay}">
+                                <ComboBoxItem Content="Lecture"/>
+                                <ComboBoxItem Content="Tutorial"/>
+                                <ComboBoxItem Content="Laboratory"/>
+                            </ComboBox>
+                            <ComboBox Name="dayCB" Header="Day" Width="300" 
+                                      Margin="4" SelectedValuePath="Content" SelectedIndex="{Binding Day, Mode=TwoWay}">
+                                <ComboBoxItem Content="Sunday"/>
+                                <ComboBoxItem Content="Monday"/>
+                                <ComboBoxItem Content="Tuesday"/>
+                                <ComboBoxItem Content="Wednesday"/>
+                                <ComboBoxItem Content="Thursday"/>
+                                <ComboBoxItem Content="Friday"/>
+                                <ComboBoxItem Content="Saturday"/>
+                            </ComboBox>
+                            <TimePicker Name="startTimeTP" Header="Start time" Width="300" Margin="4" Time="{Binding StartTime, Mode=TwoWay}"/>
+                            <TimePicker Name="endTimeTP" Header="End time" Width="300" Margin="4" Time="{Binding EndTime, Mode=TwoWay}"/>
+                        </StackPanel>
+                    </DataTemplate>
+                </GridView.ItemTemplate>
+            </GridView>
+        </StackPanel>
+        <ProgressRing Name="loading" IsActive="False" Width="60" Height="60"/>
+
         <CommandBar VerticalAlignment="Bottom" Grid.Row="1">
             <AppBarButton Name="addSessionBtn" Icon="Add" Label="Add new session" 
                           Click="addSessionBtn_Click"/>

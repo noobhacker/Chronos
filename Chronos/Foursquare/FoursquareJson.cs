@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Chronos.FoursquareJson
+namespace Chronos.Foursquare.FoursquareJson
 {
 
     public class Meta

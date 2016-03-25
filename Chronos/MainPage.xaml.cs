@@ -73,6 +73,9 @@ namespace Chronos
                     case 6:
                         navigationFrame.Navigate(typeof(SettingsView));
                         break;
+                    case 7:
+                        navigationFrame.Navigate(typeof(SendFeedbackView));
+                        break;
                 }
                 
             }

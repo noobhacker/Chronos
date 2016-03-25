@@ -98,6 +98,9 @@
     <Compile Include="AddMarketItemView.xaml.cs">
       <DependentUpon>AddMarketItemView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="SendFeedbackView.xaml.cs">
+      <DependentUpon>SendFeedbackView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ViewModels\AddMarketItemViewModel.cs" />
     <Compile Include="AddSubjectView.xaml.cs">
       <DependentUpon>AddSubjectView.xaml</DependentUpon>
@@ -115,8 +118,8 @@
     </Compile>
     <Compile Include="ViewModels\ConfessionViewModel.cs" />
     <Compile Include="FoursquareClass.cs" />
-    <Compile Include="FoursquareImageJson.cs" />
-    <Compile Include="FoursquareJson.cs" />
+    <Compile Include="Foursquare\FoursquareImageJson.cs" />
+    <Compile Include="Foursquare\FoursquareJson.cs" />
     <Compile Include="HapDetailsView.xaml.cs">
       <DependentUpon>HapDetailsView.xaml</DependentUpon>
     </Compile>
@@ -240,6 +243,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="RoundProgressControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SendFeedbackView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
