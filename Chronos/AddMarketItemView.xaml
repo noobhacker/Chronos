@@ -26,7 +26,7 @@
                 </VisualState>
             </VisualStateGroup>
         </VisualStateManager.VisualStateGroups>
-        
+        <Image Source="/Assets/evening.png" Stretch="Fill"/>
         <StackPanel Margin="4" HorizontalAlignment="Center">
             <StackPanel x:Name="stackPanel" Orientation="Horizontal">
                 <TextBox Name="itemNameTB" Header="Item Name" Text="{Binding Path=marketItem.ItemName, Mode=TwoWay}"
@@ -75,7 +75,7 @@
            
         </StackPanel>
 
-        <CommandBar VerticalAlignment="Bottom">
+        <CommandBar VerticalAlignment="Bottom" Background="Transparent">
             <AppBarButton Name="saveBtn" Icon="Save" Label="Put on market"
                           Click="saveBtn_Click"/>
             <AppBarButton Name="deleteBtn" Icon="Delete" Label="Remove from market" />

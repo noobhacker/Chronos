@@ -33,46 +33,53 @@
                 </VisualState>
             </VisualStateGroup>
         </VisualStateManager.VisualStateGroups>
-        <StackPanel Margin="8,0">
-            <StackPanel>
-                <Grid>
-                    <TextBox Margin="8,36" Background="White" PlaceholderText="Search"/>
-                    <Button HorizontalAlignment="Right" FontFamily="Segoe MDL2 Assets" Content="" 
+        <Image Source="/Assets/evening.png" Stretch="Fill"/>
+        <StackPanel Margin="32,8,32,0">
+            <Grid>
+                <Grid Background="Black" Opacity="0.6" />
+                <StackPanel>
+                    <Grid Visibility="Collapsed">
+                        <TextBox Margin="8" Background="White" PlaceholderText="Search"/>
+                        <Button HorizontalAlignment="Right" FontFamily="Segoe MDL2 Assets" Content="" 
                         Background="Transparent" VerticalAlignment="Stretch" Margin="0,0,8,0"/>
-                </Grid>
-                <TextBlock x:Name="textBlock" Text="Happenings" FontSize="20" FontWeight="ExtraLight" Margin="0,24,0,0"/>
+                    </Grid>
 
-                <GridView Name="hapListview" SelectionChanged="hapListview_SelectionChanged">
-                    <GridView.ItemTemplate>
-                        <DataTemplate>
-                            <Grid x:Name="grid" Width="350" Height="210" Margin="8">
-                                <Image Source="{Binding ImageUrl}" Stretch="Fill" />
-                                <Grid>
-                                    <Grid.Background>
-                                        <LinearGradientBrush EndPoint="0.5,0" StartPoint="0.5,1">
-                                            <GradientStop Color="Black" Offset="0.119"/>
-                                            <GradientStop Offset="0.673"/>
-                                        </LinearGradientBrush>
-                                    </Grid.Background>
-                                </Grid>
-                                <Grid VerticalAlignment="Bottom">
-                                    <StackPanel HorizontalAlignment="Left" Margin="8">
-                                        <TextBlock Text="{Binding EventName}"/>
-                                        <TextBlock Text="{Binding TimeText}" FontSize="12" FontWeight="Light"/>
+                    <TextBlock x:Name="textBlock" Text="Happenings" FontSize="20" FontWeight="ExtraLight" Margin="8"/>
 
-                                        <TextBlock Text="{Binding LocationText}" FontSize="8" FontWeight="Light" Margin="0,0,4,0"/>
+                    <GridView Name="hapListview" SelectionChanged="hapListview_SelectionChanged">
+                        <GridView.ItemTemplate>
+                            <DataTemplate>
+                                <Grid x:Name="grid" Width="350" Height="210" Margin="8">
+                                    <Image Source="{Binding ImageUrl}" Stretch="UniformToFill" />
+                                    <Grid>
+                                        <Grid.Background>
+                                            <LinearGradientBrush EndPoint="0.5,0" StartPoint="0.5,1">
+                                                <GradientStop Color="Black" Offset="0.119"/>
+                                                <GradientStop Offset="0.673"/>
+                                            </LinearGradientBrush>
+                                        </Grid.Background>
+                                    </Grid>
+                                    <Grid VerticalAlignment="Bottom">
+                                        <StackPanel HorizontalAlignment="Left" Margin="8">
+                                            <TextBlock Text="{Binding EventName}"/>
+                                            <TextBlock Text="{Binding TimeText}" FontSize="12" FontWeight="Light"/>
 
-                                    </StackPanel>
-                                    <TextBlock Margin="12,4" HorizontalAlignment="Right" VerticalAlignment="Center" 
+                                            <TextBlock Text="{Binding LocationText}" FontSize="8" FontWeight="Light" Margin="0,0,4,0"/>
+
+                                        </StackPanel>
+                                        <TextBlock Margin="12,4" HorizontalAlignment="Right" VerticalAlignment="Center" 
                                                Text="{Binding Price}" Foreground="Green" Opacity="0.85"/>
+                                    </Grid>
                                 </Grid>
-                            </Grid>
-                        </DataTemplate>
-                    </GridView.ItemTemplate>
-                </GridView>
-            </StackPanel>
+                            </DataTemplate>
+                        </GridView.ItemTemplate>
+                    </GridView>
+                </StackPanel>
+            </Grid>
 
-            <TextBlock Text="Food" FontSize="20" FontWeight="ExtraLight" Margin="0,24,0,0"/>
+            <Grid Margin="0,24,0,0">
+                <Grid Background="Black" Opacity="0.6" />
+                <TextBlock Text="Food" FontSize="20" FontWeight="ExtraLight" Margin="8"/>
             <ProgressRing Name="loading" IsActive="True" Width="60" Height="60"/>
 
             <GridView Name="foodGV">
@@ -103,7 +110,8 @@
                     </DataTemplate>
                 </GridView.ItemTemplate>
             </GridView>
-
+            </Grid>
+            
         </StackPanel>
     </Grid>
 </Page>

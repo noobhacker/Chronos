@@ -39,6 +39,7 @@
                 </VisualState>
             </VisualStateGroup>
         </VisualStateManager.VisualStateGroups>
+        <Image Source="/Assets/summer.png" Stretch="Fill"/>
         <StackPanel x:Name="stackPanel">
             <Grid x:Name="grid" Margin="16,16,16,16">
                 <Grid.ColumnDefinitions>
@@ -50,13 +51,13 @@
                         Background="#FF0055A6" VerticalAlignment="Stretch" Width="48"
                         Name="postBtn" Click="postBtn_Click"/>
             </Grid>
-            <ListView Name="listview">
-                <ListView.ItemContainerStyle>
-                    <Style TargetType="ListViewItem">
+            <ListBox Name="listview" Background="Transparent">
+                <ListBox.ItemContainerStyle>
+                    <Style TargetType="ListBoxItem">
                         <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
                     </Style>
-                </ListView.ItemContainerStyle>
-                <ListView.ItemTemplate>
+                </ListBox.ItemContainerStyle>
+                <ListBox.ItemTemplate>
                     <DataTemplate>
                         <Grid x:Name="grid1" Background="White" Margin="8">
 
@@ -94,8 +95,8 @@
                         </Grid>
 
                     </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
+                </ListBox.ItemTemplate>
+            </ListBox>
         </StackPanel>
     </Grid>
 </Page>

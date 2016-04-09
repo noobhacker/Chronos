@@ -7,6 +7,7 @@ using Chronos;
 using System.Collections.ObjectModel;
 using System;
 using Chronos.ViewModels;
+using System.Collections.Generic;
 
 namespace ChronosWebAPI.Controllers
 {
@@ -37,15 +38,26 @@ namespace ChronosWebAPI.Controllers
 
         // get confession based on id later
         [ResponseType(typeof(ConfessionViewModel))]
-        public async Task<IHttpActionResult> Get()
+        public IHttpActionResult Get()
         {
-            var result = from a in db.Confessions
-                         select new ConfessionList()
-                         {
-                             Id=a.Id,
-                             Message=a.Message,
-                             PostDateTime=a.PostDateTime
-                         };
+            var query = from a in db.Confessions
+                         select a;
+
+            var result = new ObservableCollection<ConfessionList>();
+
+            foreach (var a in query)
+            {
+                result.Add(new ConfessionList()
+                {
+                    Id = a.Id,
+                    Message = a.Message,
+                    //Likes = (from b in db.Confessions
+                    //         join c in db.ConfessionLikes on b.Id equals c.ConfessionId
+                    //         select c).Count(),
+                    PostDateTime = a.PostDateTime,
+                    PostDateTimeText = DateTime.Now.Subtract(a.PostDateTime).Minutes.ToString()
+                });
+            }
 
             //foreach(var r in result)
             //{

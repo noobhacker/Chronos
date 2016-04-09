@@ -34,7 +34,8 @@
                 </VisualState>
             </VisualStateGroup>
         </VisualStateManager.VisualStateGroups>
-        <StackPanel x:Name="stackPanel1" Margin="8">
+        <Image Source="/Assets/breeze.png" Stretch="Fill"/>
+        <StackPanel x:Name="stackPanel1" Margin="32,8,128,0">
             <StackPanel HorizontalAlignment="Center">
                 <StackPanel Orientation="Horizontal">
                     <TextBlock Text="Hi, " FontSize="28" FontWeight="Thin" Margin="16,16,4,16" HorizontalAlignment="Center"/>
@@ -47,76 +48,85 @@
                 </Grid>
                 <TextBlock Name="updatedTB" Text="loading" FontSize="12" FontWeight="Thin" Margin="8" HorizontalAlignment="Center"/>
             </StackPanel>
+            <Grid>
+                <Grid Background="Black" Opacity="0.6" />
+                <StackPanel>
+                    <TextBlock Name="nowTB" Text="Friday, 18 March 2016" FontSize="20" FontWeight="ExtraLight" Margin="8,24,0,0"/>
 
-                <TextBlock Name="nowTB" Text="Friday, 18 March 2016" FontSize="20" FontWeight="ExtraLight" Margin="0,24,0,0"/>
+                    <ProgressRing Name="loading" IsActive="True" Width="60" Height="60"/>
+                    <StackPanel x:Name="stackPanel" Orientation="Horizontal" Margin="0,20,0,0" Visibility="Collapsed">
 
-            <ProgressRing Name="loading" IsActive="True" Width="60" Height="60"/>
-            <StackPanel x:Name="stackPanel" Orientation="Horizontal" Margin="0,20,0,0" Visibility="Collapsed">
-
-                <Grid>
-                    <local:RoundProgressControl x:Name="ProgressControl" RenderTransformOrigin="0.5,0.5" Height="180">
-                        <local:RoundProgressControl.RenderTransform>
-                            <CompositeTransform Rotation="180" ScaleY="1.2" ScaleX="1.2"/>
-                        </local:RoundProgressControl.RenderTransform>
-                    </local:RoundProgressControl>
-                    <TextBlock Name="nowPercentTB" Width="120" TextAlignment="Center" Text="78%" HorizontalAlignment="Center" 
+                        <Grid>
+                            <local:RoundProgressControl x:Name="ProgressControl" RenderTransformOrigin="0.5,0.5" Height="180">
+                                <local:RoundProgressControl.RenderTransform>
+                                    <CompositeTransform Rotation="180" ScaleY="1.2" ScaleX="1.2"/>
+                                </local:RoundProgressControl.RenderTransform>
+                            </local:RoundProgressControl>
+                            <TextBlock Name="nowPercentTB" Width="120" TextAlignment="Center" Text="78%" HorizontalAlignment="Center" 
                            VerticalAlignment="Center" FontSize="32" FontWeight="Light"
                            Margin="8,0,0,0"/>
-                </Grid>
-
-                <Grid Margin="16,0,0,0" MaxWidth="472">
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="Auto" />
-                        <RowDefinition Height="Auto" />
-                        <RowDefinition Height="Auto" />
-                        <RowDefinition Height="*" />
-                        <RowDefinition Height="Auto" />
-                    </Grid.RowDefinitions>
-
-                    <TextBlock Name="nowSubjectTB" Text="DCS 5086 Computer Communications and Network" FontSize="16" Margin="0,32,0,0" TextWrapping="WrapWholeWords"/>
-                    <TextBlock Name="nowClassTypeTB" Grid.Row="1" FontSize="12"/>
-                    <TextBlock Name="nowSubjectTime"  Text="2:00 PM - 4:00 PM" FontSize="16" Margin="0,4,0,0" Grid.Row="2" FontWeight="Light"/>
-                    <TextBlock Name="nowSubjectLecturer" Text="Mr Ponkoodalingam Kannan" FontSize="12" Margin="0,0,0,28" FontWeight="Light" Grid.Row="4"/>
-
-                </Grid>
-
-            </StackPanel>
-
-            <TextBlock Text="Later" FontSize="20" FontWeight="ExtraLight" Margin="0,24,0,0"/>
-            <GridView Name="laterGV" Margin="0,4,0,0">
-                <GridView.ItemTemplate>
-                    <DataTemplate>
-                        <Grid Height="100" Margin="0,4,0,0" Width="400">
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="10" />
-                                <ColumnDefinition Width="*" />
-                            </Grid.ColumnDefinitions>
-                            <Grid Background="Aquamarine" Opacity="0.85"/>
-                            <Grid Grid.Column="1" Margin="8,0,0,0">
-                                <Grid.RowDefinitions>
-                                    <RowDefinition Height="Auto" />
-                                    <RowDefinition Height="*" />
-                                    <RowDefinition Height="Auto" />
-                                </Grid.RowDefinitions>
-                                <StackPanel>
-                                    <TextBlock Text="{Binding SubjectText}" FontSize="16" TextWrapping="WrapWholeWords"/>
-                                    <TextBlock Text="{Binding ClassType}" FontSize="12"/>
-                                    <StackPanel Orientation="Horizontal">
-                                        <TextBlock Text="{Binding StartTimeText}" FontSize="16" Margin="0,4,0,0" Grid.Row="1" FontWeight="Light" />
-                                        <TextBlock Text="-" FontSize="16" Margin="4" Grid.Row="1" FontWeight="Light"/>
-                                        <TextBlock Text="{Binding EndTimeText}" FontSize="16" Margin="0,4,0,0" Grid.Row="1" FontWeight="Light"/>
-                                    </StackPanel>
-                                </StackPanel>
-                                <TextBlock Text="{Binding Lecturer}" FontSize="12" Margin="0,0,0,4" FontWeight="Light" Grid.Row="2"/>
-
-                            </Grid>
                         </Grid>
-                    </DataTemplate>
-                </GridView.ItemTemplate>
-            </GridView>
 
-            <Button Name="addSubjectBtn" Content="Add more subjects..." Background="Transparent" HorizontalAlignment="Stretch" Click="addSubjectBtn_Click"
+                        <Grid Margin="16,0,0,0" MaxWidth="472">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="*" />
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+
+                            <TextBlock Name="nowSubjectTB" Text="DCS 5086 Computer Communications and Network" FontSize="16" Margin="0,32,0,0" TextWrapping="WrapWholeWords"/>
+                            <TextBlock Name="nowClassTypeTB" Grid.Row="1" FontSize="12"/>
+                            <TextBlock Name="nowSubjectTime"  Text="2:00 PM - 4:00 PM" FontSize="16" Margin="0,4,0,0" Grid.Row="2" FontWeight="Light"/>
+                            <TextBlock Name="nowSubjectLecturer" Text="Mr Ponkoodalingam Kannan" FontSize="12" Margin="0,0,0,28" FontWeight="Light" Grid.Row="4"/>
+
+                        </Grid>
+
+                    </StackPanel>
+                </StackPanel>
+            </Grid>
+
+            <Grid>
+                <Grid Background="Black" Opacity="0.6" />
+                <StackPanel>
+                    <TextBlock Text="Later" FontSize="20" FontWeight="ExtraLight" Margin="8,24,0,0"/>
+                    <GridView Name="laterGV" Margin="0,4,0,0">
+                        <GridView.ItemTemplate>
+                            <DataTemplate>
+                                <Grid Height="100" Margin="0,4,0,0" Width="400">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="10" />
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
+                                    <Grid Background="Aquamarine" Opacity="0.85"/>
+                                    <Grid Grid.Column="1" Margin="8,0,0,0">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="Auto" />
+                                            <RowDefinition Height="*" />
+                                            <RowDefinition Height="Auto" />
+                                        </Grid.RowDefinitions>
+                                        <StackPanel>
+                                            <TextBlock Text="{Binding SubjectText}" FontSize="16" TextWrapping="WrapWholeWords"/>
+                                            <TextBlock Text="{Binding ClassType}" FontSize="12"/>
+                                            <StackPanel Orientation="Horizontal">
+                                                <TextBlock Text="{Binding StartTimeText}" FontSize="16" Margin="0,4,0,0" Grid.Row="1" FontWeight="Light" />
+                                                <TextBlock Text="-" FontSize="16" Margin="4" Grid.Row="1" FontWeight="Light"/>
+                                                <TextBlock Text="{Binding EndTimeText}" FontSize="16" Margin="0,4,0,0" Grid.Row="1" FontWeight="Light"/>
+                                            </StackPanel>
+                                        </StackPanel>
+                                        <TextBlock Text="{Binding Lecturer}" FontSize="12" Margin="0,0,0,4" FontWeight="Light" Grid.Row="2"/>
+
+                                    </Grid>
+                                </Grid>
+                            </DataTemplate>
+                        </GridView.ItemTemplate>
+                    </GridView>
+
+                    <Button Name="addSubjectBtn" Content="Add more subjects..." Background="Transparent" HorizontalAlignment="Stretch" Click="addSubjectBtn_Click"
                     Margin="0,12,0,0"/>
+                </StackPanel>
+            </Grid>
         </StackPanel>
     </Grid>
 </Page>

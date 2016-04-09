@@ -22,38 +22,42 @@
                 </VisualState>
             </VisualStateGroup>
         </VisualStateManager.VisualStateGroups>
+        <Image Source="/Assets/evening.png" Stretch="Fill"/>
         <StackPanel Margin="8">
-            <TextBlock FontSize="24" Text="" FontWeight="Thin"/>
             <Button Content="Sell something..." Name="sellBtn" Click="sellBtn_Click" Margin="4"/>
-            <GridView Name="gridview">
-                <GridView.ItemTemplate>
-                    <DataTemplate>
-                        <Grid x:Name="grid" Width="310" Height="180" Margin="8">
 
-                            <Image Source="{Binding ImageUrl}" />
-                            <Grid>
-                                <Grid.Background>
-                                    <LinearGradientBrush EndPoint="0.5,0" StartPoint="0.5,1">
-                                        <GradientStop Color="Black" Offset="0.119"/>
-                                        <GradientStop Offset="0.673"/>
-                                    </LinearGradientBrush>
-                                </Grid.Background>
-                            </Grid>
-                            <Grid VerticalAlignment="Bottom">
-                                <StackPanel HorizontalAlignment="Left" Margin="8">
-                                    <TextBlock Text="{Binding ItemName}" FontWeight="Light" Margin="0,0,0,2"/>
-                                    <TextBlock Text="{Binding Description}" FontSize="12" FontWeight="Light"/>
-                                </StackPanel>
-                                <StackPanel Orientation="Horizontal" Margin="12,4" HorizontalAlignment="Right" VerticalAlignment="Center">
-                                    <TextBlock Text="RM" Foreground="Green" VerticalAlignment="Center" Opacity="0.85" Visibility="Visible"/>
-                                    <TextBlock Margin="8,4" Text="{Binding Price}" Foreground="Green" Opacity="0.85"/>
+            <Grid>
+                <Grid Background="Black" Opacity="0.6" />
+                <GridView Name="gridview">
+                    <GridView.ItemTemplate>
+                        <DataTemplate>
+                            <Grid x:Name="grid" Width="310" Height="180" Margin="8">
 
-                                </StackPanel>
+                                <Image Source="{Binding ImageUrl}" />
+                                <Grid>
+                                    <Grid.Background>
+                                        <LinearGradientBrush EndPoint="0.5,0" StartPoint="0.5,1">
+                                            <GradientStop Color="Black" Offset="0.119"/>
+                                            <GradientStop Offset="0.673"/>
+                                        </LinearGradientBrush>
+                                    </Grid.Background>
+                                </Grid>
+                                <Grid VerticalAlignment="Bottom">
+                                    <StackPanel HorizontalAlignment="Left" Margin="8">
+                                        <TextBlock Text="{Binding ItemName}" FontWeight="Light" Margin="0,0,0,2"/>
+                                        <TextBlock Text="{Binding Description}" FontSize="12" FontWeight="Light"/>
+                                    </StackPanel>
+                                    <StackPanel Orientation="Horizontal" Margin="12,4" HorizontalAlignment="Right" VerticalAlignment="Center">
+                                        <TextBlock Text="RM" Foreground="Green" VerticalAlignment="Center" Opacity="0.85" Visibility="Visible"/>
+                                        <TextBlock Margin="8,4" Text="{Binding Price}" Foreground="Green" Opacity="0.85"/>
+
+                                    </StackPanel>
+                                </Grid>
                             </Grid>
-                        </Grid>
-                    </DataTemplate>
-                </GridView.ItemTemplate>
-            </GridView>
+                        </DataTemplate>
+                    </GridView.ItemTemplate>
+                </GridView>
+            </Grid>
         </StackPanel>
     </Grid>
 </Page>

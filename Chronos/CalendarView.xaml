@@ -33,17 +33,18 @@
                 </VisualState>
             </VisualStateGroup>
         </VisualStateManager.VisualStateGroups>
-        <StackPanel Margin="0,10,0,6"  HorizontalAlignment="Center">
+        <Image Source="/Assets/evening.png" Stretch="Fill"/>
+        <StackPanel Margin="32,10,128,6"  HorizontalAlignment="Center">
             <StackPanel x:Name="stackPanel" Orientation="Horizontal">
-                <CalendarView x:Name="calendarView1" Margin="16,0" HorizontalAlignment="Center"/>
+                <CalendarView x:Name="calendarView1" Margin="0,4,16,4" HorizontalAlignment="Center"/>
 
-                <Grid Grid.Column="1" Margin="12">
-
+                <Grid Grid.Column="1" Margin="4">
+                    
                     <Grid.RowDefinitions>
                         <RowDefinition Height="Auto" />
                         <RowDefinition Height="*" />
                     </Grid.RowDefinitions>
-
+                    <Grid Background="Black" Opacity="0.6" Grid.RowSpan="2" MinWidth="300" />
                     <TextBlock Text="Upcoming" Margin="8" VerticalAlignment="Top" HorizontalAlignment="Left" FontSize="24"/>
                     <ListView Grid.Row="1" Name="upcomingLst">
                         <ListView.ItemTemplate>
@@ -63,7 +64,9 @@
                           DayOfWeekFormat="{}{dayofweek.solo.abbreviated(8)}"
                           NumberOfWeeksInView="4"/>
             -->
-            <StackPanel Margin="4">
+            <Grid>
+                <Grid Background="Black" Opacity="0.6" Margin="0,8,0,0" />
+                <StackPanel Margin="4">
                 <TextBlock Text="Add new event" FontSize="20" FontWeight="ExtraLight" Margin="0,24,0,0"/>
                 <TextBox Name="addNameTB" Header="Name" Margin="4" Text="{Binding Path=input.Desc, Mode=TwoWay}"
                          MaxWidth="600"/>
@@ -74,6 +77,7 @@
                 </StackPanel>
                 <Button Name="addBtn" Content="Add event" Click="addBtn_Click"/>
             </StackPanel>
+            </Grid>
         </StackPanel>
 
 
