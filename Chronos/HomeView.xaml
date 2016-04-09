@@ -15,7 +15,7 @@
                         <Setter Target="stackPanel.(StackPanel.Orientation)" Value="Vertical"/>
                         <Setter Target="stackPanel1.(FrameworkElement.Margin)">
                             <Setter.Value>
-                                <Thickness>8,0,0,0</Thickness>
+                                <Thickness>0</Thickness>
                             </Setter.Value>
                         </Setter>
                         <Setter Target="ellipse.(FrameworkElement.Width)" Value="80"/>

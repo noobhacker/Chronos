@@ -37,6 +37,16 @@ namespace ChronosWebAPI.Migrations
                 DailyConfessionChance=100
             });
 
+            context.Students.AddOrUpdate(new Student()
+            {
+                Id = 2,
+                Email = "leesong@outlook.com",
+                FullName = "Lee",
+                StudentId = "888888888",
+                Password = "Microsoft123",
+                DailyConfessionChance = 100
+            });
+
             context.Happenings.AddOrUpdate(new Happening()
             {
                 Id = 1,

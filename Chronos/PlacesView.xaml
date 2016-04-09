@@ -50,7 +50,7 @@
                         <GridView.ItemTemplate>
                             <DataTemplate>
                                 <Grid x:Name="grid" Width="350" Height="210" Margin="8">
-                                    <Image Source="{Binding ImageUrl}" Stretch="UniformToFill" />
+                                    <Image Source="{Binding ImageUrl}" Stretch="Uniform" />
                                     <Grid>
                                         <Grid.Background>
                                             <LinearGradientBrush EndPoint="0.5,0" StartPoint="0.5,1">

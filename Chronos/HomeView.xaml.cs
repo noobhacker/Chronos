@@ -71,10 +71,10 @@ namespace Chronos
                 stackPanel.Visibility = Visibility.Collapsed;
         }
 
-        private async Task<bool> refresh()
+        private async Task<bool> refresh(int id)
         {
             string target = "SubjectTimeTable";
-            string subjectsJson = await WebAPIClass.GetJsonFromServerAsync(target, GlobalVariables.CurrentUser.Id.ToString());
+            string subjectsJson = await WebAPIClass.GetJsonFromServerAsync(target, id.ToString());
 
             var _vm = JsonConvert.DeserializeObject<HomeViewModel>(subjectsJson);
         
@@ -93,7 +93,11 @@ namespace Chronos
         protected override async void OnNavigatedTo(NavigationEventArgs e)
         {
             //ProgressControl.SetBarLength(0.78);
-            await refresh();
+            if (e.Parameter == null)
+                await refresh(GlobalVariables.CurrentUser.Id);
+            else
+                await refresh((int)e.Parameter);
+
             Timer_Tick(null, null); // trigger before update duration, 30 sec
             loading.Visibility = Visibility.Collapsed;
             updatedTB.Text = "updated as of " + DateTime.Now.ToString("hh.mmtt");

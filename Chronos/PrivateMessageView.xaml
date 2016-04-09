@@ -13,14 +13,16 @@
             <ColumnDefinition x:Name="secondColumn" Width="Auto" />
         </Grid.ColumnDefinitions>
 
+        <Image Source="/Assets/breeze.png" Stretch="Fill"/>
         <Frame Name="secondaryFrame" Grid.Column="1" />
 
         <StackPanel>
             <Grid>
-            <CommandBar>
-                <AppBarButton Name="sendBtn" HorizontalAlignment="Right" Icon="Send"
+                <Grid Background="Black" Opacity="0.6" />
+                <CommandBar Background="Transparent">
+                    <AppBarButton Name="sendBtn" HorizontalAlignment="Right" Icon="Send"
                               Label="Send a message" Click="sendBtn_Click"/>
-            </CommandBar>
+                </CommandBar>
                 <TextBlock FontWeight="SemiBold" Text="Inbox" VerticalAlignment="Center"
                            Margin="16,0,120,0"/>
             </Grid>
@@ -43,6 +45,10 @@
                                 <RowDefinition Height="Auto" />
                                 <RowDefinition Height="*" />
                             </Grid.RowDefinitions>
+                            
+                            <Grid Background="Black" Opacity="0.6"
+                                  Grid.ColumnSpan="3" Grid.RowSpan="2" />
+                            
                             <StackPanel Orientation="Horizontal" Margin="4,4,4,0" >
                                 <TextBlock FontWeight="SemiBold" Margin="0,0,4,0"
                            Text="From: " />

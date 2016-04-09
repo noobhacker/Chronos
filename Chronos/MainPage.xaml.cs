@@ -5,6 +5,8 @@ using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.Media.SpeechRecognition;
+using Windows.UI.Popups;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -22,6 +24,9 @@ namespace Chronos
     /// </summary>
     public sealed partial class MainPage : Page
     {
+
+        private string[] uniList = {"Multimedia University Malacca", "INTI University" };
+
         public MainPage()
         {
             this.InitializeComponent();
@@ -58,22 +63,22 @@ namespace Chronos
                     case 1:
                         navigationFrame.Navigate(typeof(CalendarView));
                         break;
-                    case 2:
+                    case 3:
                         navigationFrame.Navigate(typeof(ConfessionView));
                         break;
-                    case 3:
+                    case 4:
                         navigationFrame.Navigate(typeof(PlacesView));
                         break;
-                    case 4:
+                    case 5:
                         navigationFrame.Navigate(typeof(MarketView));
                         break;
-                    case 5:
+                    case 6:
                         navigationFrame.Navigate(typeof(PrivateMessageView));
                         break;
-                    case 6:
+                    case 7:
                         navigationFrame.Navigate(typeof(SettingsView));
                         break;
-                    case 7:
+                    case 8:
                         navigationFrame.Navigate(typeof(SendFeedbackView));
                         break;
                 }
@@ -81,5 +86,96 @@ namespace Chronos
             }
             catch { }
         }
+
+        SpeechRecognizer sr = new SpeechRecognizer();
+        private async void startVoiceRecogAsync()
+        {
+            searchBoxTB.Text = "";
+            searchBoxTB.PlaceholderText = "Listening";
+            
+            try
+            {
+                if (sr.State == SpeechRecognizerState.Idle)
+                {
+                    var res = await sr.RecognizeAsync();
+
+                    if (res.Text != "")
+                    {
+                        searchBoxTB.Text = res.Text;
+                        search(searchBoxTB.Text);
+                        searchBoxTB.PlaceholderText = "Search";
+                    }
+                }
+
+            }
+            catch
+            {
+                //searchBoxTB.PlaceholderText = "Restarting session";
+                //await Task.Delay(1000);
+                searchBoxTB.PlaceholderText = "Search";
+            }
+        }
+
+        private async void search(string keyword)
+        {
+            switch (listview.SelectedIndex)
+            {
+                case 0:
+                    try
+                    {
+                        Convert.ToInt32(keyword);
+                    }
+                    catch
+                    {
+                        await new MessageDialog("To search in time table view, enter your friend's ID to search").ShowAsync();
+                        return;
+                    }
+                    navigationFrame.Navigate(typeof(HomeView), keyword);
+                    break;
+              
+            }
+        }
+
+        private void voiceRecogBtn_Click(object sender, RoutedEventArgs e)
+        {
+            startVoiceRecogAsync();
+        }
+
+        private void imageRecogBtn_Click(object sender, RoutedEventArgs e)
+        {
+            navigationFrame.Navigate(typeof(WebFrame), "https://www.captionbot.ai/");
+        }
+
+        private void searchBoxTB_KeyDown(object sender, KeyRoutedEventArgs e)
+        {
+            if(e.Key == Windows.System.VirtualKey.Enter)
+            {
+                search(searchBoxTB.Text);
+                return;
+            }
+
+            switch (listview.SelectedIndex)
+            {
+                case 3:
+                case 4:
+                case 5:
+                    searchBoxTB.ItemsSource = new List<string>(uniList).Where(x => x.Contains(searchBoxTB.Text));
+                    break;
+            }
+            
+        }
+
+        private void searchBoxTB_GotFocus(object sender, RoutedEventArgs e)
+        {
+            switch (listview.SelectedIndex)
+            {
+                case 3:
+                case 4:
+                case 5:
+                    searchBoxTB.ItemsSource = uniList;
+                    break;
+            }
+        }
+
     }
 }
