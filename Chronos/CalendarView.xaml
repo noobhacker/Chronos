@@ -12,15 +12,20 @@
             <VisualStateGroup x:Name="VisualStateGroup">
                 <VisualState x:Name="Mobile">
                     <VisualState.Setters>
-                        <Setter Target="stackPanel.(StackPanel.Orientation)" Value="Vertical"/>
-                        <Setter Target="calendarView.(UIElement.Visibility)" Value="Collapsed"/>
                         <Setter Target="calendarView1.(FrameworkElement.Margin)">
                             <Setter.Value>
                                 <Thickness>4,0</Thickness>
                             </Setter.Value>
                         </Setter>
-                        <Setter Target="stackPanel1.(StackPanel.Orientation)" Value="Vertical"/>
                         <Setter Target="calendarView1.(CalendarView.NumberOfWeeksInView)" Value="4"/>
+                        <Setter Target="calendarView1.(FrameworkElement.Width)" Value="450"/>
+                        <Setter Target="stackPanel.(StackPanel.Orientation)" Value="Vertical"/>
+                        <Setter Target="stackPanel1.(FrameworkElement.Margin)">
+                            <Setter.Value>
+                                <Thickness>0,10,0,6</Thickness>
+                            </Setter.Value>
+                        </Setter>
+                        <Setter Target="calendarView1.(FrameworkElement.Height)" Value="400"/>
                     </VisualState.Setters>
                     <VisualState.StateTriggers>
                         <AdaptiveTrigger MinWindowWidth="0"/>
@@ -34,18 +39,19 @@
             </VisualStateGroup>
         </VisualStateManager.VisualStateGroups>
         <Image Source="/Assets/evening.png" Stretch="Fill"/>
-        <StackPanel Margin="32,10,128,6"  HorizontalAlignment="Center">
+        <StackPanel x:Name="stackPanel1" Margin="32,10,128,6"  HorizontalAlignment="Center">
             <StackPanel x:Name="stackPanel" Orientation="Horizontal">
-                <CalendarView x:Name="calendarView1" Margin="0,4,16,4" HorizontalAlignment="Center"/>
+                <CalendarView x:Name="calendarView1" Margin="0,4,16,4" HorizontalAlignment="Center"
+                              Width="500" Height="500"/>
 
                 <Grid Grid.Column="1" Margin="4">
-                    
+
                     <Grid.RowDefinitions>
                         <RowDefinition Height="Auto" />
                         <RowDefinition Height="*" />
                     </Grid.RowDefinitions>
                     <Grid Background="Black" Opacity="0.6" Grid.RowSpan="2" MinWidth="300" />
-                    <TextBlock Text="Upcoming" Margin="8" VerticalAlignment="Top" HorizontalAlignment="Left" FontSize="24"/>
+                    <TextBlock Text="Upcoming" Margin="8" VerticalAlignment="Top" HorizontalAlignment="Left" FontSize="24" MinWidth="350"/>
                     <ListView Grid.Row="1" Name="upcomingLst">
                         <ListView.ItemTemplate>
                             <DataTemplate>
@@ -67,16 +73,18 @@
             <Grid>
                 <Grid Background="Black" Opacity="0.6" Margin="0,8,0,0" />
                 <StackPanel Margin="4">
-                <TextBlock Text="Add new event" FontSize="20" FontWeight="ExtraLight" Margin="0,24,0,0"/>
-                <TextBox Name="addNameTB" Header="Name" Margin="4" Text="{Binding Path=input.Desc, Mode=TwoWay}"
-                         MaxWidth="600"/>
-                
-                <StackPanel Orientation="Horizontal" Margin="4">
-                    <DatePicker Name="dueDateDP" Header="Due date" Date="{Binding Path=input.DueDate.Date, Mode=TwoWay}"/>
-                    <TimePicker Name="dueTimeTP" Header=" "/>
+                    <TextBlock Text="Add new event" FontSize="20" FontWeight="ExtraLight" Margin="0,24,0,0"/>
+
+                    <TextBox Name="addNameTB" Header="Name" Margin="4" Text="{Binding Path=input.Desc, Mode=TwoWay}"
+                         MaxWidth="540" MinWidth="300"/>
+
+                    <StackPanel Orientation="Horizontal" Margin="4" HorizontalAlignment="Center">
+                        <DatePicker Name="dueDateDP" Header="Due date" Date="{Binding Path=input.DueDate.Date, Mode=TwoWay}"/>
+                        <TimePicker Name="dueTimeTP" Header=" "/>
+                    </StackPanel>
+                    <Button Name="addBtn" Content="Add event" HorizontalAlignment="Stretch"
+                        Margin="0,24,0,0" Click="addBtn_Click"/>
                 </StackPanel>
-                <Button Name="addBtn" Content="Add event" Click="addBtn_Click"/>
-            </StackPanel>
             </Grid>
         </StackPanel>
 
