@@ -22,11 +22,37 @@ namespace ChronosBot
         {
             if (message.Type == "Message")
             {
-                // calculate something for us to return
-                int length = (message.Text ?? string.Empty).Length;
+                //// calculate something for us to return
+                //int length = (message.Text ?? string.Empty).Length;
 
-                // return our reply to the user
-                return message.CreateReplyMessage($"You sent {length} characters");
+                //// return our reply to the user
+                //return message.CreateReplyMessage($"You sent {length} characters");
+
+                if (message.Text.ToLower() == "hi")
+                {
+                    return message.CreateReplyMessage("Yes! Please tell me your feedback, I'm listening!");
+                }
+
+                var hc = new HttpClient();
+                var response = await hc.GetStringAsync($"https://api.projectoxford.ai/luis/v1/application?id=7fc93106-708f-40fd-a1f7-a770868c6068&subscription-key=3681d667776544e4a642adb6199af213&q={message.Text}");
+
+                var obj = JsonConvert.DeserializeObject<LUISClass.Rootobject>(response);
+
+                string reply = "";
+                string meaning = obj.intents[0].intent;
+
+                if(meaning == "None")
+                {
+                    reply = "I will work on your feedback soon, thank you! =)";
+                }
+                else
+                {
+                    reply = $"I got your feedback! Will consider your feedback for {meaning}, thanks for your feedback! =)";
+                }
+
+                return message.CreateReplyMessage(reply);
+
+
             }
             else
             {
@@ -49,6 +75,9 @@ namespace ChronosBot
             }
             else if (message.Type == "BotAddedToConversation")
             {
+                Message reply = message.CreateReplyMessage();
+                reply.Type = "BotAddedToConversation";
+                return reply;
             }
             else if (message.Type == "BotRemovedFromConversation")
             {

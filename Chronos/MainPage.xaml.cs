@@ -1,18 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
-using System.Runtime.InteropServices.WindowsRuntime;
-using Windows.Foundation;
-using Windows.Foundation.Collections;
 using Windows.Media.SpeechRecognition;
 using Windows.UI.Popups;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Controls.Primitives;
-using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
-using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
@@ -53,6 +46,16 @@ namespace Chronos
             //else
             //    navigationFrame.Margin = new Thickness(32, 0, 32, 0);
 
+            switch(listview.SelectedIndex)
+            {
+                case 7: case 8:
+                    searchGroup.Visibility = Visibility.Collapsed;
+                    break;
+                default:
+                    searchGroup.Visibility = Visibility.Visible;
+                    break;
+            }
+
             try
             {
                 switch (listview.SelectedIndex)
@@ -79,7 +82,8 @@ namespace Chronos
                         navigationFrame.Navigate(typeof(SettingsView));
                         break;
                     case 8:
-                        navigationFrame.Navigate(typeof(SendFeedbackView));
+                        navigationFrame.Navigate(typeof(WebFrame),
+                            "https://webchat.botframework.com/embed/9NBLGGH4RBMQ?s=DJkp4A8IKgg.cwA.518.8GDTadzh9y2dNXy8pVCupmuR57_7GZoROQ3dIXHs1oQ");
                         break;
                 }
                 
