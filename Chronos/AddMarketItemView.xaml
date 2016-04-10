@@ -75,11 +75,16 @@
            
         </StackPanel>
 
-        <CommandBar VerticalAlignment="Bottom" Background="Transparent">
-            <AppBarButton Name="saveBtn" Icon="Save" Label="Put on market"
+        <Grid>
+            <Grid Background="Black" Opacity="0.6" VerticalAlignment="Bottom" Height="50"/>
+            <CommandBar VerticalAlignment="Bottom" Background="Transparent">
+                <AppBarButton Name="cloudBtn" Icon="OpenFile" Label="Upload to onedrive"
+                              Click="cloudBtn_Click" />
+                <AppBarButton Name="saveBtn" Icon="Save" Label="Put on market"
                           Click="saveBtn_Click"/>
             <AppBarButton Name="deleteBtn" Icon="Delete" Label="Remove from market" />
         </CommandBar>
+        </Grid>
         
         <ProgressRing Name="loading" IsActive="False" Width="60" Height="60"/>
 

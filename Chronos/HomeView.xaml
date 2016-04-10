@@ -94,7 +94,7 @@
                     <GridView Name="laterGV" Margin="0,4,0,0">
                         <GridView.ItemTemplate>
                             <DataTemplate>
-                                <Grid Height="100" Margin="0,4,0,0" Width="400">
+                                <Grid Height="100" Margin="8,4,0,0" Width="400">
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="10" />
                                         <ColumnDefinition Width="*" />

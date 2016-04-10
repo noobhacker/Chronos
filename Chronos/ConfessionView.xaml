@@ -39,7 +39,7 @@
                 </VisualState>
             </VisualStateGroup>
         </VisualStateManager.VisualStateGroups>
-        <Image Source="/Assets/summer.png" Stretch="Fill"/>
+        <Image Source="/Assets/evening.png" Stretch="Fill"/>
         <StackPanel x:Name="stackPanel">
             <Grid x:Name="grid" Margin="16,16,16,16">
                 <Grid.ColumnDefinitions>

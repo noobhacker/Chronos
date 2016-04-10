@@ -66,5 +66,10 @@ namespace Chronos
             await WebAPIClass.PostJsonToServerAsync(vm, "MarketItem");
             this.Frame.Navigate(typeof(MarketView));
         }
+
+        private void cloudBtn_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

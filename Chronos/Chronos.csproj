@@ -103,6 +103,9 @@
     <Compile Include="AddMarketItemView.xaml.cs">
       <DependentUpon>AddMarketItemView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="FinancesView.xaml.cs">
+      <DependentUpon>FinancesView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="SendFeedbackView.xaml.cs">
       <DependentUpon>SendFeedbackView.xaml</DependentUpon>
     </Compile>
@@ -185,6 +188,7 @@
     <Content Include="Assets\BadgeLogo.scale-200.png" />
     <Content Include="Assets\breeze.png" />
     <Content Include="Assets\evening.png" />
+    <Content Include="Assets\FoodPlaceholder.png" />
     <Content Include="Assets\SplashScreen.scale-200.png" />
     <Content Include="Assets\Square150x150Logo.scale-100.png" />
     <Content Include="Assets\Square150x150Logo.scale-200.png" />
@@ -227,6 +231,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="ConfessionView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="FinancesView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

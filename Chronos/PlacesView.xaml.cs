@@ -41,6 +41,7 @@ namespace Chronos
 
             foodGV.ItemsSource = vm.foodList.OrderBy(x => x.Distance).ToList();
             loading.IsActive = false;
+            loading.Visibility = Windows.UI.Xaml.Visibility.Collapsed;
         }
 
         private void hapListview_SelectionChanged(object sender, SelectionChangedEventArgs e)

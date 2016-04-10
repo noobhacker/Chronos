@@ -66,6 +66,9 @@ namespace Chronos
                     case 1:
                         navigationFrame.Navigate(typeof(CalendarView));
                         break;
+                    case 2:
+                        navigationFrame.Navigate(typeof(FinancesView));
+                        break;
                     case 3:
                         navigationFrame.Navigate(typeof(ConfessionView));
                         break;

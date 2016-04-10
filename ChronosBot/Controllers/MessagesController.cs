@@ -47,7 +47,7 @@ namespace ChronosBot
                 }
                 else
                 {
-                    reply = $"I got your feedback! Will consider your feedback for {meaning}, thanks for your feedback! =)";
+                    reply = $"I got your feedback! Will consider your feedback for {meaning} ({Convert.ToInt32((obj.intents[0].score * 100))}%), thanks for your feedback! =)";
                 }
 
                 return message.CreateReplyMessage(reply);

@@ -8,6 +8,8 @@
     mc:Ignorable="d" FontSize="18">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Image Source="/Assets/evening.png" Stretch="Fill" />
+        
         <StackPanel Margin="4" HorizontalAlignment="Center">
             <TextBlock Name="titleTB" Text="{Binding Path=hapDetails.Name}" Margin="4" FontSize="28"/>
             <Image Name="posterImg" MaxHeight="500" HorizontalAlignment="Center" Margin="16"
@@ -26,6 +28,8 @@
                     <ColumnDefinition Width="Auto" MinWidth="150"/>
                     <ColumnDefinition Width="*" />
                 </Grid.ColumnDefinitions>
+
+                <Grid Background="Black" Opacity="0.6" Grid.RowSpan="7" Grid.ColumnSpan="2"/>
 
                 <TextBlock Text="Location" Margin="8" FontWeight="SemiBold"/>
                 <TextBlock Text="Start time" Margin="8" FontWeight="SemiBold" Grid.Row="1"/>

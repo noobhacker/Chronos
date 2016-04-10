@@ -30,7 +30,7 @@
                 </VisualState>
             </VisualStateGroup>
         </VisualStateManager.VisualStateGroups>
-        
+        <Image Source="/Assets/breeze.png" Stretch="Fill" />
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="*" />
@@ -81,7 +81,9 @@
         </StackPanel>
         <ProgressRing Name="loading" IsActive="False" Width="60" Height="60"/>
 
-        <CommandBar VerticalAlignment="Bottom" Grid.Row="1">
+        <Grid Grid.Row="1" Background="Black" Opacity="0.6" VerticalAlignment="Bottom" Height="50"/>
+
+        <CommandBar VerticalAlignment="Bottom" Grid.Row="1" Background="Transparent">
             <AppBarButton Name="addSessionBtn" Icon="Add" Label="Add new session" 
                           Click="addSessionBtn_Click"/>
             <AppBarButton Name="deleteSessionBtn" Icon="Remove" Label="Remove selected session" 
