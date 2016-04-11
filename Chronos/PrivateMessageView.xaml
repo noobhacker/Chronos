@@ -13,7 +13,7 @@
             <ColumnDefinition x:Name="secondColumn" Width="Auto" />
         </Grid.ColumnDefinitions>
 
-        <Image Source="/Assets/breeze.png" Stretch="Fill"/>
+        <Image Source="/Assets/evening.png" Stretch="Fill"/>
         <Frame Name="secondaryFrame" Grid.Column="1" />
 
         <StackPanel>

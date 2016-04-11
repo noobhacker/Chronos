@@ -9,7 +9,7 @@
     mc:Ignorable="d">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <Image Source="/Assets/breeze.png" Stretch="Fill"/>
+        <Image Source="/Assets/evening.png" Stretch="Fill"/>
         <StackPanel Margin="8">
             <TextBox Name="breakfastTB" PlaceholderText="Breakfast?" HorizontalAlignment="Left" Width="300" Margin="4" TextChanged="tb_TextChanged"/>
             <TextBox Name="lunchTB" PlaceholderText="Lunch?" HorizontalAlignment="Left" Width="300" Margin="4" TextChanged="tb_TextChanged"/>

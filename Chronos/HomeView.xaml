@@ -34,11 +34,11 @@
                 </VisualState>
             </VisualStateGroup>
         </VisualStateManager.VisualStateGroups>
-        <Image Source="/Assets/breeze.png" Stretch="Fill"/>
+        <Image Source="/Assets/summer.png" Stretch="Fill"/>
         <StackPanel x:Name="stackPanel1" Margin="32,8,128,0">
             <StackPanel HorizontalAlignment="Center">
                 <StackPanel Orientation="Horizontal">
-                    <TextBlock Text="Hi, " FontSize="28" FontWeight="Thin" Margin="16,16,4,16" HorizontalAlignment="Center"/>
+                    <TextBlock Name="hiTB" Text="Hi, " FontSize="28" FontWeight="Thin" Margin="16,16,4,16" HorizontalAlignment="Center"/>
                     <TextBlock Name="nameTB" Text="Lee" FontSize="28" FontWeight="Thin" Margin="4,16,16,16" HorizontalAlignment="Center"/>
                 </StackPanel>
                 <Grid>

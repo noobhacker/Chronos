@@ -184,5 +184,9 @@ namespace Chronos
             }
         }
 
+        private void searchBtn_Click(object sender, RoutedEventArgs e)
+        {
+            search(searchBoxTB.Text);
+        }
     }
 }

@@ -32,7 +32,7 @@ namespace Chronos
         public HomeView()
         {
             this.InitializeComponent();
-            this.NavigationCacheMode = NavigationCacheMode.Enabled;
+            //this.NavigationCacheMode = NavigationCacheMode.Enabled;
             nowTB.Text = DateTime.Now.ToString("D");
             nameTB.Text = GlobalVariables.CurrentUser.FullName;
 
@@ -93,10 +93,14 @@ namespace Chronos
         protected override async void OnNavigatedTo(NavigationEventArgs e)
         {
             //ProgressControl.SetBarLength(0.78);
-            if (e.Parameter == null)
+            if (e.Parameter == null || Convert.ToInt32(e.Parameter) == GlobalVariables.CurrentUser.Id)
                 await refresh(GlobalVariables.CurrentUser.Id);
             else
-                await refresh((int)e.Parameter);
+            {
+                await refresh(Convert.ToInt32(e.Parameter.ToString()));
+                hiTB.Visibility = Visibility.Collapsed;
+                nameTB.Visibility = Visibility.Collapsed;
+            }
 
             Timer_Tick(null, null); // trigger before update duration, 30 sec
             loading.Visibility = Visibility.Collapsed;

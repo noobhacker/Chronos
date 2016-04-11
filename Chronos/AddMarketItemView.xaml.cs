@@ -15,6 +15,9 @@ using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Media.Imaging;
 using Windows.UI.Xaml.Navigation;
 using Chronos.ViewModels;
+using System.Threading.Tasks;
+using Windows.Storage.Pickers;
+using Windows.Web.Http;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -67,8 +70,36 @@ namespace Chronos
             this.Frame.Navigate(typeof(MarketView));
         }
 
-        private void cloudBtn_Click(object sender, RoutedEventArgs e)
+        private async void cloudBtn_Click(object sender, RoutedEventArgs e)
         {
+            await uploadToOneDrive();
+    
+        }
+
+        const string onedriveUrl= @"https://login.live.com/oauth20_authorize.srf?client_id=0000000044184D12&scope=onedrive.readwrite&response_type=token&redirect_uri=https://login.live.com/oauth20_desktop.srf";
+
+        private async Task uploadToOneDrive()
+        {
+            webView.Visibility = Visibility.Visible;
+            //var fop = new FileOpenPicker();
+            //var file = await fop.PickSingleFileAsync();
+
+            //if(file != null)
+            {
+                webView.Navigate(new Uri(onedriveUrl));
+
+                webView.NavigationCompleted += (sender, e) =>
+                {
+                    var url = webView.Source.ToString();
+                    if (url.Contains("&authentication_token="))
+                    {
+                        webView.Visibility = Visibility.Collapsed;
+                        var hc = new HttpClient();
+
+                    }
+                };
+
+            }
 
         }
     }
