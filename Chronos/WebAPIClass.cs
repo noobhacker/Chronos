@@ -11,16 +11,18 @@ namespace Chronos
     public static class WebAPIClass
     {
         public const string WebAPIAddress = "http://localhost:17461/api/"; //"http://localhost:17461/api/";  http://chronosmy.azurewebsites.net/api/
-        public static async Task<bool> PostJsonToServerAsync(object json, string target)
+        public static async Task PostJsonToServerAsync(object json, string target)
         {
-            var subjectJson = JsonConvert.SerializeObject(json);
-            var client = new HttpClient();
-            var HttpContent = new HttpStringContent(subjectJson);
-            HttpContent.Headers.ContentType = new Windows.Web.Http.Headers.HttpMediaTypeHeaderValue("application/json");
+            try
+            {
+                var subjectJson = JsonConvert.SerializeObject(json);
+                var client = new HttpClient();
+                var HttpContent = new HttpStringContent(subjectJson);
+                HttpContent.Headers.ContentType = new Windows.Web.Http.Headers.HttpMediaTypeHeaderValue("application/json");
 
-            var returnValue = await client.PostAsync(new Uri(WebAPIAddress + target), HttpContent);
-            
-            return true;
+                var returnValue = await client.PostAsync(new Uri(WebAPIAddress + target), HttpContent);
+            }
+            catch { }
         }
 
         public static async Task<string> GetJsonFromServerAsync(string target, string targetId)

@@ -12,10 +12,6 @@
             <VisualStateGroup x:Name="VisualStateGroup">
                 <VisualState x:Name="Mobile">
                     <VisualState.Setters>
-                        <Setter Target="grid.(FrameworkElement.Width)" Value="280"/>
-                        <Setter Target="grid1.(FrameworkElement.Width)" Value="280"/>
-                        <Setter Target="grid1.(FrameworkElement.Height)" Value="190"/>
-                        <Setter Target="grid.(FrameworkElement.Height)" Value="190"/>
                         <Setter Target="textBlock.(FrameworkElement.Margin)">
                             <Setter.Value>
                                 <Thickness>0</Thickness>

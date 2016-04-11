@@ -106,6 +106,7 @@
     <Compile Include="FinancesView.xaml.cs">
       <DependentUpon>FinancesView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="OnedriveResponseClass.cs" />
     <Compile Include="SendFeedbackView.xaml.cs">
       <DependentUpon>SendFeedbackView.xaml</DependentUpon>
     </Compile>

@@ -46,7 +46,7 @@
 
                 <TextBox Name="imageUrlTB" Header="Image URL" Text="{Binding Path=marketItem.ImageUrl, Mode=TwoWay}"
                      Width="608" HorizontalAlignment="Left" Margin="4" 
-                     PlaceholderText="Upload the image someplace else and paste the link here"
+                     PlaceholderText="Press the upload icon below to upload through onedrive"
                      TextChanged="imageUrlTB_TextChanged"/>
 
                 <Grid x:Name="grid" Width="310" Height="180" Margin="152,16,0,0" HorizontalAlignment="Left">
@@ -76,7 +76,7 @@
 
             </StackPanel>
 
-        <WebView Name="webView" Margin="8" Visibility="Collapsed" Height="600" />
+        <WebView Name="webView" Margin="8" Visibility="Collapsed" Height="700" Width="500" />
 
 
         <Grid>

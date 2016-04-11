@@ -61,7 +61,7 @@ namespace Chronos
                     return;
                 }
 
-            var result = await WebAPIClass.PostJsonToServerAsync(vm,"PrivateMessage");
+            await WebAPIClass.PostJsonToServerAsync(vm,"PrivateMessage");
 
             if (this.Frame.CanGoBack)
                 this.Frame.GoBack();
