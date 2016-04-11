@@ -39,6 +39,8 @@ namespace Chronos
             timer.Interval = new TimeSpan(0, 0, 30);
             timer.Tick += Timer_Tick;
             timer.Start();
+
+            ProgressControl2.SetBarLength(1);
         }
 
         private void Timer_Tick(object sender, object e)

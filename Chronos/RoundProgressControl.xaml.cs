@@ -23,7 +23,7 @@ namespace Chronos
 
         public void SetBarLength(double Value)
         {
-            double Angle = 2 * 3.14159265 * Value;
+            double Angle = 2 * 3.141592653 * Value;
 
             double X = 50 - Math.Sin(Angle) * 50;
             double Y = 50 + Math.Cos(Angle) * 50;

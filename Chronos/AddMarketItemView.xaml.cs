@@ -18,6 +18,7 @@ using Chronos.ViewModels;
 using System.Threading.Tasks;
 using Windows.Storage.Pickers;
 using Windows.Web.Http;
+using Windows.Storage;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -88,19 +89,29 @@ namespace Chronos
             {
                 webView.Navigate(new Uri(onedriveUrl));
 
-                webView.NavigationCompleted += (sender, e) =>
+                webView.NavigationCompleted += async (sender, e) =>
                 {
                     var url = webView.Source.ToString();
-                    if (url.Contains("&authentication_token="))
+                    string keyword = "access_token=";
+                    if (url.Contains(keyword))
                     {
+                        int index = url.IndexOf(keyword) + keyword.Length;
+                        string token = url.Substring(index);
+                        token = token.Substring(0, token.IndexOf("&"));
+
                         webView.Visibility = Visibility.Collapsed;
+                        
+                        var fop = new FileOpenPicker();
+                        var file = await fop.PickSingleFileAsync();
+
                         var hc = new HttpClient();
+
 
                     }
                 };
 
             }
-
         }
+
     }
 }
