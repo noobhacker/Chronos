@@ -188,5 +188,10 @@ namespace Chronos
         {
             search(searchBoxTB.Text);
         }
+
+        private void accountBtn_Click(object sender, RoutedEventArgs e)
+        {
+            navigationFrame.Navigate(typeof(SendFeedbackView));
+        }
     }
 }
