@@ -13,6 +13,8 @@
                 <VisualState x:Name="Mobile">
                     <VisualState.Setters>
                         <Setter Target="stackPanel.(StackPanel.Orientation)" Value="Vertical"/>
+                        <Setter Target="imageUrlTB.(FrameworkElement.Width)" Value="300"/>
+                        <Setter Target="descTB.(FrameworkElement.Width)" Value="300"/>
 
                     </VisualState.Setters>
                     <VisualState.StateTriggers>
@@ -49,7 +51,7 @@
                      PlaceholderText="Press the upload icon below to upload through onedrive"
                      TextChanged="imageUrlTB_TextChanged"/>
 
-                <Grid x:Name="grid" Width="310" Height="180" Margin="152,16,0,0" HorizontalAlignment="Left">
+                <Grid x:Name="grid" Width="310" Height="180" Margin="0,16,0,0" HorizontalAlignment="Center">
 
                     <Image Name="previewImg" Source="{Binding Path=marketItem.ImageUrl}"
                        Stretch="Fill" />

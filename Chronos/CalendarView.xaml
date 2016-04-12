@@ -31,6 +31,9 @@
                                 <Thickness>0,4</Thickness>
                             </Setter.Value>
                         </Setter>
+                        <Setter Target="stackPanel2.(StackPanel.Orientation)" Value="Vertical"/>
+                        <Setter Target="stackPanel2.(FrameworkElement.HorizontalAlignment)" Value="Left"/>
+                        <Setter Target="stackPanel1.(FrameworkElement.HorizontalAlignment)" Value="Stretch"/>
                     </VisualState.Setters>
                     <VisualState.StateTriggers>
                         <AdaptiveTrigger MinWindowWidth="0"/>
@@ -81,10 +84,11 @@
                     <TextBlock Text="Add new event" FontSize="20" FontWeight="ExtraLight" Margin="0,24,0,0"/>
 
                     <TextBox Name="addNameTB" Header="Name" Margin="4" Text="{Binding Path=input.Desc, Mode=TwoWay}"
-                         MaxWidth="540" MinWidth="300"/>
+                         MaxWidth="556" MinWidth="300"/>
 
-                    <StackPanel Orientation="Horizontal" Margin="4" HorizontalAlignment="Center">
-                        <DatePicker Name="dueDateDP" Header="Due date" Date="{Binding Path=input.DueDate.Date, Mode=TwoWay}"/>
+                    <StackPanel x:Name="stackPanel2" Orientation="Horizontal" Margin="4" HorizontalAlignment="Center">
+                        <DatePicker Name="dueDateDP" Header="Due date" Date="{Binding Path=input.DueDate.Date, Mode=TwoWay}"
+                                    Margin="0,0,16,0"/>
                         <TimePicker Name="dueTimeTP" Header=" "/>
                     </StackPanel>
                     <Button Name="addBtn" Content="Add event" HorizontalAlignment="Stretch"

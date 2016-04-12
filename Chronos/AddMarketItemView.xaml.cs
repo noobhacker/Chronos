@@ -20,6 +20,8 @@ using Windows.Storage.Pickers;
 using Windows.Web.Http;
 using Windows.Storage;
 using Windows.UI.Popups;
+using Windows.UI.Core;
+using System.Diagnostics;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -35,6 +37,16 @@ namespace Chronos
         {
             this.InitializeComponent();
             this.DataContext = vm;
+            Windows.UI.Core.SystemNavigationManager.GetForCurrentView().AppViewBackButtonVisibility = AppViewBackButtonVisibility.Visible;
+            Windows.UI.Core.SystemNavigationManager.GetForCurrentView().BackRequested += (s, a) =>
+            {
+                Debug.WriteLine("BackRequested");
+                if (Frame.CanGoBack)
+                {
+                    Frame.GoBack();
+                    a.Handled = true;
+                }
+            };
         }
 
         // if implement notifychaged in mvvm will upload

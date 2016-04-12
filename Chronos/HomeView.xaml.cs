@@ -32,7 +32,7 @@ namespace Chronos
         public HomeView()
         {
             this.InitializeComponent();
-            //this.NavigationCacheMode = NavigationCacheMode.Enabled;
+            this.NavigationCacheMode = NavigationCacheMode.Enabled;
             nowTB.Text = DateTime.Now.ToString("D");
             nameTB.Text = GlobalVariables.CurrentUser.FullName;
 
