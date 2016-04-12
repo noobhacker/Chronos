@@ -26,12 +26,17 @@ namespace Chronos
         {
             this.InitializeComponent();
         }
-        private void whiteThemeTG_Toggled(object sender, RoutedEventArgs e)
+        //private void whiteThemeTG_Toggled(object sender, RoutedEventArgs e)
+        //{
+        //    if((sender as ToggleSwitch).IsOn == true)
+        //    {
+        //        App.Current.RequestedTheme = ApplicationTheme.Light;
+        //    }
+        //}
+        
+        private void breezeRB_Click(object sender, RoutedEventArgs e)
         {
-            if((sender as ToggleSwitch).IsOn == true)
-            {
-                App.Current.RequestedTheme = ApplicationTheme.Light;
-            }
+
         }
     }
 }

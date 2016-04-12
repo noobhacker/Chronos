@@ -25,7 +25,6 @@ namespace Chronos
         {
             this.InitializeComponent();
             listview.SelectedIndex = 0;
-            
         }
 
         protected override void OnNavigatedTo(NavigationEventArgs e)

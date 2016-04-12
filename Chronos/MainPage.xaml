@@ -32,11 +32,12 @@
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
 
-        <Grid>
+        <Grid>            
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto" />
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
+            
             <StackPanel x:Name="stackPanel" Orientation="Horizontal" Background="#FF45546E"
                         Grid.ColumnSpan="3">
                 <Button Height="50" FontFamily="Segoe MDL2 Assets" Content="" Padding="16,0" Background="Transparent" Name="hamburgerBtn" Click="hamburgerBtn_Click"/>
@@ -152,9 +153,12 @@
                     </Grid>
                 </SplitView.Pane>
                 <SplitView.Content>
-                    <ScrollViewer>
-                        <Frame x:Name="navigationFrame" Grid.Column="1"/>
-                    </ScrollViewer>
+                    <Grid>
+                        <Image x:Name="backgroundImg" Source="/Assets/summer.png" Stretch="Fill" />
+                        <ScrollViewer>
+                            <Frame x:Name="navigationFrame" Grid.Column="1"/>
+                        </ScrollViewer>
+                    </Grid>
                 </SplitView.Content>
             </SplitView>
         </Grid>

@@ -8,12 +8,17 @@
     mc:Ignorable="d">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-       
-            <StackPanel Margin="4">
 
-            <ToggleSwitch Name="whiteThemeTG" Header="Use experimental white theme" Margin="4,12,4,4"
-                          Toggled="whiteThemeTG_Toggled" IsEnabled="False"/>
+        <StackPanel Margin="12">
+            <TextBlock Text="Background: " />
+            <StackPanel Margin="0,8,0,0">
+                <RadioButton Name="breezeRB" Content="Breeze" Click="breezeRB_Click"/>
+                <RadioButton Name="eveningRB" Content="Evening" Click="breezeRB_Click"/>
+                
+                <RadioButton Name="summerTB" Content="Summer" IsChecked="True" 
+                             Click="breezeRB_Click"/>
+            </StackPanel>
         </StackPanel>
-        
+
     </Grid>
 </Page>
