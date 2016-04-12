@@ -50,7 +50,7 @@
                     <GridView Name="hapListview" SelectionChanged="hapListview_SelectionChanged">
                         <GridView.ItemTemplate>
                             <DataTemplate>
-                                <Grid x:Name="grid" Width="350" Height="210" Margin="8">
+                                <Grid x:Name="grid" Width="375" Height="210" Margin="8">
                                     <Image Source="{Binding ImageUrl}" Stretch="Uniform" />
                                     <Grid>
                                         <Grid.Background>

@@ -1,2 +1,2 @@
-MainPackage=C:\Users\Song\Documents\GitHub\Chronos\bin\x86\Release\Chronos_1.1.1.0_x86.appx
-SymbolPackage=C:\Users\Song\Documents\GitHub\Chronos\AppPackages\Chronos_1.1.1.0_Test\Chronos_1.1.1.0_x86.appxsym
+MainPackage=C:\Users\Song\Documents\GitHub\Chronos\bin\x86\Debug\Chronos_1.1.11.0_x86_Debug.appx
+SymbolPackage=C:\Users\Song\Documents\GitHub\Chronos\AppPackages\Chronos_1.1.11.0_Debug_Test\Chronos_1.1.11.0_x86_Debug.appxsym
