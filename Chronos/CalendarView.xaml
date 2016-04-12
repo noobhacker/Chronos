@@ -18,7 +18,7 @@
                             </Setter.Value>
                         </Setter>
                         <Setter Target="calendarView1.(CalendarView.NumberOfWeeksInView)" Value="4"/>
-                        <Setter Target="calendarView1.(FrameworkElement.Width)" Value="450"/>
+                        <Setter Target="calendarView1.(FrameworkElement.Width)" Value="350"/>
                         <Setter Target="stackPanel.(StackPanel.Orientation)" Value="Vertical"/>
                         <Setter Target="stackPanel1.(FrameworkElement.Margin)">
                             <Setter.Value>
@@ -26,6 +26,11 @@
                             </Setter.Value>
                         </Setter>
                         <Setter Target="calendarView1.(FrameworkElement.Height)" Value="400"/>
+                        <Setter Target="grid.(FrameworkElement.Margin)">
+                            <Setter.Value>
+                                <Thickness>0,4</Thickness>
+                            </Setter.Value>
+                        </Setter>
                     </VisualState.Setters>
                     <VisualState.StateTriggers>
                         <AdaptiveTrigger MinWindowWidth="0"/>
@@ -44,7 +49,7 @@
                 <CalendarView x:Name="calendarView1" Margin="0,4,16,4" HorizontalAlignment="Center"
                               Width="500" Height="500"/>
 
-                <Grid Grid.Column="1" Margin="4">
+                <Grid x:Name="grid" Grid.Column="1" Margin="4">
 
                     <Grid.RowDefinitions>
                         <RowDefinition Height="Auto" />

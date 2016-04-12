@@ -17,6 +17,12 @@
                                 <Thickness>0</Thickness>
                             </Setter.Value>
                         </Setter>
+                        <Setter Target="stackPanel.(FrameworkElement.Margin)">
+                            <Setter.Value>
+                                <Thickness>0,8,0,0</Thickness>
+                            </Setter.Value>
+                        </Setter>
+                        <Setter Target="hapListview.(FrameworkElement.Width)" Value="350"/>
                     </VisualState.Setters>
                     <VisualState.StateTriggers>
                         <AdaptiveTrigger MinWindowHeight="0" MinWindowWidth="0"/>
@@ -30,7 +36,7 @@
             </VisualStateGroup>
         </VisualStateManager.VisualStateGroups>
         <Image Source="/Assets/evening.png" Stretch="Fill"/>
-        <StackPanel Margin="32,8,32,0">
+        <StackPanel x:Name="stackPanel" Margin="32,8,32,0">
             <Grid>
                 <Grid Background="Black" Opacity="0.6" />
                 <StackPanel>

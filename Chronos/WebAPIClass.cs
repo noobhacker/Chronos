@@ -10,7 +10,7 @@ namespace Chronos
 {
     public static class WebAPIClass
     {
-        public const string WebAPIAddress = "http://localhost:17461/api/"; //"http://localhost:17461/api/";  http://chronosmy.azurewebsites.net/api/
+        public const string WebAPIAddress = "http://chronosmy.azurewebsites.net/api/"; //"http://localhost:17461/api/";  http://chronosmy.azurewebsites.net/api/
         public static async Task PostJsonToServerAsync(object json, string target)
         {
             try

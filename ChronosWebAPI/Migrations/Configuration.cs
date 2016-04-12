@@ -30,8 +30,8 @@ namespace ChronosWebAPI.Migrations
             context.Students.AddOrUpdate(new Student()
             {
                 Id = 1,
-                Email = "chronosmy@outlook.com",
-                FullName = "Developer",
+                Email = "song@outlook.com",
+                FullName = "Song",
                 StudentId = "888888888",
                 Password = "Microsoft123",
                 DailyConfessionChance=100
@@ -40,8 +40,18 @@ namespace ChronosWebAPI.Migrations
             context.Students.AddOrUpdate(new Student()
             {
                 Id = 2,
-                Email = "leesong@outlook.com",
-                FullName = "Lee",
+                Email = "steve@outlook.com",
+                FullName = "Steve",
+                StudentId = "888888888",
+                Password = "Microsoft123",
+                DailyConfessionChance = 100
+            });
+
+            context.Students.AddOrUpdate(new Student()
+            {
+                Id = 3,
+                Email = "james@outlook.com",
+                FullName = "James",
                 StudentId = "888888888",
                 Password = "Microsoft123",
                 DailyConfessionChance = 100
@@ -52,7 +62,7 @@ namespace ChronosWebAPI.Migrations
                 Id = 1,
                 ImageUrl = "https://scontent-kul1-1.xx.fbcdn.net/hphotos-xft1/v/t1.0-9/12805907_1022838631107273_79640791752532850_n.jpg?oh=b10492e393aadad17b8913f8e44b4077&oe=575041B4",
                 Contact = "012-3456789",
-                Description = "IMAGINE CUP!\n IMAGINE CUP!\n IMAGINE CUP!\n",
+                Description = "IMAGINE CUP!\nIMAGINE CUP!\nIMAGINE CUP!\n",
                 StartDateTime = new DateTime(2016, 4, 12),
                 EndDateTime = new DateTime(2016, 4, 14),
                 Location = "Malacca",

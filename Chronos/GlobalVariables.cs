@@ -17,9 +17,9 @@ namespace Chronos
         {
             CurrentUser = new Student()
             {
-                Id = 1,
-                Email = "chronosmy@outlook.com",
-                FullName = "Developer",
+                Id = 2,
+                Email = "steve@outlook.com",
+                FullName = "Steve",
                 StudentId = "888888888",
                 Password = "Microsoft123",
                 DailyConfessionChance = 100

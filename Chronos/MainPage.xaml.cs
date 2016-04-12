@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using Windows.Media.SpeechRecognition;
+using Windows.System.Profile;
 using Windows.UI.Popups;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
@@ -46,7 +47,14 @@ namespace Chronos
             //else
             //    navigationFrame.Margin = new Thickness(32, 0, 32, 0);
 
-            switch(listview.SelectedIndex)
+            switch (AnalyticsInfo.VersionInfo.DeviceFamily)
+            {
+                case "Windows.Mobile":
+                    splitview.IsPaneOpen = false;
+                    break;
+            }
+
+            switch (listview.SelectedIndex)
             {
                 case 7: case 8:
                     searchGroup.Visibility = Visibility.Collapsed;
