@@ -8,11 +8,31 @@
     mc:Ignorable="d" FontSize="18">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup x:Name="VisualStateGroup">
+                <VisualState x:Name="Mobile">
+                    <VisualState.Setters>
+                        <Setter Target="locationTB.(FrameworkElement.Width)" Value="200"/>
+                        <Setter Target="locationTB.(Control.HorizontalContentAlignment)" Value="Left"/>
+                    </VisualState.Setters>
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowHeight="0" MinWindowWidth="0"/>
+                    </VisualState.StateTriggers>
+                </VisualState>
+                <VisualState x:Name="Desktop">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="800"/>
+                    </VisualState.StateTriggers>
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
+
         <Image Source="/Assets/evening.png" Stretch="Fill" />
-        
+
         <StackPanel Margin="4" HorizontalAlignment="Center">
-            <TextBlock Name="titleTB" Text="{Binding Path=hapDetails.Name}" Margin="4" FontSize="28"/>
-            <Image Name="posterImg" MaxHeight="500" HorizontalAlignment="Center" Margin="16"
+            <TextBlock x:Name="titleTB" Text="{Binding hapDetails.Name}" Margin="4" FontSize="28"/>
+            <Image x:Name="posterImg" MaxHeight="500" HorizontalAlignment="Center" Margin="16"
                    />
             <Grid>
                 <Grid.RowDefinitions>
@@ -38,31 +58,28 @@
                 <TextBlock Text="Description" Margin="8" FontWeight="SemiBold" Grid.Row="4"/>
                 <TextBlock Text="Organized by" Margin="8" FontWeight="SemiBold" Grid.Row="5"/>
 
-                <StackPanel Grid.Column="1" VerticalAlignment="Center" Orientation="Horizontal">
-                <TextBlock Name="locationTB" VerticalAlignment="Center"
-                           Text="FIST Graphic Lab, Multimedia University Malacca"/>
-                    <HyperlinkButton Content="Location" FontSize="18" Margin="8,0,0,0"/>
-                </StackPanel>
-                <TextBlock Name="startTimeTB" VerticalAlignment="Center" Grid.Column="1"  Grid.Row="1"
+                <HyperlinkButton x:Name="locationTB" Grid.Column="1" Content="FIST Graphic Lab, Multimedia University Malacca" FontSize="18"/>
+               
+                
+                <TextBlock x:Name="startTimeTB" VerticalAlignment="Center" Grid.Column="1"  Grid.Row="1"
                            Text="10.00AM, 9 April 2016"/>
-                <TextBlock Name="endTimeTB" VerticalAlignment="Center" Grid.Column="1"  Grid.Row="2"
+                <TextBlock x:Name="endTimeTB" VerticalAlignment="Center" Grid.Column="1"  Grid.Row="2"
                            Text="05.00PM, 9 April 2016"/>
-                <TextBlock Name="priceTB" VerticalAlignment="Center" Grid.Column="1"  Grid.Row="3"
+                <TextBlock x:Name="priceTB" VerticalAlignment="Center" Grid.Column="1"  Grid.Row="3"
                            Text="FREE" Foreground="LightGreen" FontWeight="SemiBold"/>
-                <TextBlock Name="descTB" VerticalAlignment="Center" Grid.Column="1"  
-                           Grid.Row="4" TextWrapping="WrapWholeWords">
-                </TextBlock>
-                <TextBlock Name="organizerTB" VerticalAlignment="Center" Grid.Column="1"  Grid.Row="5"
-                           Text="Microsoft Student Partners" FontWeight="SemiBold"/>
+                <TextBlock x:Name="descTB" VerticalAlignment="Center" Grid.Column="1"  
+                           Grid.Row="4" TextWrapping="WrapWholeWords"/>
+                <TextBlock x:Name="organizerTB" VerticalAlignment="Center" Grid.Column="1"  Grid.Row="5"
+                           Text="Microsoft Student Partners" FontWeight="SemiBold" TextWrapping="Wrap"/>
 
-                <Grid Grid.Row="6" Margin="16" HorizontalAlignment="Left">
+                <Grid Grid.Row="6" Margin="8" HorizontalAlignment="Left">
                     <Image Height="32"
                        Source="https://cdn1.iconfinder.com/data/icons/logotypes/32/square-facebook-32.png" />
-                    <Button Name="fbBtn" Background="Transparent" Click="fbBtn_Click"
+                    <Button x:Name="fbBtn" Background="Transparent" Click="fbBtn_Click"
                             HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
                 </Grid>
                 <Button Grid.Row="6" Grid.Column="1" Content="Go back" 
-                        Margin="4" HorizontalAlignment="Right" Click="Button_Click"/>
+                        Margin="0,0,8,4" HorizontalAlignment="Right" Click="Button_Click"/>
             </Grid>
         </StackPanel>
     </Grid>

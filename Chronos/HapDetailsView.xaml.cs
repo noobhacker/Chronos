@@ -57,7 +57,7 @@ namespace Chronos
             posterImg.Source = new BitmapImage(
                 new Uri(vm.HapDetails.ImageUrl));
 
-            locationTB.Text = vm.HapDetails.Location;
+            locationTB.Content = vm.HapDetails.Location;
             startTimeTB.Text = vm.HapDetails.StartDateTime.ToString();
             endTimeTB.Text = vm.HapDetails.EndDateTime.ToString();
             priceTB.Text = vm.HapDetails.Price == 0? "FREE" : "RM " + vm.HapDetails.Price.ToString();

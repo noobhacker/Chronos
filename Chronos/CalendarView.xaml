@@ -81,7 +81,8 @@
             <Grid>
                 <Grid Background="Black" Opacity="0.6" Margin="0,8,0,0" />
                 <StackPanel Margin="4">
-                    <TextBlock Text="Add new event" FontSize="20" FontWeight="ExtraLight" Margin="0,24,0,0"/>
+                    <TextBlock Text="Add new event" FontSize="20" FontWeight="ExtraLight" Margin="4
+,24,0,0"/>
 
                     <TextBox Name="addNameTB" Header="Name" Margin="4" Text="{Binding Path=input.Desc, Mode=TwoWay}"
                          MaxWidth="556" MinWidth="300"/>

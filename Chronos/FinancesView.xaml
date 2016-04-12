@@ -32,13 +32,14 @@
         </VisualStateManager.VisualStateGroups>
 
         <Image Source="/Assets/evening.png" Stretch="Fill"/>
+        
         <StackPanel Margin="8">
-            <TextBox Name="breakfastTB" PlaceholderText="Breakfast?" HorizontalAlignment="Left" Width="300" Margin="4" TextChanged="tb_TextChanged"/>
-            <TextBox Name="lunchTB" PlaceholderText="Lunch?" HorizontalAlignment="Left" Width="300" Margin="4" TextChanged="tb_TextChanged"/>
-            <TextBox Name="dinnerTB" PlaceholderText="Dinner?" HorizontalAlignment="Left" Width="300" Margin="4" TextChanged="tb_TextChanged"/>
-            <TextBox Name="internetTB" PlaceholderText="Internet?" HorizontalAlignment="Left" Width="300" Margin="4" TextChanged="tb_TextChanged"/>
-            <TextBox Name="dataTB" PlaceholderText="Network data?" HorizontalAlignment="Left" Width="300" Margin="4" TextChanged="tb_TextChanged"/>
-            <TextBox Name="rentalTB" PlaceholderText="Rental?" HorizontalAlignment="Left" Width="300" Margin="4" TextChanged="tb_TextChanged"/>
+            <TextBox Name="breakfastTB" PlaceholderText="Breakfast" Width="350" Margin="0,0,0,4" TextChanged="tb_TextChanged" HorizontalAlignment="Left"/>
+            <TextBox Name="lunchTB" PlaceholderText="Lunch" HorizontalAlignment="Left" Width="350" Margin="0,0,0,4" TextChanged="tb_TextChanged"/>
+            <TextBox Name="dinnerTB" PlaceholderText="Dinner" HorizontalAlignment="Left" Width="350" Margin="0,0,0,4" TextChanged="tb_TextChanged"/>
+            <TextBox Name="internetTB" PlaceholderText="Internet Charges" HorizontalAlignment="Left" Width="350" Margin="0,0,0,4" TextChanged="tb_TextChanged"/>
+            <TextBox Name="dataTB" PlaceholderText="Cellular Data" HorizontalAlignment="Left" Width="350" Margin="0,0,0,4" TextChanged="tb_TextChanged"/>
+            <TextBox Name="rentalTB" PlaceholderText="Others" HorizontalAlignment="Left" Width="350" Margin="0,0,0,16" TextChanged="tb_TextChanged"/>
 
             <Grid x:Name="grid" HorizontalAlignment="Center" 
                 VerticalAlignment="Top" MinWidth="500">

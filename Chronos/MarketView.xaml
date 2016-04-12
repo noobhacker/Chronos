@@ -24,7 +24,7 @@
         </VisualStateManager.VisualStateGroups>
         <Image Source="/Assets/evening.png" Stretch="Fill"/>
         <StackPanel Margin="8">
-            <Button Content="Sell something..." Name="sellBtn" Click="sellBtn_Click" Margin="4" HorizontalAlignment="Stretch"/>
+            <Button Content="Sell something..." Name="sellBtn" Click="sellBtn_Click" Margin="0,4" HorizontalAlignment="Stretch"/>
 
             <Grid>
                 <Grid Background="Black" Opacity="0.6" />

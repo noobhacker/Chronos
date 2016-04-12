@@ -14,7 +14,7 @@
                     <VisualState.Setters>
                         <Setter Target="textBlock.(FrameworkElement.Margin)">
                             <Setter.Value>
-                                <Thickness>0</Thickness>
+                                <Thickness>8,0,0,0</Thickness>
                             </Setter.Value>
                         </Setter>
                         <Setter Target="stackPanel.(FrameworkElement.Margin)">

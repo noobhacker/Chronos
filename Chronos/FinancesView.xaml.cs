@@ -49,17 +49,17 @@ namespace Chronos
             });
             lst.Add(new ChartItem()
             {
-                Name = "Internet",
+                Name = "Internet Charges",
                 Amount = internetTB.Text == "" ? 0 : Convert.ToInt32(internetTB.Text)
             });
             lst.Add(new ChartItem()
             {
-                Name = "Network Data",
+                Name = "Cellular Data",
                 Amount = dataTB.Text == "" ? 0 : Convert.ToInt32(dataTB.Text)
             });
             lst.Add(new ChartItem()
             {
-                Name = "Utilities",
+                Name = "Others",
                 Amount = rentalTB.Text == "" ? 0 : Convert.ToInt32(rentalTB.Text)
             });
 

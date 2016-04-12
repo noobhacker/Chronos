@@ -13,8 +13,8 @@
                 <VisualState x:Name="Mobile">
                     <VisualState.Setters>
                         <Setter Target="stackPanel.(StackPanel.Orientation)" Value="Vertical"/>
-                        <Setter Target="imageUrlTB.(FrameworkElement.Width)" Value="300"/>
-                        <Setter Target="descTB.(FrameworkElement.Width)" Value="300"/>
+                        <Setter Target="imageUrlTB.(FrameworkElement.Width)" Value="350"/>
+                        <Setter Target="descTB.(FrameworkElement.Width)" Value="350"/>
 
                     </VisualState.Setters>
                     <VisualState.StateTriggers>
@@ -33,29 +33,29 @@
             <StackPanel Margin="4" HorizontalAlignment="Center">
                 <StackPanel x:Name="stackPanel" Orientation="Horizontal">
                     <TextBox Name="itemNameTB" Header="Item Name" Text="{Binding Path=marketItem.ItemName, Mode=TwoWay}"
-                     Width="300" HorizontalAlignment="Left" Margin="4" 
-                         TextChanged="itemNameTB_TextChanged" />
+                     Width="350" Margin="4" 
+                         TextChanged="itemNameTB_TextChanged" HorizontalAlignment="Left" />
 
                     <TextBox Name="priceTB" Header="Price" Text="{Binding Path=marketItem.Price, Mode=TwoWay}"
-                     Width="300" HorizontalAlignment="Left" Margin="4" 
+                     Width="350" HorizontalAlignment="Left" Margin="4" 
                          TextChanged="priceTB_TextChanged" />
 
                 </StackPanel>
                 <TextBox Name="descTB" Header="Description" Text="{Binding Path=marketItem.Description, Mode=TwoWay}"
                      Width="608" HorizontalAlignment="Left" Margin="4" 
-                     PlaceholderText="Keep your description short and clear"
-                     TextChanged="descTB_TextChanged"/>
+                     PlaceholderText="_Please keep your description short and clear"
+                     TextChanged="descTB_TextChanged" TextWrapping="Wrap"/>
 
                 <TextBox Name="imageUrlTB" Header="Image URL" Text="{Binding Path=marketItem.ImageUrl, Mode=TwoWay}"
                      Width="608" HorizontalAlignment="Left" Margin="4" 
-                     PlaceholderText="Press the upload icon below to upload through onedrive"
-                     TextChanged="imageUrlTB_TextChanged"/>
+                     PlaceholderText="Please click on the upload icon below to upload"
+                     TextChanged="imageUrlTB_TextChanged" TextWrapping="Wrap"/>
 
-                <Grid x:Name="grid" Width="310" Height="180" Margin="0,16,0,0" HorizontalAlignment="Center">
+                <Grid x:Name="grid" Height="180" Margin="0,16,0,0" HorizontalAlignment="Center">
 
                     <Image Name="previewImg" Source="{Binding Path=marketItem.ImageUrl}"
                        Stretch="Fill" />
-                    <Grid>
+                    <Grid Width="350">
                         <Grid.Background>
                             <LinearGradientBrush EndPoint="0.5,0" StartPoint="0.5,1">
                                 <GradientStop Color="Black" Offset="0.119"/>
