@@ -7,7 +7,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    <Grid Background="Transparent">
         <VisualStateManager.VisualStateGroups>
             <VisualStateGroup x:Name="VisualStateGroup">
                 <VisualState x:Name="Mobile">
@@ -46,7 +46,6 @@
                 </VisualState>
             </VisualStateGroup>
         </VisualStateManager.VisualStateGroups>
-        <Image Source="/Assets/evening.png" Stretch="Fill"/>
         <StackPanel x:Name="stackPanel1" Margin="32,10,128,6"  HorizontalAlignment="Center">
             <StackPanel x:Name="stackPanel" Orientation="Horizontal">
                 <CalendarView x:Name="calendarView1" Margin="0,4,16,4" HorizontalAlignment="Center"

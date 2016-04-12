@@ -34,7 +34,7 @@ namespace ChronosBot
                 }
 
                 var hc = new HttpClient();
-                var response = await hc.GetStringAsync($"https://api.projectoxford.ai/luis/v1/application?id=7fc93106-708f-40fd-a1f7-a770868c6068&subscription-key=3681d667776544e4a642adb6199af213&q={message.Text}");
+                var response = await hc.GetStringAsync($"https://api.projectoxford.ai/luis/v1/application?id=7fc93106-708f-40fd-a1f7-a770868c6068&subscription-key=fa7fe5d7396a4fe5be2d67acec2915b9&q={message.Text}");
 
                 var obj = JsonConvert.DeserializeObject<LUISClass.Rootobject>(response);
 

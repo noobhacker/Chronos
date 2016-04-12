@@ -8,7 +8,7 @@
     xmlns:Charting="using:WinRTXamlToolkit.Controls.DataVisualization.Charting"
     mc:Ignorable="d">
 
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    <Grid Background="Transparent">
 
         <VisualStateManager.VisualStateGroups>
             <VisualStateGroup x:Name="VisualStateGroup">
@@ -30,8 +30,6 @@
                 </VisualState>
             </VisualStateGroup>
         </VisualStateManager.VisualStateGroups>
-
-        <Image Source="/Assets/evening.png" Stretch="Fill"/>
         
         <StackPanel Margin="8">
             <TextBox Name="breakfastTB" PlaceholderText="Breakfast" Width="350" Margin="0,0,0,4" TextChanged="tb_TextChanged" HorizontalAlignment="Left"/>

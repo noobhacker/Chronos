@@ -7,13 +7,12 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    <Grid Background="Transparent">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*" />
             <ColumnDefinition x:Name="secondColumn" Width="Auto" />
         </Grid.ColumnDefinitions>
 
-        <Image Source="/Assets/evening.png" Stretch="Fill"/>
         <Frame Name="secondaryFrame" Grid.Column="1" />
 
         <StackPanel>

@@ -7,7 +7,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    <Grid Background="Transparent">
         <VisualStateManager.VisualStateGroups>
             <VisualStateGroup x:Name="VisualStateGroup">
                 <VisualState x:Name="Mobile">
@@ -39,7 +39,6 @@
                 </VisualState>
             </VisualStateGroup>
         </VisualStateManager.VisualStateGroups>
-        <Image Source="/Assets/evening.png" Stretch="Fill"/>
         <StackPanel x:Name="stackPanel">
             <Grid x:Name="grid" Margin="16,16,16,16">
                 <Grid.ColumnDefinitions>

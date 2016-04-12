@@ -30,32 +30,32 @@ namespace ChronosWebAPI.Migrations
             context.Students.AddOrUpdate(new Student()
             {
                 Id = 1,
-                Email = "song@outlook.com",
-                FullName = "Song",
+                Email = "chronos@outlook.com",
+                FullName = "Chronos",
                 StudentId = "888888888",
                 Password = "Microsoft123",
                 DailyConfessionChance=100
             });
 
-            context.Students.AddOrUpdate(new Student()
-            {
-                Id = 2,
-                Email = "steve@outlook.com",
-                FullName = "Steve",
-                StudentId = "888888888",
-                Password = "Microsoft123",
-                DailyConfessionChance = 100
-            });
+            //context.Students.AddOrUpdate(new Student()
+            //{
+            //    Id = 2,
+            //    Email = "steve@outlook.com",
+            //    FullName = "Steve",
+            //    StudentId = "888888888",
+            //    Password = "Microsoft123",
+            //    DailyConfessionChance = 100
+            //});
 
-            context.Students.AddOrUpdate(new Student()
-            {
-                Id = 3,
-                Email = "james@outlook.com",
-                FullName = "James",
-                StudentId = "888888888",
-                Password = "Microsoft123",
-                DailyConfessionChance = 100
-            });
+            //context.Students.AddOrUpdate(new Student()
+            //{
+            //    Id = 3,
+            //    Email = "james@outlook.com",
+            //    FullName = "James",
+            //    StudentId = "888888888",
+            //    Password = "Microsoft123",
+            //    DailyConfessionChance = 100
+            //});
 
             context.Happenings.AddOrUpdate(new Happening()
             {

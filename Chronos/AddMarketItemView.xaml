@@ -7,7 +7,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    <Grid Background="Transparent">
         <VisualStateManager.VisualStateGroups>
             <VisualStateGroup x:Name="VisualStateGroup">
                 <VisualState x:Name="Mobile">
@@ -28,8 +28,7 @@
                 </VisualState>
             </VisualStateGroup>
         </VisualStateManager.VisualStateGroups>
-        <Image Source="/Assets/evening.png" Stretch="Fill"/>
-     
+        
             <StackPanel Margin="4" HorizontalAlignment="Center">
                 <StackPanel x:Name="stackPanel" Orientation="Horizontal">
                     <TextBox Name="itemNameTB" Header="Item Name" Text="{Binding Path=marketItem.ItemName, Mode=TwoWay}"
@@ -43,7 +42,7 @@
                 </StackPanel>
                 <TextBox Name="descTB" Header="Description" Text="{Binding Path=marketItem.Description, Mode=TwoWay}"
                      Width="608" HorizontalAlignment="Left" Margin="4" 
-                     PlaceholderText="_Please keep your description short and clear"
+                     PlaceholderText="Please keep your description short and clear"
                      TextChanged="descTB_TextChanged" TextWrapping="Wrap"/>
 
                 <TextBox Name="imageUrlTB" Header="Image URL" Text="{Binding Path=marketItem.ImageUrl, Mode=TwoWay}"
@@ -51,7 +50,7 @@
                      PlaceholderText="Please click on the upload icon below to upload"
                      TextChanged="imageUrlTB_TextChanged" TextWrapping="Wrap"/>
 
-                <Grid x:Name="grid" Height="180" Margin="0,16,0,0" HorizontalAlignment="Center">
+                <Grid x:Name="grid" Height="180" Margin="0,16,0,0" HorizontalAlignment="Center" Width="350">
 
                     <Image Name="previewImg" Source="{Binding Path=marketItem.ImageUrl}"
                        Stretch="Fill" />

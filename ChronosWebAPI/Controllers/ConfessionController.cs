@@ -54,8 +54,8 @@ namespace ChronosWebAPI.Controllers
                     //Likes = (from b in db.Confessions
                     //         join c in db.ConfessionLikes on b.Id equals c.ConfessionId
                     //         select c).Count(),
-                    PostDateTime = a.PostDateTime,
-                    PostDateTimeText = DateTime.Now.Subtract(a.PostDateTime).TotalMinutes.ToString()
+                    PostDateTime = a.PostDateTime //,
+                    //PostDateTimeText = DateTime.Now.Subtract(a.PostDateTime).TotalMinutes.ToString()
                 });
             }
 

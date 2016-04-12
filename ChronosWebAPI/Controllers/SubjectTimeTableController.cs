@@ -50,9 +50,9 @@ namespace ChronosWebAPI.Controllers
 
         // GET: api/Student_Subject
         [ResponseType(typeof(HomeViewModel))]
-        public async Task<IHttpActionResult> GetSubjectTimeTable(int Id)
+        public IHttpActionResult GetSubjectTimeTable(int Id)
         {
-            var now = DateTime.Now;
+            var now = TimeZoneInfo.ConvertTime(DateTime.Now, TimeZoneInfo.FindSystemTimeZoneById("Singapore Standard Time"));
             var result = from a in db.Students
                          join b in db.Student_Subject on a.Id equals b.StudentId
                          join c in db.Subjects on b.SubjectId equals c.Id
@@ -60,6 +60,7 @@ namespace ChronosWebAPI.Controllers
                          where a.Id == Id &&
                          d.Day == now.DayOfWeek &&
                          d.EndTime > now.TimeOfDay
+                         orderby d.StartTime 
                          select new SubjectTimeTable()
                          {
                              SubjectText = c.Code + " " + c.Name,

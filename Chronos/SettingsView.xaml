@@ -10,8 +10,8 @@
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
         <StackPanel Margin="12">
-            <TextBlock Text="Background: " />
-            <StackPanel Margin="0,8,0,0">
+            <TextBlock Text="Background: Option coming soon" />
+            <StackPanel Margin="0,8,0,0" Visibility="Collapsed" >
                 <RadioButton Name="breezeRB" Content="Breeze" Click="breezeRB_Click"/>
                 <RadioButton Name="eveningRB" Content="Evening" Click="breezeRB_Click"/>
                 
